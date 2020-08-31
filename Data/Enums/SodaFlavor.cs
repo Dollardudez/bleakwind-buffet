@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: SodaFlavor.cs
+* Purpose: Class used to represent a variety of flavors of soda
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

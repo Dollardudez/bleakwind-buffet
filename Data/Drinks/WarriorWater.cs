@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: WarriorWater.cs
+* Purpose: Class used to represent a glass of water
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -60,7 +66,7 @@ namespace BleakWindBuffet.Data.Drinks
             set => lemon = value;
         }
         /// <summary>
-        /// 
+        /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>

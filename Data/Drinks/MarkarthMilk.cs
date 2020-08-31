@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: MarkartMilk.cs
+* Purpose: Class used to represent an glass of milk
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -70,11 +76,11 @@ namespace BleakWindBuffet.Data.Drinks
             set => ice = value;
         }
         /// <summary>
-        /// 
+        /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>
-        /// 
+        /// property that gets the list of special instructions, no setter
         /// </summary>
         public List<string> SpecialInstructions
         {
