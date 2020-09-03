@@ -8,8 +8,11 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace BleakWindBuffet.Data.Entrees
+namespace BleakwindBuffet.Data.Entrees
 {
+    /// <summary>
+    /// class that represents a a breakfast combo
+    /// </summary>
     public class SmokehouseSkeleton
     {
         /// <summary>

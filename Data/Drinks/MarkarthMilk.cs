@@ -9,8 +9,11 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakWindBuffet.Data.Drinks
+namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// class that represents milk
+    /// </summary>
     public class MarkarthMilk
     {
         /// <summary>

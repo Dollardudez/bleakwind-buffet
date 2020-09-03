@@ -12,6 +12,9 @@ using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.Data.Drinks
 {
+    /// <summary>
+    /// class that represents apple juice
+    /// </summary>
     public class AretinoAppleJuice
     {
         /// <summary>

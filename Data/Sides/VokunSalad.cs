@@ -9,8 +9,11 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 
-namespace BleakWindBuffet.Data.Sides
+namespace BleakwindBuffet.Data.Sides
 {
+    /// <summary>
+    /// class that represents a fruit salad
+    /// </summary>
     class VokunSalad
     {
         /// <summary>
