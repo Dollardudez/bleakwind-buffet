@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Sides
     /// class that represents an order of cheesy grits
     /// </summary>
     /// </summary>
-    class FriedMiraak
+    public class FriedMiraak
     {
         /// <summary>
         /// The size of the side

@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// class that represents an order of grits
     /// </summary>
-    class MadOtarGrits
+    public class MadOtarGrits
     {
         /// <summary>
         /// The size of the side

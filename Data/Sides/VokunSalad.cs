@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// class that represents a fruit salad
     /// </summary>
-    class VokunSalad
+    public class VokunSalad
     {
         /// <summary>
         /// The size of the side

@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// class that represents an order of fries
     /// </summary>
-    class DragonBornWaffleFries
+    public class DragonBornWaffleFries
     {
         /// <summary>
         /// The size of the side
