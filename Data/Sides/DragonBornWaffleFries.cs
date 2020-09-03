@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Robert Clancy
-* Class name: DragonBornWaffleFries.cs
+* Class name: DragonbornWaffleFries.cs
 * Purpose: Class used to represent Cajun fries
 */
 
@@ -14,7 +14,7 @@ namespace BleakwindBuffet.Data.Sides
     /// <summary>
     /// class that represents an order of fries
     /// </summary>
-    public class DragonBornWaffleFries
+    public class DragonbornWaffleFries
     {
         /// <summary>
         /// The size of the side
