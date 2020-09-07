@@ -30,7 +30,7 @@ namespace BleakwindBuffet.Data.Entrees
             get { return 982; }
         }
         /// <summary>
-        /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
+        /// list that holds the instructions for the item
         /// </summary>
         private List<string> specialInstructions = new List<string>();
         /// <summary>

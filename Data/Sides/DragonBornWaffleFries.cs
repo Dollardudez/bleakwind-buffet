@@ -67,6 +67,21 @@ namespace BleakwindBuffet.Data.Sides
             }
         }
         /// <summary>
+        /// list that holds the instructions for the item (Empty list for sides)
+        /// </summary>
+        private List<string> specialInstructions = new List<string>();
+        /// <summary>
+        /// property that gets the list of special instructions, no setter
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+                return instructions;
+            }
+        }
+        /// <summary>
         /// overrides the ToString() method
         /// </summary>
         /// <returns>string representing the size and name of the side</returns>

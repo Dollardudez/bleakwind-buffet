@@ -162,7 +162,7 @@ namespace BleakwindBuffet.Data.Entrees
             {
                 List<string> instructions = new List<string>();
                 if (!Bun) instructions.Add("Hold bun");
-                if (!Ketchup) instructions.Add("Hold kethup");
+                if (!Ketchup) instructions.Add("Hold ketchup");
                 if (!Mustard) instructions.Add("Hold mustard");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");

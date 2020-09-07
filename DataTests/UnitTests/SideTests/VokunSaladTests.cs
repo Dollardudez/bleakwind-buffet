@@ -6,6 +6,7 @@
 using Xunit;
 
 using BleakwindBuffet.Data;
+using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
@@ -15,16 +16,27 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [Fact]
         public void ShouldBeSmallByDefault()
         {
+            VokunSalad vk = new VokunSalad();
+            Assert.Equal(Size.Small, vk.Size);
         }
 
         [Fact]
         public void ShouldBeAbleToSetSize()
         {
+            VokunSalad vk = new VokunSalad();
+            vk.Size = Size.Large;
+            Assert.Equal(Size.Large, vk.Size);
+            vk.Size = Size.Medium;
+            Assert.Equal(Size.Medium, vk.Size);
+            vk.Size = Size.Small;
+            Assert.Equal(Size.Small, vk.Size);
         }
 
         [Fact]
         public void ShouldReturnCorrectSpecialInstructions()
         {
+            VokunSalad vk = new VokunSalad();
+            Assert.Empty(vk.SpecialInstructions);
         }
 
         [Theory]
@@ -33,6 +45,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 1.82)]
         public void ShouldReturnCorrectPriceBasedOnSize(Size size, double price)
         {
+            VokunSalad vk = new VokunSalad();
+            vk.Size = size;
+            Assert.Equal(price, vk.Price);
         }
 
         [Theory]
@@ -41,6 +56,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, 73)]
         public void ShouldReturnCorrectCaloriesBasedOnSize(Size size, uint calories)
         {
+            VokunSalad vk = new VokunSalad();
+            vk.Size = size;
+            Assert.Equal(calories, vk.Calories);
         }
 
         [Theory]
@@ -49,6 +67,9 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
         [InlineData(Size.Large, "Large Vokun Salad")]
         public void ShouldReturnCorrectToStringBasedOnSize(Size size, string name)
         {
+            VokunSalad vk = new VokunSalad();
+            vk.Size = size;
+            Assert.Equal(name, vk.ToString());
         }
     }
 }

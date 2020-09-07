@@ -40,13 +40,13 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
-                    return 0.93;
+                    return 1.78;
                 }
                 if (Size == Size.Medium)
                 {
-                    return 1.28;
+                    return 2.01;
                 }
-                else return 1.82;
+                else return 2.88;
             }
         }
 
@@ -59,13 +59,28 @@ namespace BleakwindBuffet.Data.Sides
             {
                 if (Size == Size.Small)
                 {
-                    return 41;
+                    return 151;
                 }
                 if (Size == Size.Medium)
                 {
-                    return 52;
+                    return 236;
                 }
-                else return 73;
+                else return 306;
+            }
+        }
+        /// <summary>
+        /// list that holds the instructions for the item (Empty list for sides)
+        /// </summary>
+        private List<string> specialInstructions = new List<string>();
+        /// <summary>
+        /// property that gets the list of special instructions, no setter
+        /// </summary>
+        public List<string> SpecialInstructions
+        {
+            get
+            {
+                List<string> instructions = new List<string>();
+                return instructions;
             }
         }
         /// <summary>
