@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+ * Author: Robert Clancy
+ * Class name: Menu.cs
+ * Purpose: Class used to represent the Menuof the Bleakwind Buffet Restaurant
+ */
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -17,7 +23,7 @@ namespace BleakwindBuffet.Data.Menu
         /// <summary>
         /// Method that adds all the entrees to a List<IOrderItem> and returns that list of entrees
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A List<IOrderItem> that holds an instance of all entrees</returns>
         public static List<IOrderItem> Entrees()
         {
             List<IOrderItem> listOfEntrees = new List<IOrderItem>();
@@ -30,7 +36,10 @@ namespace BleakwindBuffet.Data.Menu
             listOfEntrees.Add(new ThugsTBone());
             return listOfEntrees;
         }
-
+        /// <summary>
+        /// Method that adds all the sides (small, medium, and large) to a List<IOrderItem> and returns that list of sides
+        /// </summary>
+        /// <returns>A List<IOrderItem> that holds an instance of all sides added to the list</returns>
         public static List<IOrderItem> Sides()
         {
             List<IOrderItem> listOfSides = new List<IOrderItem>();
@@ -59,7 +68,11 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listOfSides;
         }
-
+        /// <summary>
+        /// Method that adds all the drinks (small, medium and large) to a List<IOrderItem>. It adds 3 instances of SailorSoda
+        /// to the list, each with different soda flavors
+        /// </summary>
+        /// <returns>A List<IOrderItem> that holds an instance of all drinks added to the list</returns>
         public static List<IOrderItem> Drinks()
         {
             List<IOrderItem> listOfDrinks = new List<IOrderItem>();
@@ -99,7 +112,12 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listOfDrinks;
         }
-
+        /// <summary>
+        /// Method that adds all the items on the menu to a List<IOrderItem></IOrderItem>. Sides and Drinks
+        /// have instances of small, medium and large. The method adds 3 instances of SailorSoda PER size, each instance has
+        /// a particular flavor (Cherry, Blackberry, and Lemon)
+        /// </summary>
+        /// <returns>A List<IOrderItem> that holds an instance of all drinks added to the list</returns>
         public static List<IOrderItem> FullMenu()
         {
 
