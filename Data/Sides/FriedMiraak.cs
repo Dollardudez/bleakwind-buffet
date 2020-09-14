@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.Data.Sides
 {
@@ -16,25 +17,17 @@ namespace BleakwindBuffet.Data.Sides
     /// class that represents an order of cheesy grits
     /// </summary>
     /// </summary>
-    public class FriedMiraak
+    public class FriedMiraak : Side, IOrderItem
     {
         /// <summary>
         /// The size of the side
         /// </summary>
         private Size size = Size.Small;
-        /// <summary>
-        /// property that gets and sets ets the size of the side, default = small
-        /// </summary>
-        public Size Size
-        {
-            get => size;
-            set => size = value;
-        }
 
         /// <summary>
         /// property that gets and sets the price of the side
         /// </summary>
-        public double Price
+        public override double Price
         {
             get
             {
@@ -53,7 +46,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// property that gets and sets ets the calories of the side
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get
             {
@@ -75,7 +68,7 @@ namespace BleakwindBuffet.Data.Sides
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

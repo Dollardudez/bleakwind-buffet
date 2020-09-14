@@ -7,25 +7,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class that represents a a breakfast combo
     /// </summary>
-    public class SmokehouseSkeleton
+    public class SmokehouseSkeleton : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the breakfast combo
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 5.62; }
         }
         /// <summary>
         /// Gets the calories of the breakfast combo
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 602; }
         }
@@ -82,7 +83,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

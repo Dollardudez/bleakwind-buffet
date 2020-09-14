@@ -7,25 +7,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class that represents a triple patty burger
     /// </summary>
-    public class ThalmorTriple
+    public class ThalmorTriple: Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 8.32; }
         }
         /// <summary>
         /// Gets the calories of the burger
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 943; }
         }
@@ -156,7 +157,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

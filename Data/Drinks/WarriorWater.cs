@@ -8,31 +8,25 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Interface;
+
 
 namespace BleakwindBuffet.Data.Drinks
 {
     /// <summary>
     /// class that represents a glass of water
     /// </summary>
-    public class WarriorWater
+    public class WarriorWater : Drink, IOrderItem
     {
         /// <summary>
         /// The size of the beverage
         /// </summary>
         private Size size = Size.Small;
-        /// <summary>
-        /// property that gets and sets ets the size of the drink, default = small
-        /// </summary>
-        public Size Size
-        {
-            get => size;
-            set => size = value;
-        }
 
         /// <summary>
         /// property that gets and sets ets the price of the drink
         /// </summary>
-        public double Price
+        public override double Price
         {
             get => 0.00;          
         }
@@ -40,7 +34,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// property that gets and sets ets the calories of the drink
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get => 0;
         }
@@ -75,7 +69,7 @@ namespace BleakwindBuffet.Data.Drinks
         /// <summary>
         /// 
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {

@@ -7,11 +7,26 @@ using Xunit;
 
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class ThalmorTripleTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.IsAssignableFrom<IOrderItem>(tt);
+        }
+
+        [Fact]
+        public void ShouldBeAnEntree()
+        {
+            ThalmorTriple tt = new ThalmorTriple();
+            Assert.IsAssignableFrom<Entree>(tt);
+        }
+
         [Fact]
         public void ShouldIncludeBunByDefault()
         {

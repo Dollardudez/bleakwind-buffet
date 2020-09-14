@@ -7,25 +7,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class that represents a a veggie omelette
     /// </summary>
-    public class GardenOrcOmelette
+    public class GardenOrcOmelette : Entree, IOrderItem
     {
         /// <summary>
         /// Gets the price of the breakfast meal
         /// </summary>
-        public double Price
+        public override double Price
         {
             get { return 4.57; }
         }
         /// <summary>
         /// Gets the calories of the breakfast meal
         /// </summary>
-        public uint Calories
+        public override uint Calories
         {
             get { return 404; }
         }
@@ -84,7 +85,7 @@ namespace BleakwindBuffet.Data.Entrees
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
-        public List<string> SpecialInstructions
+        public override List<string> SpecialInstructions
         {
             get
             {
