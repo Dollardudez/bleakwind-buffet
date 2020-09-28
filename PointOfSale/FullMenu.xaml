@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="PointOfSale.FullMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PointOfSale"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="200"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.ColumnSpan="6" Grid.Row="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">FULL MENU</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center">Entrees</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center">Drinks</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="5" FontSize="25" VerticalAlignment="Center" HorizontalAlignment="Center">Sides</TextBlock>
+        <Button x:Name="uxBriarheartBurger"  Height="45" Width="80" Content="Briarheart" Grid.Column="2" Grid.Row="1" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxBriarheartBurger_Click"/>
+        <Button x:Name="uxDoubleDraugr"  Height="45" Width="80" Content="Double Draugr" Grid.Column="3" Grid.Row="1" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxDoubleDraugr_Click"/>
+        <Button x:Name="uxGardenOrcOmelette"  Height="45" Width="80" Content="Garden Omelette" Grid.Column="2" Grid.Row="1" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxGardenOrcOmelette_Click"/>
+        <Button x:Name="uxPhillyPoacher"  Height="45" Width="80" Content="Philly Poacher" Grid.Column="4" Grid.Row="1" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxPhillyPoacher_Click"/>
+        <Button x:Name="uxSmokehouseSkeleton"  Height="45" Width="80" Content="Smokehouse" Grid.Column="5" Grid.Row="1" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxSmokehouseSkeleton_Click"/>
+        <Button x:Name="uxThalmorTriple"  Height="45" Width="80" Content="Thalmor" Grid.Column="2" Grid.Row="2" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxThalmorTriple_Click"/>
+        <Button x:Name="uxThugsTBone"  Height="45" Width="80" Content="Briarheart" Grid.Column="3" Grid.Row="2" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxThugsTBone_Click"/>
+        <Button x:Name="uxWarriorWater"  Height="45" Width="80" Content="Water" Grid.Column="2" Grid.Row="3" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxWarriorWater_Click"/>
+        <Button x:Name="uxAretinoAppleJuice"  Height="45" Width="80" Content="Apple Juice" Grid.Column="3" Grid.Row="3" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxAretinoAppleJuice_Click"/>
+        <Button x:Name="uxCandlehearthCoffee"  Height="45" Width="80" Content="Coffee" Grid.Column="4" Grid.Row="3" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxCandlehearthCoffee_Click"/>
+        <Button x:Name="uxMarkartMilk"  Height="45" Width="80" Content="Milk" Grid.Column="5" Grid.Row="3" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxMarkartMilk_Click"/>
+        <Button x:Name="uxSailorSoda"  Height="45" Width="80" Content="Soda" Grid.Column="2" Grid.Row="4" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold" Click="uxSailorSoda_Click"/>
+        <Button Click="uxDragonBornWaffleFries_Click" x:Name="uxDragonBornWaffleFries"  Height="45" Width="80" Content="Waffle Fries" Grid.Column="2" Grid.Row="6" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold"/>
+        <Button Click="uxFriedMiraak_Click" x:Name="uxFriedMiraak"  Height="45" Width="80" Content="Fried Miraak" Grid.Column="3" Grid.Row="6" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold"/>
+        <Button Click="uxMadOtarGrits_Click" x:Name="uxMadOtarGrits"  Height="45" Width="80" Content="Grits" Grid.Column="4" Grid.Row="6" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold"/>
+        <Button Click="uxVokunSalad_Click" x:Name="uxVokunSalad"  Height="45" Width="80" Content="Fruit Salad" Grid.Column="5" Grid.Row="6" FontSize="12
+                " VerticalAlignment="Center" HorizontalAlignment="Center" Background="#FF5CA4FF" ClipToBounds="True" FontStretch="Normal" FontWeight="DemiBold"/>
+        <TextBlock Grid.Column="6" Grid.Row="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center">Order</TextBlock>
+        <TextBlock Grid.Column="6" Grid.Row="4" FontSize="30" VerticalAlignment="Bottom" HorizontalAlignment="Center">Total</TextBlock>
+        
+    </Grid>
+</UserControl>
