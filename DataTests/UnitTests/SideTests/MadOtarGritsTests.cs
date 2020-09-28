@@ -8,11 +8,26 @@ using Xunit;
 using BleakwindBuffet.Data;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Enums;
+using BleakwindBuffet.Data.Interface;
 
 namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class MadOtarGritsTests
     {
+        [Fact]
+        public void ShouldBeAnIOrderItem()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<IOrderItem>(mog);
+        }
+
+        [Fact]
+        public void ShouldBeASide()
+        {
+            MadOtarGrits mog = new MadOtarGrits();
+            Assert.IsAssignableFrom<Side>(mog);
+        }
+
         [Fact]
         public void ShouldBeSmallByDefault()
         {
