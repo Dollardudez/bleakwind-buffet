@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -12,22 +10,24 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PointOfSale.ItemOptions.Entrees;
-using PointOfSale.ItemOptions.Sides;
-using PointOfSale.ItemOptions.Drinks;
 
-namespace PointOfSale
+namespace PointOfSale.ItemOptions.Sides
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DWFOptions.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DWFOptions : UserControl
     {
-        public MainWindow()
+        public DWFOptions()
         {
             InitializeComponent();
         }
 
-        FullMenu fm = new FullMenu();
+        
+
+        private void uxToggleChecked(object sender, RoutedEventArgs e)
+        {
+            
+        }
     }
 }

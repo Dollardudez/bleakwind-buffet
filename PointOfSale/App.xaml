@@ -4,6 +4,155 @@
              xmlns:local="clr-namespace:PointOfSale"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+
+                <!--GREEN BUTTONS-->
+        <Style x:Key="EntreeRoundedButton" TargetType="Button">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Background" Value="#8BFF90"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="90"/>
+                                <Setter Property="Width" Value="150"/>
+                                <Setter Property="Background" Value="#00e10a"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+                <!--SIDE BUTTONS-->
+        <Style x:Key="SideRoundedButton" TargetType="Button">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Background" Value="#FFC9FD"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="90"/>
+                                <Setter Property="Width" Value="150"/>
+                                <Setter Property="Background" Value="#ff28f7"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!--Drink BUTTONS-->
+        <Style x:Key="DrinkRoundedButton" TargetType="Button">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Background" Value="#A4DEEF"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="130"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="90"/>
+                                <Setter Property="Width" Value="150"/>
+                                <Setter Property="Background" Value="#25add5"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        
+                            <!--ADD/BACK BUTTONS-->
+
+        <Style x:Key="AddBackButton" TargetType="Button">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="57"/>
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="Background" Value="DarkSlateGray"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="NameOrderOptions" TargetType="Border">
+            <Setter Property="Grid.ColumnSpan" Value="2"/>
+            <Setter Property="Grid.Row" Value="0"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="CornerRadius" Value="40"/>
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Width" Value="180"/>
+            <Setter Property="Panel.ZIndex" Value="-1"/>
+        </Style>
+        
+        
     </Application.Resources>
 </Application>

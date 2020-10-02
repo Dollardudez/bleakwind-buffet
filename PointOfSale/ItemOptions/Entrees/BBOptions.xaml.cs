@@ -11,19 +11,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+namespace PointOfSale.ItemOptions.Entrees
 {
     /// <summary>
-    /// Interaction logic for ThalmorTriple.xaml
+    /// Interaction logic for DoubleDraugr.xaml
     /// </summary>
-    public partial class ThalmorTriple : UserControl
+    public partial class BBOptions : UserControl
     {
-        public ThalmorTriple()
+        public BBOptions()
         {
             InitializeComponent();
         }
+
         private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
         {
+
 
         }
 
@@ -37,7 +39,7 @@ namespace PointOfSale.ItemOptions
 
         }
 
-        private void Ketchup_Checked(object sender, RoutedEventArgs e)
+        private void Cheese_Checked(object sender, RoutedEventArgs e)
         {
 
         }
@@ -47,37 +49,12 @@ namespace PointOfSale.ItemOptions
 
         }
 
-        private void Cheese_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Pickle_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Tomato_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Lettuce_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Mayo_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Bacon_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Egg_Checked(object sender, RoutedEventArgs e)
+        private void Ketchup_Checked(object sender, RoutedEventArgs e)
         {
 
         }

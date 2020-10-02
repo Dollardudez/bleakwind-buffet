@@ -10,6 +10,12 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using PointOfSale.ItemOptions.Entrees;
+using PointOfSale.ItemOptions.Sides;
+using PointOfSale.ItemOptions.Drinks;
+using PointOfSale.OrderSideBar;
+
+
 
 namespace PointOfSale
 {
@@ -21,86 +27,127 @@ namespace PointOfSale
         public FullMenu()
         {
             InitializeComponent();
+            Order order = new Order();
+            openSpace.Child = order;
+            
         }
 
-        private void uxDragonBornWaffleFries_Click(object sender, RoutedEventArgs e)
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            string name = button.Name;
+            switch (name) 
+            {
+                //entrees
+                case "uxBB":
+                    BBOptions bbOptions = new BBOptions();
+                    openSpace.Child = bbOptions;
+                    break;
+                case "uxDD":
+                    DDOptions ddOptions = new DDOptions();
+                    openSpace.Child = ddOptions;
+                    break;
+                case "uxTT":
+                    TTOptions ttOptions = new TTOptions();
+                    openSpace.Child = ttOptions;
+                    break;
+                case "uxTTB":
+                    TTBOptions ttbOptions = new TTBOptions();
+                    openSpace.Child = ttbOptions;
+                    break;
+                case "uxPP":
+                    PPOptions ppOptions = new PPOptions();
+                    openSpace.Child = ppOptions;
+                    break;
+                case "uxSS":
+                    SSOptions ssOptions = new SSOptions();
+                    openSpace.Child = ssOptions;
+                    break;
+                case "uxGORC":
+                    GORCOptions gorcOptions = new GORCOptions();
+                    openSpace.Child = gorcOptions;
+                    break;
 
+                //sides
+                case "uxDWF":
+                    DWFOptions dwf = new DWFOptions();
+                    openSpace.Child = dwf;
+                    break;
+                case "uxFM":
+                    FMOptions fm = new FMOptions();
+                    openSpace.Child = fm;
+                    break;
+                case "uxMOG":
+                    MOGOptions mog = new MOGOptions();
+                    openSpace.Child = mog;
+                    break;
+                case "uxVS":
+                    VSOptions vs = new VSOptions();
+                    openSpace.Child = vs;
+                    break;
+
+                //drinks
+                case "uxWW":
+                    WWOptions wwOptions = new WWOptions();
+                    openSpace.Child = wwOptions;
+                    break;
+                case "uxAAJ":
+                    AAJOptions aajOptions = new AAJOptions();
+                    openSpace.Child = aajOptions;
+                    break;
+                case "uxCC":
+                    CCOptions ccOptions = new CCOptions();
+                    openSpace.Child = ccOptions;
+                    break;
+                case "uxMM":
+                    MMOptions mmOptions = new MMOptions();
+                    openSpace.Child = mmOptions;
+                    break;
+                case "uxSSODA":
+                    SSODAOptions ssodaOptions = new SSODAOptions();
+                    openSpace.Child = ssodaOptions;
+                    break;
+
+
+                default:
+                    break;
+
+            }
         }
 
-        private void uxMadOtarGrits_Click(object sender, RoutedEventArgs e)
-        {
 
-        }
 
-        private void uxVokunSalad_Click(object sender, RoutedEventArgs e)
-        {
+        //private void entree_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    Border border = (Border)sender;
+        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
+        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
+        //}
 
-        }
+        //private void side_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    Border border = (Border)sender;
+        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
+        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
+        //}
 
-        private void uxFriedMiraak_Click(object sender, RoutedEventArgs e)
-        {
+        //private void drink_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    Border border = (Border)sender;
+        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
+        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
+        //}
 
-        }
+        //private void gorc_MouseDown(object sender, MouseButtonEventArgs e)
+        //{
 
-        private void uxSailorSoda_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxMarkartMilk_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxCandlehearthCoffee_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxAretinoAppleJuice_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxWarriorWater_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxThugsTBone_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxThalmorTriple_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxSmokehouseSkeleton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxPhillyPoacher_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxGardenOrcOmelette_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxDoubleDraugr_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxBriarheartBurger_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        //    if (gorc.IsMouseDirectlyOver == true)
+        //    {
+        //        GORCOptions gorc = new GORCOptions();
+        //        openSpace.Child = gorc;
+        //    }
+        //    else return;
+        //}
     }
 }

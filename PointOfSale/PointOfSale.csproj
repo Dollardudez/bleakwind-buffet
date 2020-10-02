@@ -10,4 +10,10 @@
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ToggleClass">
+      <HintPath>..\..\ToggleClass\bin\Debug\netcoreapp3.1\ToggleClass.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

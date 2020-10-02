@@ -1,4 +1,10 @@
-﻿using BleakwindBuffet.Data.Enums;
+﻿/*
+* Author: Robert Clancy
+* Class name: Entree.cs
+* Purpose: Class used to represent a base class for all Drinks
+*/
+
+using BleakwindBuffet.Data.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -11,18 +11,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+namespace PointOfSale.ItemOptions.Entrees
 {
     /// <summary>
-    /// Interaction logic for DoubleDraugr.xaml
+    /// Interaction logic for TTOptions.xaml
     /// </summary>
-    public partial class DoubleDraugr : UserControl
+    public partial class TTOptions : UserControl
     {
-        public DoubleDraugr()
+        public TTOptions()
         {
             InitializeComponent();
         }
-
         private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
         {
 
@@ -69,6 +68,16 @@ namespace PointOfSale.ItemOptions
         }
 
         private void Mayo_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Bacon_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Egg_Checked(object sender, RoutedEventArgs e)
         {
 
         }

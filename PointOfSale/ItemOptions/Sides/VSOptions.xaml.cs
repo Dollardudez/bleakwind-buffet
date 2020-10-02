@@ -11,21 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+namespace PointOfSale.ItemOptions.Sides
 {
     /// <summary>
-    /// Interaction logic for PhillyPoacher.xaml
+    /// Interaction logic for VSOptions.xaml
     /// </summary>
-    public partial class PhillyPoacher : UserControl
+    public partial class VSOptions : UserControl
     {
-        public PhillyPoacher()
+        public VSOptions()
         {
             InitializeComponent();
-        }
-
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void uxBack_Click(object sender, RoutedEventArgs e)
@@ -33,17 +28,22 @@ namespace PointOfSale.ItemOptions
 
         }
 
-        private void Sirloin_Checked(object sender, RoutedEventArgs e)
+        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Onion_Checked(object sender, RoutedEventArgs e)
+        private void Small_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Roll_Checked(object sender, RoutedEventArgs e)
+        private void Medium_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Large_Checked(object sender, RoutedEventArgs e)
         {
 
         }

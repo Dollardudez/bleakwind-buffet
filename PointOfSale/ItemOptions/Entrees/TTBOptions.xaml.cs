@@ -11,14 +11,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+
+namespace PointOfSale.ItemOptions.Entrees
 {
     /// <summary>
-    /// Interaction logic for GardenOrcOmelette.xaml
+    /// Interaction logic for TTBOptions.xaml
     /// </summary>
-    public partial class GardenOrcOmelette : UserControl
+    public partial class TTBOptions : UserControl
     {
-        public GardenOrcOmelette()
+        public TTBOptions()
         {
             InitializeComponent();
         }

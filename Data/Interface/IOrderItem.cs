@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: IOrderItem.cs
+* Purpose: Class used to represent an interface for all items on the menu
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 

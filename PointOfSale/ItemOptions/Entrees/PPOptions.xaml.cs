@@ -11,21 +11,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+namespace PointOfSale.ItemOptions.Entrees
 {
     /// <summary>
-    /// Interaction logic for DoubleDraugr.xaml
+    /// Interaction logic for PPOptions
+    /// .xaml
     /// </summary>
-    public partial class BriarheartOptions : UserControl
+    public partial class PPOptions : UserControl
     {
-        public BriarheartOptions()
+        public PPOptions()
         {
             InitializeComponent();
         }
 
         private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
         {
-
 
         }
 
@@ -34,27 +34,17 @@ namespace PointOfSale.ItemOptions
 
         }
 
-        private void Bun_Checked(object sender, RoutedEventArgs e)
+        private void Sirloin_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Cheese_Checked(object sender, RoutedEventArgs e)
+        private void Onion_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Mustard_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Pickle_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Ketchup_Checked(object sender, RoutedEventArgs e)
+        private void Roll_Checked(object sender, RoutedEventArgs e)
         {
 
         }

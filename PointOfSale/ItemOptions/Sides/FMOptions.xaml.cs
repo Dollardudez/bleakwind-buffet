@@ -11,21 +11,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PointOfSale.ItemOptions
+namespace PointOfSale.ItemOptions.Sides
 {
     /// <summary>
-    /// Interaction logic for SmokehouseSkeleton.xaml
+    /// Interaction logic for FMOptions.xaml
     /// </summary>
-    public partial class SmokehouseSkeleton : UserControl
+    public partial class FMOptions : UserControl
     {
-        public SmokehouseSkeleton()
+        public FMOptions()
         {
             InitializeComponent();
-        }
-
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void uxBack_Click(object sender, RoutedEventArgs e)
@@ -33,22 +28,22 @@ namespace PointOfSale.ItemOptions
 
         }
 
-        private void SausageLink_Checked(object sender, RoutedEventArgs e)
+        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Egg_Checked(object sender, RoutedEventArgs e)
+        private void Small_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Hashbrowns_Checked(object sender, RoutedEventArgs e)
+        private void Medium_Checked(object sender, RoutedEventArgs e)
         {
 
         }
 
-        private void Pancake_Checked(object sender, RoutedEventArgs e)
+        private void Large_Checked(object sender, RoutedEventArgs e)
         {
 
         }
