@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
 
 namespace PointOfSale.ItemOptions.Drinks
 {
@@ -18,39 +19,38 @@ namespace PointOfSale.ItemOptions.Drinks
     /// </summary>
     public partial class AAJOptions : UserControl
     {
+        /// <summary>
+        /// class field to serve as a placeholder for Drink options
+        /// </summary>
+        AretinoAppleJuice placeholder = new AretinoAppleJuice();
         public AAJOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
-
-        private void Ice_Checked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handler for ADD/Back button press
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">left mouse down</param>
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new AretinoAppleJuice();
+                openSpace.Child = order;
+
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
 
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxBack_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Small_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Medium_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Large_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

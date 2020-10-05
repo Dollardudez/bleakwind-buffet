@@ -14,6 +14,87 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+        [Fact]
+        public void ChanginSizeNotifiesSizeProperty()
+        {
+            var test = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChanginSizeNotifiesPriceProperty()
+        {
+            var test = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChanginSizeNotifiesCaloriesProperty()
+        {
+            var test = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var test = new AretinoAppleJuice();
+
+            Assert.PropertyChanged(test, "Ice", () =>
+            {
+                test.Ice = true;
+            });
+
+            Assert.PropertyChanged(test, "Ice", () =>
+            {
+                test.Ice = false;
+            });
+        }
 
         [Fact]
         public void ShouldBeAssignableToAbstractIOrderItem()

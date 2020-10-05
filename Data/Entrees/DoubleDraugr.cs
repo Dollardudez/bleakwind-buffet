@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
 
 
 namespace BleakwindBuffet.Data.Entrees
@@ -16,8 +17,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class that represents a double patty burger
     /// </summary>
-    public class DoubleDraugr : Entree, IOrderItem
+    public class DoubleDraugr : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the burger
         /// </summary>
@@ -42,7 +44,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Ketchup
         {
             get => ketchup;
-            set => ketchup = value;
+            set
+            {
+                if (ketchup != value)
+                {
+                    ketchup = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has bun, false otherwise
@@ -54,7 +63,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Bun
         {
             get => bun;
-            set => bun = value;
+            set
+            {
+                if (bun != value)
+                {
+                    bun = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has mustard, false otherwise
@@ -66,7 +82,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mustard
         {
             get => mustard;
-            set => mustard = value;
+            set
+            {
+                if (mustard != value)
+                {
+                    mustard = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has pickle, false otherwise
@@ -78,7 +101,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pickle
         {
             get => pickle;
-            set => pickle = value;
+            set
+            {
+                if (pickle != value)
+                {
+                    pickle = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has cheese, false otherwise
@@ -90,7 +120,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Cheese
         {
             get => cheese;
-            set => cheese = value;
+            set
+            {
+                if (cheese != value)
+                {
+                    cheese = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has tomato, false otherwise
@@ -102,7 +139,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Tomato
         {
             get => tomato;
-            set => tomato = value;
+            set
+            {
+                if (tomato != value)
+                {
+                    tomato = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Tomato"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has lettuce, false otherwise
@@ -114,7 +158,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Lettuce
         {
             get => lettuce;
-            set => lettuce = value;
+            set
+            {
+                if (lettuce != value)
+                {
+                    lettuce = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Lettuce"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has mayo, false otherwise
@@ -126,7 +177,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Mayo
         {
             get => mayo;
-            set => mayo = value;
+            set
+            {
+                if (mayo != value)
+                {
+                    mayo = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mayo"));
+                }
+            }
         }
         /// <summary>
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
@@ -148,6 +206,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Tomato) instructions.Add("Hold tomato");
                 if (!Lettuce) instructions.Add("Hold lettuce");
                 if (!Mayo) instructions.Add("Hold mayo");
+                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

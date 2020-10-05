@@ -10,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
+
 
 namespace PointOfSale.ItemOptions.Sides
 {
@@ -18,16 +20,37 @@ namespace PointOfSale.ItemOptions.Sides
     /// </summary>
     public partial class DWFOptions : UserControl
     {
+        /// <summary>
+        /// class field to serve as a placeholder for Side options
+        /// </summary>
+        DragonbornWaffleFries placeholder = new DragonbornWaffleFries();
         public DWFOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
-
-        
-
-        private void uxToggleChecked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handler for ADD/Back button press
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">left mouse down</param>
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-            
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new DragonbornWaffleFries();
+                openSpace.Child = order;
+
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
     }
 }

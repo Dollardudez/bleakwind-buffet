@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.ItemOptions.Entrees
 {
@@ -18,45 +19,29 @@ namespace PointOfSale.ItemOptions.Entrees
     /// </summary>
     public partial class BBOptions : UserControl
     {
+        public BriarheartBurger placeholder = new BriarheartBurger();
         public BBOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
 
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-
-
-        }
-
-        private void uxBack_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Bun_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Cheese_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Mustard_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Pickle_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Ketchup_Checked(object sender, RoutedEventArgs e)
-        {
-
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new BriarheartBurger();
+                openSpace.Child = order;
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
     }
 }

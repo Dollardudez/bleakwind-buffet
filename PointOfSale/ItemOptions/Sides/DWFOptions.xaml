@@ -3,10 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:PointOfSale.ItemOptions.Sides"
              xmlns:ToggleClass="clr-namespace:ToggleClass;assembly=ToggleClass" x:Class="PointOfSale.ItemOptions.Sides.DWFOptions"
              mc:Ignorable="d" 
             d:DesignHeight="500" d:DesignWidth="200">
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
@@ -17,27 +27,26 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="100"/>
 
         </Grid.RowDefinitions>
 
         <Border x:Name="nameSpace" Style="{StaticResource NameOrderOptions}">
-            <TextBlock x:Name="NameOfItem" Text="Briarheart Burger" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
+            <TextBlock x:Name="NameOfItem" Text="Dragonborn Fries" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
         </Border>
 
-        <ToggleClass:Toggle Name="Sirloin" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="true"/>
-        <TextBlock x:Name="SirloinText" Text="Sirloin" Grid.Row="1" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
+        <TextBlock x:Name="Size" Text="Size" Grid.Row="2" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+                  Grid.Row="3" Grid.ColumnSpan="2" FontSize="18" Width="190">
+        </ComboBox>
 
-        <ToggleClass:Toggle Name="Onion" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="true"/>
-        <TextBlock x:Name="OnionText" Text="Onion" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
-
-        <ToggleClass:Toggle Name="Roll" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="true" Background="Pink" Checked="uxToggleChecked" />
-        <TextBlock x:Name="RollText" Text="Roll" Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
-
-
-        <Button x:Name="Add" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="1" Content="Add"/>
-        <Button x:Name="Back" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="0" Content="Back"/>
-        <Border x:Name="checkmarkSpace" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="3" Background="#FFC9FD" CornerRadius="40" Width="190" Panel.ZIndex="-1"/>
-        <Border x:Name="entireOpenSpace" Grid.ColumnSpan="2" Grid.RowSpan="12" Background="#DDE6E6" Panel.ZIndex="-3"/>
+        
+        <Button x:Name="Add" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="1" Content="Add" Click="uxButton_Click"/>
+        <Button x:Name="Back" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="0" Content="Back" Click="uxButton_Click"/>
+        <Border x:Name="checkmarkSpace" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="6" Background="white" CornerRadius="40" Width="190" Panel.ZIndex="-1"/>
+        <Border x:Name="entireOpenSpace" Grid.ColumnSpan="2" Grid.RowSpan="12" Panel.ZIndex="-3"/>
     </Grid>
 </UserControl>

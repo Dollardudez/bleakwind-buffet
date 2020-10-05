@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Sides;
 
 namespace PointOfSale.ItemOptions.Sides
 {
@@ -18,34 +19,29 @@ namespace PointOfSale.ItemOptions.Sides
     /// </summary>
     public partial class VSOptions : UserControl
     {
+        VokunSalad placeholder = new VokunSalad();
         public VSOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
 
-        private void uxBack_Click(object sender, RoutedEventArgs e)
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Small_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Medium_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Large_Checked(object sender, RoutedEventArgs e)
-        {
-
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new VokunSalad();
+                openSpace.Child = order;
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@
         </Grid.RowDefinitions>
         <TextBlock Text="Order" Grid.Row="0" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#769A9A"/>
         <TextBlock Text="Total" Grid.Row="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#769A9A"/>
-        <Border Name="orderOpenSpace" Grid.Row="1" Background="#DDE6E6" CornerRadius="40" Width="170"/>
-        <Border Grid.Row="3" CornerRadius="30" Background="#DDE6E6" Height="50" Width="170"/>
+        <Border Name="orderOpenSpace" Grid.Row="1" Background="#F2F5F5" CornerRadius="40" Width="170"/>
+        <Border Grid.Row="3" CornerRadius="30" Background="#F2F5F5" Height="50" Width="170"/>
     </Grid>
 </UserControl>

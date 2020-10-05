@@ -115,39 +115,5 @@ namespace PointOfSale
 
             }
         }
-
-
-
-        //private void entree_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    Border border = (Border)sender;
-        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
-        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
-        //}
-
-        //private void side_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    Border border = (Border)sender;
-        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
-        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
-        //}
-
-        //private void drink_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    Border border = (Border)sender;
-        //    if (border.IsMouseDirectlyOver == true) border.Background = new SolidColorBrush(Color.FromRgb(0, 230, 0));
-        //    else border.Background = new SolidColorBrush(Color.FromRgb(139, 255, 144));
-        //}
-
-        //private void gorc_MouseDown(object sender, MouseButtonEventArgs e)
-        //{
-
-        //    if (gorc.IsMouseDirectlyOver == true)
-        //    {
-        //        GORCOptions gorc = new GORCOptions();
-        //        openSpace.Child = gorc;
-        //    }
-        //    else return;
-        //}
     }
 }

@@ -8,14 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class that represents a a breakfast combo
     /// </summary>
-    public class SmokehouseSkeleton : Entree, IOrderItem
+    public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the breakfast combo
         /// </summary>
@@ -40,7 +43,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool SausageLink
         {
             get => sausagelink;
-            set => sausagelink = value;
+            set
+            {
+                if (sausagelink != value)
+                {
+                    sausagelink = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has a egg, false otherwise
@@ -52,7 +62,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Egg
         {
             get => egg;
-            set => egg = value;
+            set
+            {
+                if (egg != value)
+                {
+                    egg = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has hashbrowns, false otherwise
@@ -64,7 +81,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Hashbrowns
         {
             get => hashbrowns;
-            set => hashbrowns = value;
+            set
+            {
+                if (hashbrowns != value)
+                {
+                    hashbrowns = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hashbrowns"));
+                }
+            }
         }
         //true if entree has a pancake, false otherwise
         private bool pancake = true;
@@ -74,7 +98,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Pancake
         {
             get => pancake;
-            set => pancake = value;
+            set
+            {
+                if (pancake != value)
+                {
+                    pancake = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                }
+            }
         }
         /// <summary>
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
@@ -92,6 +123,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Egg) instructions.Add("Hold eggs");
                 if (!Hashbrowns) instructions.Add("Hold hash browns");
                 if (!Pancake) instructions.Add("Hold pancakes");
+                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

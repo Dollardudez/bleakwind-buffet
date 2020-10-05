@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 
 namespace BleakwindBuffet.Data.Drinks
@@ -16,12 +18,25 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// class that represents a glass of soda
     /// </summary>
-    public class SailorSoda : Drink, IOrderItem
-{
-        /// <summary>
-        /// The size of the beverage
-        /// </summary>
+    public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
         private Size size = Size.Small;
+
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                if (size != value)
+                {
+                    size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
+            }
+        }
 
         /// <summary>
         /// flavor of the soda, default = cherry
@@ -33,7 +48,14 @@ namespace BleakwindBuffet.Data.Drinks
         public SodaFlavor Flavor
         {
             get => flavor;
-            set => flavor = value;
+            set
+            {
+                if (flavor != value)
+                {
+                    flavor = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Flavor"));
+                }
+            }
         }
 
         /// <summary>
@@ -83,7 +105,14 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                }
+            }
         }
         /// <summary>
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
@@ -95,6 +124,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 List<string> instructions = new List<string>();
                 if (!Ice) instructions.Add("Hold ice");
+                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

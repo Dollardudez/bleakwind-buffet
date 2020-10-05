@@ -1,31 +1,57 @@
-﻿<UserControl x:Class="PointOfSale.ItemOptions.Drinks.MMOptions"
+﻿<UserControl
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.ItemOptions.Drinks"
+             xmlns:ToggleClass="clr-namespace:ToggleClass;assembly=ToggleClass" x:Class="PointOfSale.ItemOptions.Drinks.MMOptions"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="200">
+
+    <UserControl.Resources>
+        <ObjectDataProvider x:Key="size" MethodName="GetValues" ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="enums:Size"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </UserControl.Resources>
+    
+    
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="110"/>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="100"/>
+
         </Grid.RowDefinitions>
-        <Button x:Name="uxBack" Grid.Column="0" Grid.Row="2" Content="Back" FontSize="20" Height="50" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="Left" Click="uxAddToOrder_Click"/>
-        <Button x:Name="uxAddtoOrder" Grid.Column="1" Grid.Row="2" Content="Add" FontSize="20" Height="50" Width="100" VerticalAlignment="Bottom" HorizontalAlignment="right" Click="uxBack_Click"/>
-        <TextBlock x:Name="NameOfItem" Text="Markarth Milk" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.ColumnSpan="2" FontSize="30"/>
-        <StackPanel Grid.Row="1" Grid.ColumnSpan="2">
-            <TextBlock Text="Options" HorizontalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="Ice" Content="Ice" IsChecked="False" Checked="Ice_Checked"/>
-            <TextBlock Text="Size" HorizontalAlignment="Center" FontSize="20"/>
-            <CheckBox x:Name="Small" Content="Small" IsChecked="True" Checked="Small_Checked"/>
-            <CheckBox x:Name="Medium" Content="Medium" IsChecked="False" Checked="Medium_Checked"/>
-            <CheckBox x:Name="Large" Content="Large" IsChecked="False" Checked="Large_Checked"/>
-        </StackPanel>
+
+        <Border x:Name="nameSpace" Style="{StaticResource NameOrderOptions}">
+            <TextBlock x:Name="NameOfItem" Text="Markarth Milk" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
+        </Border>
+
+        <TextBlock x:Name="OptionsText" Text="Options" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+        <ToggleClass:Toggle Name="Ice" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ice}"/>
+        <TextBlock x:Name="IceText" Text="Ice" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
+
+        <TextBlock x:Name="Size" Text="Size" Grid.Row="3" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
+        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" Width="190" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+                  Grid.Row="4" Grid.ColumnSpan="2" FontSize="18">
+        </ComboBox>
+        
+        <Button x:Name="Add" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="1" Content="Add" Click="uxButton_Click"/>
+        <Button x:Name="Back" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="0" Content="Back" Click="uxButton_Click"/>
+        <Border x:Name="checkmarkSpace" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="6" Background="white" CornerRadius="40" Width="190" Panel.ZIndex="-1"/>
+        <Border x:Name="entireOpenSpace" Grid.ColumnSpan="2" Grid.RowSpan="12" Panel.ZIndex="-3"/>
     </Grid>
 </UserControl>

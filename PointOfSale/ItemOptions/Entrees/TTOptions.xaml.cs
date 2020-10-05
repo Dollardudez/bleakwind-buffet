@@ -10,6 +10,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Entrees;
 
 namespace PointOfSale.ItemOptions.Entrees
 {
@@ -18,68 +19,34 @@ namespace PointOfSale.ItemOptions.Entrees
     /// </summary>
     public partial class TTOptions : UserControl
     {
+        ThalmorTriple placeholder = new ThalmorTriple();
         public TTOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handler for ADD/Back button press
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">left mouse down</param>
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new GardenOrcOmelette();
+                openSpace.Child = order;
 
-        }
-
-        private void uxBack_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Bun_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Ketchup_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Mustard_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Cheese_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Pickle_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Tomato_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Lettuce_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Mayo_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Bacon_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Egg_Checked(object sender, RoutedEventArgs e)
-        {
-
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
     }
 }

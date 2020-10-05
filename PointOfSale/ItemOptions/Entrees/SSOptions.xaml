@@ -18,6 +18,8 @@
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="100"/>
 
         </Grid.RowDefinitions>
@@ -26,22 +28,23 @@
             <TextBlock x:Name="NameOfItem" Text="Smokehouse Skeleton" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
         </Border>
 
-        <ToggleClass:Toggle Name="Sausage" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="true"/>
+        <ToggleClass:Toggle Name="Sausage" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=SausageLink}"/>
         <TextBlock x:Name="SausageText" Text="Sausage" Grid.Row="1" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Egg" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="true"/>
+        <ToggleClass:Toggle Name="Egg" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Egg}"/>
         <TextBlock x:Name="EggText" Text="Egg" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Hashbrowns" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="true"/>
+        <ToggleClass:Toggle Name="Hashbrowns" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Hashbrowns}"/>
         <TextBlock x:Name="HashbrownsText" Text="Hashbrowns" Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Pancake" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="true"/>
+        <ToggleClass:Toggle Name="Pancake" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="{Binding Path=Pancake}"/>
         <TextBlock x:Name="PancakeText" Text="Pancake" Grid.Row="4" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
 
-        <Button x:Name="Add" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="1" Content="Add"/>
-        <Button x:Name="Back" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="0" Content="Back"/>
-        <Border x:Name="checkmarkSpace" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="4" Background="#d7ffd8" CornerRadius="40" Width="190" Panel.ZIndex="-1"/>
-        <Border x:Name="entireOpenSpace" Grid.ColumnSpan="2" Grid.RowSpan="12" Background="#DDE6E6" Panel.ZIndex="-3"/>
+        <Button x:Name="Add" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="1" Content="Add" Click="uxButton_Click"/>
+        <Button x:Name="Back" Style="{StaticResource AddBackButton}" Grid.Row="11" Grid.Column="0" Content="Back" Click="uxButton_Click"/>
+
+        <Border x:Name="checkmarkSpace" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="6" Background="White" CornerRadius="40" Width="190" Panel.ZIndex="-1"/>
+        <Border x:Name="entireOpenSpace" Grid.ColumnSpan="2" Grid.RowSpan="10" Panel.ZIndex="-3"/>
     </Grid>
 </UserControl>

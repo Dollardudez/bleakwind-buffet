@@ -15,6 +15,85 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class BriarheartBurgerTests
     {
         [Fact]
+        public void ChangingKetchupNotifiesKetchupProperty()
+        {
+            var test = new BriarheartBurger();
+
+            Assert.PropertyChanged(test, "Ketchup", () =>
+            {
+                test.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(test, "Ketchup", () =>
+            {
+                test.Ketchup = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingBunNotifiesBunProperty()
+        {
+            var test = new BriarheartBurger();
+
+            Assert.PropertyChanged(test, "Bun", () =>
+            {
+                test.Bun = false;
+            });
+
+            Assert.PropertyChanged(test, "Bun", () =>
+            {
+                test.Bun = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMustardNotifiesMustardmProperty()
+        {
+            var test = new BriarheartBurger();
+
+            Assert.PropertyChanged(test, "Mustard", () =>
+            {
+                test.Mustard = false;
+            });
+
+            Assert.PropertyChanged(test, "Mustard", () =>
+            {
+                test.Mustard = true;
+            });
+        }
+
+            [Fact]
+        public void ChangingPickleNotifiesPickleProperty()
+        {
+            var test = new BriarheartBurger();
+
+            Assert.PropertyChanged(test, "Pickle", () =>
+            {
+                test.Pickle = false;
+            });
+
+            Assert.PropertyChanged(test, "Pickle", () =>
+            {
+                test.Pickle = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheeseNotifiesCheeseProperty()
+        {
+            var test = new BriarheartBurger();
+
+            Assert.PropertyChanged(test, "Cheese", () =>
+            {
+                test.Cheese = false;
+            });
+
+            Assert.PropertyChanged(test, "Cheese", () =>
+            {
+                test.Cheese = true;
+            });
+        }
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             BriarheartBurger bb = new BriarheartBurger();

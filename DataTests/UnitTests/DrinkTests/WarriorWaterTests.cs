@@ -17,6 +17,82 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class WarriorWaterTests
     {
         [Fact]
+        public void ChanginSizeNotifiesSizeProperty()
+        {
+            var test = new WarriorWater();
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChanginSizeNotifiesPriceProperty()
+        {
+            var test = new SailorSoda();
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChangingIceNotifiesIceProperty()
+        {
+            var test = new WarriorWater();
+
+            Assert.PropertyChanged(test, "Ice", () =>
+            {
+                test.Ice = false;
+            });
+
+            Assert.PropertyChanged(test, "Ice", () =>
+            {
+                test.Ice = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingLemonNotifiesLemonProperty()
+        {
+            var test = new WarriorWater();
+
+            Assert.PropertyChanged(test, "Lemon", () =>
+            {
+                test.Lemon = true;
+            });
+
+            Assert.PropertyChanged(test, "Lemon", () =>
+            {
+                test.Lemon = false;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             WarriorWater ww = new WarriorWater();

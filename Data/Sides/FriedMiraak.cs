@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Sides
 {
@@ -17,12 +19,8 @@ namespace BleakwindBuffet.Data.Sides
     /// class that represents an order of cheesy grits
     /// </summary>
     /// </summary>
-    public class FriedMiraak : Side, IOrderItem
+    public class FriedMiraak : Side, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The size of the side
-        /// </summary>
-        private Size size = Size.Small;
 
         /// <summary>
         /// property that gets and sets the price of the side

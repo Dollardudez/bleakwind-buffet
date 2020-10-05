@@ -9,18 +9,16 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Sides
 {
     /// <summary>
     /// class that represents an order of fries
     /// </summary>
-    public class DragonbornWaffleFries : Side, IOrderItem
+    public class DragonbornWaffleFries : Side, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The size of the side
-        /// </summary>
-        private Size size = Size.Small;
 
         /// <summary>
         /// property that gets and sets ets the price of the side

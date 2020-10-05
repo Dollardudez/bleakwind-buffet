@@ -8,16 +8,36 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Sides
 
 {
-    public abstract class Side
+    public abstract class Side: INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// The size of the side
         /// </summary>
-        public virtual Size Size { get; set; }
+        private Size size = Size.Small;
+        /// <summary>
+        /// The size of the drink
+        /// </summary>
+        public Size Size
+        {
+            get => size;
+            set
+            {
+                if (size != value)
+                {
+                    size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
+            }
+        }
         /// <summary>
         /// The price of the side
         /// </summary>

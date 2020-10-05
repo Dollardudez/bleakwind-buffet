@@ -9,18 +9,16 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Sides
-{
-    /// <summary>
-    /// class that represents a fruit salad
-    /// </summary>
-    public class VokunSalad : Side, IOrderItem
+{ 
+/// <summary>
+/// class that represents a fruit salad
+/// </summary>
+    public class VokunSalad : Side, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The size of the side
-        /// </summary>
-        private Size size = Size.Small;
 
         /// <summary>
         /// property that gets and sets ets the price of the side
@@ -82,5 +80,6 @@ namespace BleakwindBuffet.Data.Sides
         {
             return $"{Size} Vokun Salad";
         }
+        
     }
 }

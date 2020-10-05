@@ -10,47 +10,63 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BleakwindBuffet.Data.Drinks;
+
 
 namespace PointOfSale.ItemOptions.Drinks
 {
+    
     /// <summary>
     /// Interaction logic for MMOptions.xaml
     /// </summary>
     public partial class MMOptions : UserControl
     {
+        /// <summary>
+        /// class field to serve as a placeholder for Drink options
+        /// </summary>
+        MarkarthMilk placeholder = new MarkarthMilk();
         public MMOptions()
         {
             InitializeComponent();
+            this.DataContext = placeholder;
         }
-
-        private void Ice_Checked(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Handler for ADD/Back button press
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">left mouse down</param>
+        public void uxButton_Click(object sender, RoutedEventArgs e)
         {
+            Button button = (Button)sender;
+            if (button.Name == "Add")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                this.DataContext = new MarkarthMilk();
+                openSpace.Child = order;
 
+            }
+            if (button.Name == "Back")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
         }
 
-        private void Small_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Medium_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Large_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxBack_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void uxAddToOrder_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        //private void checkmarkSpace_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
+        //{
+        //    Border border = (Border)sender;
+        //    if (IsMouseDirectlyOver == true)
+        //    {
+        //        SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
+        //        border.Background = brush;
+        //    }
+        //    else
+        //    {
+        //        SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(182, 238, 245));
+        //        border.Background = brush;
+        //    }
+        //}
     }
 }

@@ -11,9 +11,8 @@ using System.Text;
 
 namespace BleakwindBuffet.Data.Entrees
 {
-    public abstract class Entree: INotifyPropertyChanged
+    public abstract class Entree
     {
-        public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
         /// The price of the entree

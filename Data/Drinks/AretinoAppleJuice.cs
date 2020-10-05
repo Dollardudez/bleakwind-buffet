@@ -10,6 +10,9 @@ using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
+
 
 
 namespace BleakwindBuffet.Data.Drinks
@@ -17,13 +20,25 @@ namespace BleakwindBuffet.Data.Drinks
     /// <summary>
     /// class that represents apple juice
     /// </summary>
-    public class AretinoAppleJuice : Drink, IOrderItem
+    public class AretinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
     {
-        /// <summary>
-        /// The size of the beverage
-        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
         private Size size = Size.Small;
 
+        public override Size Size
+        {
+            get => size;
+            set
+            {
+                if (size != value)
+                {
+                    size = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                }
+            }
+        }
         /// <summary>
         /// Property that gets and sets the price of the drink
         /// </summary>
@@ -71,12 +86,20 @@ namespace BleakwindBuffet.Data.Drinks
         public bool Ice
         {
             get => ice;
-            set => ice = value;
+            set
+            {
+                if (ice != value)
+                {
+                    ice = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                }
+            }
         }
         /// <summary>
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
         /// </summary>
         private List<string> specialInstructions = new List<string>();
+
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
@@ -86,6 +109,7 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 List<string> instructions = new List<string>();
                 if (Ice) instructions.Add("Add ice");
+                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

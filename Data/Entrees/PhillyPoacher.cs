@@ -8,14 +8,17 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Interface;
+using System.ComponentModel;
+
 
 namespace BleakwindBuffet.Data.Entrees
 {
     /// <summary>
     /// class that represents a cheesesteak
     /// </summary>
-    public class PhillyPoacher : Entree, IOrderItem
+    public class PhillyPoacher : Entree, IOrderItem, INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the sandwich
         /// </summary>
@@ -40,7 +43,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Sirloin
         {
             get => sirloin;
-            set => sirloin = value;
+            set
+            {
+                if (sirloin != value)
+                {
+                    sirloin = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Sirloin"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has onion, false otherwise
@@ -52,7 +62,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Onion
         {
             get => onion;
-            set => onion = value;
+            set
+            {
+                if (onion != value)
+                {
+                    onion = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Onion"));
+                }
+            }
         }
         /// <summary>
         /// true if entree has a roll, false otherwise
@@ -64,7 +81,14 @@ namespace BleakwindBuffet.Data.Entrees
         public bool Roll
         {
             get => roll;
-            set => roll = value;
+            set
+            {
+                if (roll != value)
+                {
+                    roll = value;
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Roll"));
+                }
+            }
         }
         /// <summary>
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
@@ -81,6 +105,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Sirloin) instructions.Add("Hold sirloin");
                 if (!Onion) instructions.Add("Hold onions");
                 if (!Roll) instructions.Add("Hold roll");
+                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }
