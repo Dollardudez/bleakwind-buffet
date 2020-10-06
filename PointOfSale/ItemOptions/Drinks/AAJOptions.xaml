@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PointOfSale.ItemOptions.Drinks"
              xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
-             xmlns:ToggleClass="clr-namespace:ToggleClass;assembly=ToggleClass" x:Class="PointOfSale.ItemOptions.Drinks.AAJOptions"
+             x:Class="PointOfSale.ItemOptions.Drinks.AAJOptions"
              mc:Ignorable="d" 
             d:DesignHeight="500" d:DesignWidth="200">
     

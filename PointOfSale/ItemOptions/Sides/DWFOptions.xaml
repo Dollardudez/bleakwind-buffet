@@ -6,7 +6,7 @@
              xmlns:enums="clr-namespace:BleakwindBuffet.Data.Enums;assembly=Data"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:local="clr-namespace:PointOfSale.ItemOptions.Sides"
-             xmlns:ToggleClass="clr-namespace:ToggleClass;assembly=ToggleClass" x:Class="PointOfSale.ItemOptions.Sides.DWFOptions"
+             x:Class="PointOfSale.ItemOptions.Sides.DWFOptions"
              mc:Ignorable="d" 
             d:DesignHeight="500" d:DesignWidth="200">
     <UserControl.Resources>

@@ -31,5 +31,28 @@ namespace PointOfSale.OrderSideBar
         {
             InitializeComponent();
         }
+
+        /// <summary>
+        /// Confirms or cancels the order
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">left mouse down</param>
+        public void uxButton_Click(object sender, RoutedEventArgs e)
+        {
+            Button button = (Button)sender;
+            if (button.Name == "Confirm")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+
+            }
+            if (button.Name == "Cancel")
+            {
+                OrderSideBar.Order order = new OrderSideBar.Order();
+                Border openSpace = (Border)this.Parent;
+                openSpace.Child = order;
+            }
+        }
     }
 }

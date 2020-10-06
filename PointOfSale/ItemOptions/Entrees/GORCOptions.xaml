@@ -4,7 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale.ItemOptions.Entrees"
-             xmlns:PointOfSale="clr-namespace:PointOfSale" xmlns:ToggleClass="clr-namespace:ToggleClass;assembly=ToggleClass" x:Class="PointOfSale.ItemOptions.Entrees.GORCOptions"
+             xmlns:PointOfSale="clr-namespace:PointOfSale"
+             x:Class="PointOfSale.ItemOptions.Entrees.GORCOptions"
              mc:Ignorable="d" 
              d:DesignHeight="500" d:DesignWidth="200">
     <Grid>
