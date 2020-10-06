@@ -87,6 +87,9 @@ namespace BleakwindBuffet.Data.Menu
                     listOfDrinks.Add(new SailorSoda());
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry });
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Lemon });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Peach });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit });
                 }
                 else if (i == 1)
                 {
@@ -97,6 +100,9 @@ namespace BleakwindBuffet.Data.Menu
                     listOfDrinks.Add(new SailorSoda { Size = Size.Medium });
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry, Size = Size.Medium });
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Lemon, Size = Size.Medium });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Peach, Size = Size.Medium });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon, Size = Size.Medium });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit, Size = Size.Medium });
                 }
                 else
                 {
@@ -108,6 +114,9 @@ namespace BleakwindBuffet.Data.Menu
                     listOfDrinks.Add(new SailorSoda { Size = Size.Large });
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry, Size = Size.Large });
                     listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Lemon, Size = Size.Large });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Peach, Size = Size.Large });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon, Size = Size.Large });
+                    listOfDrinks.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit, Size = Size.Large });
                 }
             }
             return listOfDrinks;
@@ -147,6 +156,9 @@ namespace BleakwindBuffet.Data.Menu
                     listFullMenu.Add(new SailorSoda());
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry });
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Lemon });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Peach });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit });
                 }
                 else if (i == 1)
                 {
@@ -162,6 +174,9 @@ namespace BleakwindBuffet.Data.Menu
                     listFullMenu.Add(new SailorSoda { Size = Size.Medium });
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry, Size = Size.Medium });
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Lemon, Size = Size.Medium });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Peach, Size = Size.Medium });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon, Size = Size.Medium });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit, Size = Size.Medium });
                 }
                 else
                 {
@@ -177,6 +192,9 @@ namespace BleakwindBuffet.Data.Menu
                     listFullMenu.Add(new SailorSoda { Size = Size.Large });
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Blackberry, Size = Size.Large });
                     listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Lemon, Size = Size.Large });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Peach, Size = Size.Large });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Watermelon, Size = Size.Large });
+                    listFullMenu.Add(new SailorSoda { Flavor = SodaFlavor.Grapefruit, Size = Size.Large });
                 }
             }
             return listFullMenu;

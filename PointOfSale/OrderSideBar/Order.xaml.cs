@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: Order.xaml.cs.cs
+* Purpose: Class used to operate the logic for the Order.Xaml UserControl
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -18,6 +24,9 @@ namespace PointOfSale.OrderSideBar
     /// </summary>
     public partial class Order : UserControl
     {
+        /// <summary>
+        /// Initializes the Order component to the screen
+        /// </summary>
         public Order()
         {
             InitializeComponent();

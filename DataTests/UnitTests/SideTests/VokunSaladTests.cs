@@ -14,6 +14,73 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class VokunSaladTests
     {
+
+        [Fact]
+        public void ChanginSizeNotifiesSizeProperty()
+        {
+            var test = new VokunSalad();
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Size", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChanginSizeNotifiesPriceProperty()
+        {
+            var test = new VokunSalad();
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Price", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
+        [Fact]
+        public void ChanginSizeNotifiesCaloriesProperty()
+        {
+            var test = new VokunSalad();
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Large;
+            });
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Medium;
+            });
+
+            Assert.PropertyChanged(test, "Calories", () =>
+            {
+                test.Size = Size.Small;
+            });
+
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

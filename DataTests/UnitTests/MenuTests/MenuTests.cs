@@ -15,11 +15,75 @@ using BleakwindBuffet.Data.Enums;
 using BleakwindBuffet.Data.Interface;
 using BleakwindBuffet.Data.Menu;
 using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
 {
     public class MenuTests
     {
+        [Fact]
+        public void ISAssignableFromINotifyPropertyChanged()
+        {
+            List<IOrderItem> listMenu = Menu.FullMenu();
+            Assert.Collection<IOrderItem>(listMenu,
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsType<ThugsTBone>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item),
+                item => Assert.IsAssignableFrom<INotifyPropertyChanged>(item));
+        }
+
+
         [Fact]
         public void StaticMethodShouldReturnIOrderListWithAllEntrees()
         {
@@ -67,7 +131,21 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
 
+
+                item => Assert.IsType<AretinoAppleJuice>(item),
+                item => Assert.IsType<CandlehearthCoffee>(item),
+                item => Assert.IsType<MarkarthMilk>(item),
+                item => Assert.IsType<WarriorWater>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
 
                 item => Assert.IsType<AretinoAppleJuice>(item),
                 item => Assert.IsType<CandlehearthCoffee>(item),
@@ -76,11 +154,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
-
-                item => Assert.IsType<AretinoAppleJuice>(item),
-                item => Assert.IsType<CandlehearthCoffee>(item),
-                item => Assert.IsType<MarkarthMilk>(item),
-                item => Assert.IsType<WarriorWater>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item));
@@ -111,16 +184,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
-
-                item => Assert.IsType<DragonbornWaffleFries>(item),
-                item => Assert.IsType<FriedMiraak>(item),
-                item => Assert.IsType<MadOtarGrits>(item),
-                item => Assert.IsType<VokunSalad>(item),
-
-                item => Assert.IsType<AretinoAppleJuice>(item),
-                item => Assert.IsType<CandlehearthCoffee>(item),
-                item => Assert.IsType<MarkarthMilk>(item),
-                item => Assert.IsType<WarriorWater>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
@@ -134,6 +197,25 @@ namespace BleakwindBuffet.DataTests.UnitTests.MenuTests
                 item => Assert.IsType<CandlehearthCoffee>(item),
                 item => Assert.IsType<MarkarthMilk>(item),
                 item => Assert.IsType<WarriorWater>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+
+                item => Assert.IsType<DragonbornWaffleFries>(item),
+                item => Assert.IsType<FriedMiraak>(item),
+                item => Assert.IsType<MadOtarGrits>(item),
+                item => Assert.IsType<VokunSalad>(item),
+
+                item => Assert.IsType<AretinoAppleJuice>(item),
+                item => Assert.IsType<CandlehearthCoffee>(item),
+                item => Assert.IsType<MarkarthMilk>(item),
+                item => Assert.IsType<WarriorWater>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
+                item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item),
                 item => Assert.IsType<SailorSoda>(item));

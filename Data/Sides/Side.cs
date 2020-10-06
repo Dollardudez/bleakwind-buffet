@@ -16,13 +16,17 @@ namespace BleakwindBuffet.Data.Sides
 {
     public abstract class Side: INotifyPropertyChanged
     {
+        /// <summary>
+        /// A public event property that is invoked when any property changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
-        /// The size of the side
+        /// private backing variable for the Size Property, default = Size.Small
         /// </summary>
         private Size size = Size.Small;
         /// <summary>
-        /// The size of the drink
+        /// Size Propert. get returns the value of the size backing variable, and
+        /// set changes the size and invokes a PropertyChangedEvent on the PropertyChanged Property
         /// </summary>
         public Size Size
         {

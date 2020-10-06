@@ -1,4 +1,10 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: Order.xaml.cs.cs
+* Purpose: Class used to operate the logic for the App.Xaml Application file
+*/
+
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;

@@ -17,6 +17,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// A public event property that is invoked when any property changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>
@@ -48,13 +51,14 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     ketchup = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ketchup"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
         /// <summary>
         /// true if entree has a bun, false otherwise
         /// </summary>
-        private bool bun = false;
+        private bool bun = true;
         /// <summary>
         /// property that gets and sets if the entree has a bun or not, default = false
         /// </summary>
@@ -66,6 +70,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     bun = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bun"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -84,6 +89,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     mustard = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Mustard"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -103,6 +109,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     pickle = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pickle"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -112,6 +119,7 @@ namespace BleakwindBuffet.Data.Entrees
         private bool cheese = true;
         /// <summary>
         /// property that gets and sets if the entree has cheese or not, default = false
+        /// if a new value is set, Invoke A PropertyChangedEvent on PropertyChanged
         /// </summary>
         public bool Cheese
         {
@@ -122,6 +130,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     cheese = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Cheese"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -145,7 +154,7 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Mustard) instructions.Add("Hold mustard");
                 if (!Pickle) instructions.Add("Hold pickle");
                 if (!Cheese) instructions.Add("Hold cheese");
-                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                //if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

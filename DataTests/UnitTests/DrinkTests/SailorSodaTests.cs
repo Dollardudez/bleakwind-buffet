@@ -101,7 +101,7 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
         }
 
         [Fact]
-        public void ChangingIceNotifiesFlavorProperty()
+        public void ChangingFlavorNotifiesFlavorProperty()
         {
             var test = new SailorSoda();
 

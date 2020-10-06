@@ -18,6 +18,9 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// A public event property that is invoked when any property changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         /// <summary>
         /// Gets the price of the breakfast combo
@@ -49,6 +52,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     sausagelink = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SausageLink"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -68,6 +72,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     egg = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Egg"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -87,6 +92,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     hashbrowns = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Hashbrowns"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -104,6 +110,7 @@ namespace BleakwindBuffet.Data.Entrees
                 {
                     pancake = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Pancake"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -123,7 +130,6 @@ namespace BleakwindBuffet.Data.Entrees
                 if (!Egg) instructions.Add("Hold eggs");
                 if (!Hashbrowns) instructions.Add("Hold hash browns");
                 if (!Pancake) instructions.Add("Hold pancakes");
-                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

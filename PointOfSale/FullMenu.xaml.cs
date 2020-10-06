@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: Order.xaml.cs.cs
+* Purpose: Class used to operate the logic for the FullMenu.xaml UserControl
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Windows;
@@ -24,6 +31,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FullMenu : UserControl
     {
+        /// <summary>
+        /// Initializes the FullMenu UserControl and displays the Order.xaml in the correct position on the creen
+        /// </summary>
         public FullMenu()
         {
             InitializeComponent();
@@ -32,7 +42,11 @@ namespace PointOfSale
             
         }
 
-
+        /// <summary>
+        /// A single handler to operate the logic for when any Menu Item Button is clicked
+        /// </summary>
+        /// <param name="sender">button</param>
+        /// <param name="e">mouse event</param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button button = (Button)sender;

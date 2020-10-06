@@ -14,6 +14,55 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class PhillyPoacherTests
     {
+
+        [Fact]
+        public void ChangingSirloinpNotifiesSirloinProperty()
+        {
+            var test = new PhillyPoacher();
+
+            Assert.PropertyChanged(test, "Sirloin", () =>
+            {
+                test.Sirloin = false;
+            });
+
+            Assert.PropertyChanged(test, "Sirloin", () =>
+            {
+                test.Sirloin = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingOnionNotifiesOnionProperty()
+        {
+            var test = new PhillyPoacher();
+
+            Assert.PropertyChanged(test, "Onion", () =>
+            {
+                test.Onion = false;
+            });
+
+            Assert.PropertyChanged(test, "Onion", () =>
+            {
+                test.Onion = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingRollNotifiesRollProperty()
+        {
+            var test = new PhillyPoacher();
+
+            Assert.PropertyChanged(test, "Roll", () =>
+            {
+                test.Roll = false;
+            });
+
+            Assert.PropertyChanged(test, "Roll", () =>
+            {
+                test.Roll = true;
+            });
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

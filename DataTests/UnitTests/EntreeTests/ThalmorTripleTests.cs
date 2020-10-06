@@ -14,6 +14,165 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThalmorTripleTests
     {
         [Fact]
+        public void ChangingKetchupNotifiesKetchupProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Ketchup", () =>
+            {
+                test.Ketchup = false;
+            });
+
+            Assert.PropertyChanged(test, "Ketchup", () =>
+            {
+                test.Ketchup = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingBunNotifiesBunProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Bun", () =>
+            {
+                test.Bun = false;
+            });
+
+            Assert.PropertyChanged(test, "Bun", () =>
+            {
+                test.Bun = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMustardNotifiesMustardProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Mustard", () =>
+            {
+                test.Mustard = false;
+            });
+
+            Assert.PropertyChanged(test, "Mustard", () =>
+            {
+                test.Mustard = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingPickleNotifiesPickleProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Pickle", () =>
+            {
+                test.Pickle = false;
+            });
+
+            Assert.PropertyChanged(test, "Pickle", () =>
+            {
+                test.Pickle = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingCheeseNotifiesCheeseProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Cheese", () =>
+            {
+                test.Cheese = false;
+            });
+
+            Assert.PropertyChanged(test, "Cheese", () =>
+            {
+                test.Cheese = true;
+            });
+        }
+        [Fact]
+        public void ChangingTomatoNotifiesTomatoProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Tomato", () =>
+            {
+                test.Tomato = false;
+            });
+
+            Assert.PropertyChanged(test, "Tomato", () =>
+            {
+                test.Tomato = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingPLettuceNotifiesLettuceProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Lettuce", () =>
+            {
+                test.Lettuce = false;
+            });
+
+            Assert.PropertyChanged(test, "Lettuce", () =>
+            {
+                test.Lettuce = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingMayoNotifiesMayoProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Mayo", () =>
+            {
+                test.Mayo = false;
+            });
+
+            Assert.PropertyChanged(test, "Mayo", () =>
+            {
+                test.Mayo = true;
+            });
+        }
+
+        [Fact]
+        public void ChanginEggNotifiesEggProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Egg", () =>
+            {
+                test.Egg = false;
+            });
+
+            Assert.PropertyChanged(test, "Egg", () =>
+            {
+                test.Egg = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingBaconNotifiesBaconProperty()
+        {
+            var test = new ThalmorTriple();
+
+            Assert.PropertyChanged(test, "Bacon", () =>
+            {
+                test.Bacon = false;
+            });
+
+            Assert.PropertyChanged(test, "Bacon", () =>
+            {
+                test.Bacon = true;
+            });
+        }
+
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             ThalmorTriple tt = new ThalmorTriple();

@@ -56,7 +56,7 @@
 
 
         <TextBlock x:Name="FlavorText" Text="Flavors" Grid.Row="3" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="FlavorComboCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="FlavorComboCombo" ItemsSource="{Binding Source={StaticResource flavor}}" SelectedItem="{Binding Path= Flavor}"
                   Grid.Row="4" Grid.ColumnSpan="2" FontSize="18" Width="190">
         </ComboBox>
 

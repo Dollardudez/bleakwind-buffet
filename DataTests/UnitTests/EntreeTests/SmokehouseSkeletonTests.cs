@@ -14,6 +14,71 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
 {
     public class SmokehouseSkeletonTests
     {
+
+        [Fact]
+        public void ChangingSausageLinkNotifiesSausageLinkProperty()
+        {
+            var test = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(test, "SausageLink", () =>
+            {
+                test.SausageLink = false;
+            });
+
+            Assert.PropertyChanged(test, "SausageLink", () =>
+            {
+                test.SausageLink = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingPancakeNotifiesPancakeProperty()
+        {
+            var test = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(test, "Pancake", () =>
+            {
+                test.Pancake = false;
+            });
+
+            Assert.PropertyChanged(test, "Pancake", () =>
+            {
+                test.Pancake = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingHashbrownsNotifiesHashbrownsProperty()
+        {
+            var test = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(test, "Hashbrowns", () =>
+            {
+                test.Hashbrowns = false;
+            });
+
+            Assert.PropertyChanged(test, "Hashbrowns", () =>
+            {
+                test.Hashbrowns = true;
+            });
+        }
+
+        [Fact]
+        public void ChangingEggNotifiesEggProperty()
+        {
+            var test = new SmokehouseSkeleton();
+
+            Assert.PropertyChanged(test, "Egg", () =>
+            {
+                test.Egg = false;
+            });
+
+            Assert.PropertyChanged(test, "Egg", () =>
+            {
+                test.Egg = true;
+            });
+        }
+
         [Fact]
         public void ShouldBeAnIOrderItem()
         {

@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: MainWindow.xaml.cs.cs
+* Purpose: Class used to operate the logic for the MainWindow.xaml UserControl
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +30,9 @@ namespace PointOfSale
     /// </summary>
     public partial class MainWindow : Window
     {
+        /// <summary>
+        /// Initializes tghe MainWindow Window
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();

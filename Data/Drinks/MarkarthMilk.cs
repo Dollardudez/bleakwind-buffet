@@ -20,9 +20,18 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk: Drink, IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// A public event property that is invoked when any property changes
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>
+        /// private backing variable for the Size Property, default = Size.Small
+        /// </summary>
         private Size size = Size.Small;
-
+        /// <summary>
+        /// Size Propert. get returns the value of the size backing variable, and
+        /// set changes the size and invokes a PropertyChangedEvent on the PropertyChanged Property
+        /// </summary>
         public override Size Size
         {
             get => size;
@@ -91,6 +100,7 @@ namespace BleakwindBuffet.Data.Drinks
                 {
                     ice = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Ice"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
             }
         }
@@ -107,7 +117,6 @@ namespace BleakwindBuffet.Data.Drinks
             {
                 List<string> instructions = new List<string>();
                 if(Ice) instructions.Add("Add ice");
-                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }

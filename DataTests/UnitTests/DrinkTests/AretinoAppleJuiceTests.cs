@@ -14,6 +14,8 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class AretinoAppleJuiceTests
     {
+
+
         [Fact]
         public void ChanginSizeNotifiesSizeProperty()
         {
