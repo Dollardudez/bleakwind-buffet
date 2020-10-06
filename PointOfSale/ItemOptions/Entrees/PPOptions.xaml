@@ -28,13 +28,13 @@
             <TextBlock x:Name="NameOfItem" Text="Briarheart Burger" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
         </Border>
 
-        <ToggleClass:Toggle Name="Sirloin" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=Sirloin}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Sirloin" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=Sirloin}"/>
         <TextBlock x:Name="SirloinText" Text="Sirloin" Grid.Row="1" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Onion" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Onion}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Onion" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Onion}"/>
         <TextBlock x:Name="OnionText" Text="Onion" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Roll" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Roll}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Roll" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Roll}"/>
         <TextBlock x:Name="RollText" Text="Roll" Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
 

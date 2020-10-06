@@ -31,6 +31,9 @@ namespace PointOfSale.ItemOptions.Drinks
         /// class field to serve as a placeholder for Drink options
         /// </summary>
         SailorSoda placeholder = new SailorSoda();
+        /// <summary>
+        /// Initialize the SSODAOptions UserControl
+        /// </summary>
         public SSODAOptions()
         {
             InitializeComponent();

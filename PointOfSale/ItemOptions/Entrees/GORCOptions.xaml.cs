@@ -29,6 +29,9 @@ namespace PointOfSale.ItemOptions.Entrees
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         public GardenOrcOmelette placeholder = new GardenOrcOmelette();
+        /// <summary>
+        /// Initialize the GORCOptions UserControl
+        /// </summary>
         public GORCOptions()
         {
             InitializeComponent();

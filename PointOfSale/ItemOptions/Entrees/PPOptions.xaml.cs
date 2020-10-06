@@ -31,6 +31,9 @@ namespace PointOfSale.ItemOptions.Entrees
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         PhillyPoacher placeholder = new PhillyPoacher();
+        /// <summary>
+        /// Initialize the PPOptions UserControl
+        /// </summary>
         public PPOptions()
         {
             InitializeComponent();

@@ -29,6 +29,9 @@ namespace PointOfSale.ItemOptions.Entrees
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         public DoubleDraugr placeholder = new DoubleDraugr();
+        /// <summary>
+        /// Initialize the DDOptions UserControl
+        /// </summary>
         public DDOptions()
         {
             InitializeComponent();

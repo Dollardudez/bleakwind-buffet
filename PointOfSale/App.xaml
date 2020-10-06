@@ -167,6 +167,73 @@
             </Setter>
         </Style>
 
+        <!--TOGGLE BUTTON-->
+
+        <Style x:Key="Toggle" TargetType="ToggleButton">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="bk" Background="#769A9A" CornerRadius="12.5">
+                            <Ellipse x:Name="ep" Fill="#8BFF90" HorizontalAlignment="Left" Margin="2" Width="24">
+
+                            </Ellipse>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="ep" Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Background" TargetName="bk">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#8BFF90" Offset="0.1" />
+                                            <GradientStop Color="#FFC9FD" Offset="0.4" />
+                                            <GradientStop Color="#b6eef5" Offset=".9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Fill" TargetName="ep" Value="white">
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="ToggleDrink" TargetType="ToggleButton">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ToggleButton">
+                        <Border x:Name="bk" Background="#769A9A" CornerRadius="12.5">
+                            <Ellipse x:Name="ep" Fill="#A4DEEF" HorizontalAlignment="Left" Margin="2" Width="24">
+
+                            </Ellipse>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="true">
+                                <Setter TargetName="ep" Property="HorizontalAlignment" Value="Right"/>
+                                <Setter Property="Background" TargetName="bk">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#8BFF90" Offset="0.1" />
+                                            <GradientStop Color="#FFC9FD" Offset="0.4" />
+                                            <GradientStop Color="#b6eef5" Offset=".9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Fill" TargetName="ep" Value="white">
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
 
         <Style x:Key="NameOrderOptions" TargetType="Border">
             <Setter Property="Grid.ColumnSpan" Value="2"/>

@@ -31,7 +31,7 @@ namespace PointOfSale.ItemOptions.Entrees
         /// </summary>
         SmokehouseSkeleton placeholder = new SmokehouseSkeleton();
         /// <summary>
-        /// constructor for the Smokehouse Skeleton Options screen
+        /// Initialize the SSsOptions UserControl
         /// </summary>
         public SSOptions()
         {

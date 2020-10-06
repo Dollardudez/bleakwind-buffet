@@ -30,6 +30,9 @@ namespace PointOfSale.ItemOptions.Sides
         /// class field to serve as a placeholder for Side options
         /// </summary>
         VokunSalad placeholder = new VokunSalad();
+        /// <summary>
+        /// Initialize the VSOptions UserControl
+        /// </summary>
         public VSOptions()
         {
             InitializeComponent();

@@ -30,6 +30,9 @@ namespace PointOfSale.ItemOptions.Entrees
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         public BriarheartBurger placeholder = new BriarheartBurger();
+        /// <summary>
+        /// Initialize the BBOptions UserControl
+        /// </summary>
         public BBOptions()
         {
             InitializeComponent();

@@ -30,6 +30,9 @@ namespace PointOfSale.ItemOptions.Entrees
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         ThalmorTriple placeholder = new ThalmorTriple();
+        /// <summary>
+        /// Initialize the TTOptions UserControl
+        /// </summary>
         public TTOptions()
         {
             InitializeComponent();

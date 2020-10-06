@@ -32,34 +32,34 @@
             <TextBlock x:Name="NameOfItem" Text="Briarheart Burger" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
         </Border>
 
-        <ToggleClass:Toggle Name="Bun" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=Bun}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Bun" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=Bun}"/>
         <TextBlock x:Name="BunText" Text="Bun" Grid.Row="1" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Ketchup" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ketchup}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Ketchup" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ketchup}"/>
         <TextBlock x:Name="KetchupText" Text="Ketchup" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Mustard" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Mustard}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Mustard" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Mustard}"/>
         <TextBlock x:Name="MustardText" Text="Mustard" Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Pickle" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="{Binding Path=Pickle}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Pickle" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="{Binding Path=Pickle}"/>
         <TextBlock x:Name="PickleText" Text="Pickle" Grid.Row="4" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Cheese" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" IsChecked="{Binding Path=Cheese}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Cheese" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="5" IsChecked="{Binding Path=Cheese}"/>
         <TextBlock x:Name="CheeseText" Text="Cheese" Grid.Row="5" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Tomato" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" IsChecked="{Binding Path=Tomato}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Tomato" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="6" IsChecked="{Binding Path=Tomato}"/>
         <TextBlock x:Name="TomatoText" Text="Tomato" Grid.Row="6" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Lettuce" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" IsChecked="{Binding Path=Lettuce}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Lettuce" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="7" IsChecked="{Binding Path=Lettuce}"/>
         <TextBlock x:Name="LettuceText" Text="Lettuce" Grid.Row="7" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Mayo" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="8" IsChecked="{Binding Path=Mayo}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Mayo" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="8" IsChecked="{Binding Path=Mayo}"/>
         <TextBlock x:Name="MayoText" Text="Mayo" Grid.Row="8" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Bacon" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" IsChecked="{Binding Path=Bacon}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Bacon" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="9" IsChecked="{Binding Path=Bacon}"/>
         <TextBlock x:Name="BaconText" Text="Bacon" Grid.Row="9" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleClass:Toggle Name="Egg" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" IsChecked="{Binding Path=Egg}"/>
+        <ToggleButton Style="{StaticResource Toggle}" Name="Egg" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="10" IsChecked="{Binding Path=Egg}"/>
         <TextBlock x:Name="EggText" Text="Egg" Grid.Row="10" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
 

@@ -31,6 +31,9 @@ namespace PointOfSale.ItemOptions.Sides
         /// class field to serve as a placeholder for Side options
         /// </summary>
         MadOtarGrits placeholder = new MadOtarGrits();
+        /// <summary>
+        /// Initialize the MOGOptions UserControl
+        /// </summary>
         public MOGOptions()
         {
             InitializeComponent();

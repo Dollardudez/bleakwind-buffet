@@ -50,7 +50,7 @@
         </Border>
 
         <TextBlock x:Name="OptionsText" Text="Options" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ToggleClass:Toggle Name="Ice" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ice}"/>
+        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Ice" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ice}"/>
         <TextBlock x:Name="IceText" Text="Ice" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
 

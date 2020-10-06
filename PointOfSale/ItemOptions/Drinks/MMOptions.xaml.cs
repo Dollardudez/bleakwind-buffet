@@ -31,6 +31,9 @@ namespace PointOfSale.ItemOptions.Drinks
         /// class field to serve as a placeholder for Drink options
         /// </summary>
         MarkarthMilk placeholder = new MarkarthMilk();
+        /// <summary>
+        /// Initialize the MMOOptions UserControl
+        /// </summary>
         public MMOptions()
         {
             InitializeComponent();

@@ -30,6 +30,9 @@ namespace PointOfSale.ItemOptions.Drinks
         /// class field to serve as a placeholder for Drink options
         /// </summary>
         CandlehearthCoffee placeholder = new CandlehearthCoffee();
+        /// <summary>
+        /// Initialize the CCOptions UserControl
+        /// </summary>
         public CCOptions()
         {
             InitializeComponent();

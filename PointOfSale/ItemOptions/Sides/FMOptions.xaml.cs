@@ -32,7 +32,7 @@ namespace PointOfSale.ItemOptions.Sides
      /// </summary>
         FriedMiraak placeholder = new FriedMiraak();
         /// <summary>
-        /// display the item options to the user and sset the DataContext to placeholder
+        /// Initialize the FMOptions UserControl
         /// </summary>
         public FMOptions()
         {

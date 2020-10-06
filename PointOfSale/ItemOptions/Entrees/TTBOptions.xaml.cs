@@ -26,6 +26,9 @@ namespace PointOfSale.ItemOptions.Entrees
     /// </summary>
     public partial class TTBOptions : UserControl
     {
+        /// <summary>
+        /// Initialize the TTBOptions UserControl
+        /// </summary>
         public TTBOptions()
         {
             InitializeComponent();

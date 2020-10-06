@@ -31,6 +31,9 @@ namespace PointOfSale.ItemOptions.Drinks
         /// class field to serve as a placeholder for Drink options
         /// </summary>
         WarriorWater placeholder = new WarriorWater();
+        /// <summary>
+        /// Initialize the WWOptions UserControl
+        /// </summary>
         public WWOptions()
         {
             InitializeComponent();
