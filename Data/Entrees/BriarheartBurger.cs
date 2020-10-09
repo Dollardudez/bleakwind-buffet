@@ -138,9 +138,6 @@ namespace BleakwindBuffet.Data.Entrees
         /// list that holds the instructions for the item ie.("Hold ketchup, Add ice, etc")
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-
-       
-
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
