@@ -54,6 +54,7 @@ namespace PointOfSale.ItemOptions.Entrees
             Border openSpace = (Border)this.Parent;
             BriarheartBurger item = (BriarheartBurger)this.DataContext;
             Button button = (Button)sender;
+
             if (button.Name == "Add")
             {
                 if (openSpace.DataContext is OrderList list)
