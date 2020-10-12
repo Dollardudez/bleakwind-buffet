@@ -18,11 +18,12 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Order;
 
 namespace PointOfSale.ItemOptions.Entrees
 {
     /// <summary>
-    /// Interaction logic for DoubleDraugr.xaml
+    /// Interaction logic for BBOptions.xaml
     /// </summary>
     public partial class BBOptions : UserControl
     {
@@ -40,28 +41,37 @@ namespace PointOfSale.ItemOptions.Entrees
         }
         /// <summary>
         /// Handler for ADD/Back button press.
-        /// On ADD click: displays the Order.xaml in the correct loaction on the screen
+        /// On ADD click: displays the OrderList.xaml in the correct loaction on the screen
         /// and sets Data.Context to a new item Object.
-        /// On BACK click: displays the Order.xaml in the correct loaction on the screen
+        /// On BACK click: displays the OrderList.xaml in the correct loaction on the screen
         /// but does not set Data.Context to a new item Object.
         /// </summary>
         /// <param name="sender">button</param>
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
+            OrderSideBar.Order order = new OrderSideBar.Order();
+            Border openSpace = (Border)this.Parent;
+            BriarheartBurger item = (BriarheartBurger)this.DataContext;
             Button button = (Button)sender;
             if (button.Name == "Add")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                this.DataContext = new BriarheartBurger();
-                openSpace.Child = order;
+                if (openSpace.DataContext is OrderList list)
+                {
+                    if (list.Contains(item))
+                    {
+                        openSpace.Child = order;
+                    }
+                    else
+                    {
+                        list.Add(placeholder);
+                        openSpace.Child = new OrderSideBar.Order();
+                    }
+                }
             }
             if (button.Name == "Back")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
+                openSpace.Child = new OrderSideBar.Order();
             }
         }
     }

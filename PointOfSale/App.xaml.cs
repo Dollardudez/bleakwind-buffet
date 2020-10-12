@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Robert Clancy
-* Class name: Order.xaml.cs.cs
+* Class name: OrderList.xaml.cs.cs
 * Purpose: Class used to operate the logic for the App.Xaml Application file
 */
 

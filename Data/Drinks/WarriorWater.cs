@@ -114,7 +114,6 @@ namespace BleakwindBuffet.Data.Drinks
                 List<string> instructions = new List<string>();
                 if (Lemon) instructions.Add("Add lemon");
                 if (!Ice) instructions.Add("Hold ice");
-                if (instructions != null) PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 return instructions;
             }
         }
@@ -125,6 +124,14 @@ namespace BleakwindBuffet.Data.Drinks
         public override string ToString()
         {
             return $"{Size} Warrior Water";
+        }
+
+        /// <summary>
+        /// property that returns the name of the item, used for the Point of Sale portion of the project.
+        /// </summary>
+        public string ToStringProperty
+        {
+            get => ToString();
         }
     }
 }

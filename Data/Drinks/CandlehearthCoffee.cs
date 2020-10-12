@@ -170,5 +170,12 @@ namespace BleakwindBuffet.Data.Drinks
             if (Decaf) return $"{Size} Decaf Candlehearth Coffee";
             return $"{Size} Candlehearth Coffee";
         }
+        /// <summary>
+        /// property that returns the name of the item, used for the Point of Sale portion of the project.
+        /// </summary>
+        public string ToStringProperty
+        {
+            get => ToString();
+        }
     }
 }

@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Order;
+
 
 namespace PointOfSale.ItemOptions.Entrees
 {
@@ -41,9 +43,9 @@ namespace PointOfSale.ItemOptions.Entrees
 
         /// <summary>
         /// Handler for ADD/Back button press.
-        /// On ADD click: displays the Order.xaml in the correct loaction on the screen
+        /// On ADD click: displays the OrderList.xaml in the correct loaction on the screen
         /// and sets Data.Context to a new item Object.
-        /// On BACK click: displays the Order.xaml in the correct loaction on the screen
+        /// On BACK click: displays the OrderList.xaml in the correct loaction on the screen
         /// but does not set Data.Context to a new item Object.
         /// </summary>
         /// <param name="sender">button</param>
@@ -55,8 +57,11 @@ namespace PointOfSale.ItemOptions.Entrees
             {
                 OrderSideBar.Order order = new OrderSideBar.Order();
                 Border openSpace = (Border)this.Parent;
-                this.DataContext = new DoubleDraugr();
                 openSpace.Child = order;
+                if (openSpace.DataContext is OrderList list)
+                {
+                    list.Add(placeholder);
+                }
 
             }
             if (button.Name == "Back")

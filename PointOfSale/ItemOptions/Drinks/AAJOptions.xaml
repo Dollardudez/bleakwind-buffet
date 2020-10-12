@@ -49,7 +49,7 @@
         <TextBlock x:Name="IceText" Text="Ice" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
         <TextBlock x:Name="Size" Text="Size" Grid.Row="3" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ComboBox Style="{StaticResource ComboboxStyle}" Width="190" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+        <ComboBox Style="{StaticResource ComboboxStyle}" Width="190" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=Size}"
                   Grid.Row="4" Grid.ColumnSpan="2" FontSize="18">
         </ComboBox>
 

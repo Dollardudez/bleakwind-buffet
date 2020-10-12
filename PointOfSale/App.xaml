@@ -157,12 +157,41 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
+            
+            
 
             <Setter Property="ContentTemplate">
                 <Setter.Value>
                     <DataTemplate>
                         <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
                     </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="RemoveItemButton" TargetType="Button">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="DarkSlateGray"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="30"/>
+                                <Setter Property="Width" Value="100"/>
+                                <Setter Property="Background" Value="white"/>
+                                <Setter Property="Foreground" Value="DarkSlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
                 </Setter.Value>
             </Setter>
         </Style>
@@ -245,7 +274,41 @@
             <Setter Property="Panel.ZIndex" Value="-1"/>
         </Style>
 
-        
+
+        <!--<Style x:Key="OrderListBox" TargetType="ListBox">
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Panel.ZIndex" Value="-1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border   
+                            Margin="5,0,5,0"
+                            Background="White"   
+                            x:Name="border"   
+                            CornerRadius="15"
+                            Panel.ZIndex="-1">
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>-->
+
+
+        <!--<ListBox BorderThickness="0" HorizontalContentAlignment="Stretch">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="0"/>
+                </Style>
+            </ListBox.ItemContainerStyle>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid Background="White">
+                        <ContentPresenter Content="{Binding}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>-->
+
         <!--HERE ON DOWN IS NOT MY CODE! IT IS SIMPLY PLACEHOLDER CODE FOR WHEN I DESIGN MY COMBOBOX
         courtesy of Kailash's Blogs https://www.kailashsblogs.com/2017/01/round-corner-wpf-combobox.html-->
         <Style x:Key="ComboboxButtonStyle" TargetType="{x:Type ToggleButton}">
@@ -253,11 +316,11 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type ToggleButton}">
                         <Border   
-             Background="White"   
-             x:Name="border"   
-             CornerRadius="0,5,5,0"   
-             BorderThickness="0,1,1,1"  
-             BorderBrush="Black">
+                            Background="White"   
+                            x:Name="border"   
+                            CornerRadius="0,5,5,0"   
+                            BorderThickness="0,1,1,1"  
+                            BorderBrush="Black">
                             <ContentPresenter />
                         </Border>
                     </ControlTemplate>

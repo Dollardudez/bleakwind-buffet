@@ -1,6 +1,6 @@
 ﻿/*
 * Author: Robert Clancy
-* Class name: Order.xaml.cs.cs
+* Class name: OrderList.xaml.cs.cs
 * Purpose: Class used to operate the logic for the FullMenu.xaml UserControl
 */
 
@@ -21,6 +21,7 @@ using PointOfSale.ItemOptions.Entrees;
 using PointOfSale.ItemOptions.Sides;
 using PointOfSale.ItemOptions.Drinks;
 using PointOfSale.OrderSideBar;
+using BleakwindBuffet.Data.Order;
 
 
 
@@ -31,15 +32,16 @@ namespace PointOfSale
     /// </summary>
     public partial class FullMenu : UserControl
     {
+        OrderList orderList = new OrderList();
+        Order order = new Order();
         /// <summary>
-        /// Initializes the FullMenu UserControl and displays the Order.xaml in the correct position on the creen
+        /// Initializes the FullMenu UserControl and displays the OrderList.xaml in the correct position on the creen
         /// </summary>
         public FullMenu()
         {
             InitializeComponent();
-            Order order = new Order();
             openSpace.Child = order;
-            
+            openSpace.DataContext = orderList;
         }
 
         /// <summary>

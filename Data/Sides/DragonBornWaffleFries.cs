@@ -80,5 +80,12 @@ namespace BleakwindBuffet.Data.Sides
         {
             return $"{Size} Dragonborn Waffle Fries";
         }
+        /// <summary>
+        /// property that returns the name of the item, used for the Point of Sale portion of the project.
+        /// </summary>
+        public string ToStringProperty
+        {
+            get => ToString();
+        }
     }
 }

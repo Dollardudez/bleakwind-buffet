@@ -39,7 +39,7 @@
         </Border>
 
         <TextBlock x:Name="Size" Text="Size" Grid.Row="2" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=Size}"
                   Grid.Row="3" Grid.ColumnSpan="2" FontSize="18" Width="190">
         </ComboBox>
 

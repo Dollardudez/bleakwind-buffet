@@ -82,5 +82,12 @@ namespace BleakwindBuffet.Data.Sides
         {
             return $"{Size} Fried Miraak";
         }
+        /// <summary>
+        /// property that returns the name of the item, used for the Point of Sale portion of the project.
+        /// </summary>
+        public string ToStringProperty
+        {
+            get => ToString();
+        }
     }
 }

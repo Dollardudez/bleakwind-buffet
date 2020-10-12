@@ -29,7 +29,7 @@
         </Grid.RowDefinitions>
 
         <Border x:Name="nameSpace" Style="{StaticResource NameOrderOptions}">
-            <TextBlock x:Name="NameOfItem" Text="Briarheart Burger" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
+            <TextBlock x:Name="NameOfItem" Text="Thalmor Triple" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" FontWeight="DemiBold" Foreground="#769A9A"/>
         </Border>
 
         <ToggleButton Style="{StaticResource Toggle}" Name="Bun" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" IsChecked="{Binding Path=Bun}"/>

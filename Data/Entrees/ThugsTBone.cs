@@ -16,7 +16,7 @@ namespace BleakwindBuffet.Data.Entrees
     /// <summary>
     /// class that represents a steak
     /// </summary>
-    public class ThugsTBone: Entree, IOrderItem
+    public class ThugsTBone: Entree,IOrderItem
     {
         /// <summary>
         /// Gets the price of the steak
@@ -37,6 +37,8 @@ namespace BleakwindBuffet.Data.Entrees
         /// </summary>
         private List<string> specialInstructions = new List<string>();
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         /// <summary>
         /// property that gets the list of special instructions, no setter
         /// </summary>
@@ -55,6 +57,14 @@ namespace BleakwindBuffet.Data.Entrees
         public override string ToString()
         {
             return "Thugs T-Bone";
+        }
+
+        /// <summary>
+        /// property that returns the name of the item, used for the Point of Sale portion of the project.
+        /// </summary>
+        public string ToStringProperty
+        {
+            get => ToString();
         }
     }
 }

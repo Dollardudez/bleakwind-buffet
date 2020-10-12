@@ -31,7 +31,7 @@
 
 
 
-        <Border Name ="openSpace" Grid.Column="6" Grid.RowSpan="7" Panel.ZIndex="-1">
+        <Border Name ="openSpace" Grid.Column="6" Grid.RowSpan="7" Panel.ZIndex="-1" DataContext="Order">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                     <GradientStop Color="#8BFF90" Offset="0.1" />
