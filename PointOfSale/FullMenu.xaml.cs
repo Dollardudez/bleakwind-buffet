@@ -40,10 +40,6 @@ namespace PointOfSale
         public FullMenu()
         {
             InitializeComponent();
-            if(openSpace.Child != order)
-            {
-                openSpace.Child = order;
-            }
             openSpace.DataContext = orderList;
             openSpace.Child = order;
         }

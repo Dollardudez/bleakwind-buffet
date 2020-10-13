@@ -52,23 +52,31 @@ namespace PointOfSale.ItemOptions.Entrees
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
+            OrderSideBar.Order order = new OrderSideBar.Order();
+            Border openSpace = (Border)this.Parent;
+            ThalmorTriple item = (ThalmorTriple)this.DataContext;
             Button button = (Button)sender;
+
             if (button.Name == "Add")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
                 if (openSpace.DataContext is OrderList list)
                 {
-                    list.Add(placeholder);
+                    if (list.Contains(item))
+                    {
+                        Border openSpace2 = (Border)Parent;
+                        openSpace2.Child = new OrderSideBar.Order();
+                    }
+                    else
+                    {
+                        list.Add(placeholder);
+                        openSpace.Child = new OrderSideBar.Order();
+                    }
                 }
-
             }
             if (button.Name == "Back")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
+                Border openSpace2 = (Border)Parent;
+                openSpace2.Child = new OrderSideBar.Order();
             }
         }
     }

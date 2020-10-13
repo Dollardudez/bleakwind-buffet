@@ -61,7 +61,8 @@ namespace PointOfSale.ItemOptions.Entrees
                 {
                     if (list.Contains(item))
                     {
-                        openSpace.Child = order;
+                        Border openSpace2 = (Border)Parent;
+                        openSpace2.Child = new OrderSideBar.Order();
                     }
                     else
                     {
@@ -72,7 +73,8 @@ namespace PointOfSale.ItemOptions.Entrees
             }
             if (button.Name == "Back")
             {
-                openSpace.Child = new OrderSideBar.Order();
+                Border openSpace2 = (Border)Parent;
+                openSpace2.Child = new OrderSideBar.Order();
             }
         }
     }

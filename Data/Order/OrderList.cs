@@ -1,4 +1,11 @@
-﻿using BleakwindBuffet.Data.Interface;
+﻿/*
+* Author: Robert Clancy
+* Class name: OrderList.cs
+* Purpose: Class used to represent an order
+*/
+
+
+using BleakwindBuffet.Data.Interface;
 using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
@@ -6,23 +13,37 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Order
 {
+    /// <summary>
+    /// class that represents an order
+    /// </summary>
     public class OrderList : ObservableCollection<IOrderItem>, INotifyCollectionChanged
     {
+        /// <summary>
+        /// private order number backing variable
+        /// </summary>
         private static int nextOrderNumber = 1;
-
+        /// <summary>
+        /// Property to represent an order number.
+        /// </summary>
         public int Number
         {
             get => nextOrderNumber;
         }
-
+        /// <summary>
+        /// private sales tax rate backing variable
+        /// </summary>
         private double salestaxrate = 0.12;
-
+        /// <summary>
+        /// Property to represent a Sales Tax Rate
+        /// </summary>
         public double SalesTaxRate
         {
             get => salestaxrate;
             set => salestaxrate = value;
         }
-        private double subtotal;
+        /// <summary>
+        /// Property to represent a Order Subtotal
+        /// </summary>
         public double Subtotal
         {
             get
@@ -35,9 +56,14 @@ namespace BleakwindBuffet.Data.Order
                 }
                 return sum;
             }
-            private set => subtotal = value;
         }
+        /// <summary>
+        /// private backing Tax variable
+        /// </summary>
         private double tax;
+        /// <summary>
+        /// Property to represent the amount taxed on an order
+        /// </summary>
         public double Tax
         {
             get
@@ -49,8 +75,13 @@ namespace BleakwindBuffet.Data.Order
             }
             private set => tax = value;
         }
+        /// <summary>
+        /// private backing total cost variable
+        /// </summary>
         private double total;
-
+        /// <summary>
+        /// Property to Represent the total cost of an order
+        /// </summary>
         public double Total
         {
             get
@@ -62,32 +93,27 @@ namespace BleakwindBuffet.Data.Order
             }
             private set => total = value;
         }
+        /// <summary>
+        /// Collection Changed Listener
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CollectionChangedListener(object sender, NotifyCollectionChangedEventArgs e)
         {
-            //OnCollectionChanged(new NotifyCollectionChangedEventArgs(e.Action));
             switch (e.Action)
             {
                 case NotifyCollectionChangedAction.Add:
                     foreach (IOrderItem item in e.NewItems)
                     {
                         
-                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(e.Action));
+                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
                         item.PropertyChanged += CollectionItemChangedListener;
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    //if(e.NewItems == null)
-                    //{
-                    //    Total = 0;
-                    //    Tax = 0;
-                    //    Subtotal = 0;
-                    //    return;
-                    //}
                     foreach (IOrderItem item in e.OldItems)
                     {
-                        //IOrderItem obk = (IOrderItem)e.OldItems;
-                        //Subtotal -= obk.Price;
-                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(e.Action));
+                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item));
                         item.PropertyChanged -= CollectionItemChangedListener;
                     }
                     break;
@@ -95,13 +121,19 @@ namespace BleakwindBuffet.Data.Order
                     throw new NotImplementedException("NotifyCollectionChangedAction.Reset not supported");
             }
         }
-
+        /// <summary>
+        /// OrderList Constructor, increments the order number
+        /// </summary>
         public OrderList()
         {
             CollectionChanged += CollectionChangedListener;
             nextOrderNumber++;
         }
-
+        /// <summary>
+        /// Item changed listener, activates when a property changes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         void CollectionItemChangedListener(object sender, PropertyChangedEventArgs e)
         {
             OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));

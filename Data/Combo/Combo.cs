@@ -1,4 +1,11 @@
-﻿using System;
+﻿/*
+* Author: Robert Clancy
+* Class name: Combo.cs
+* Purpose: Class used to represent aa combo meal
+*/
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 using BleakwindBuffet.Data.Enums;
@@ -10,13 +17,24 @@ using System.ComponentModel;
 
 namespace BleakwindBuffet.Data.Combo
 {
+    /// <summary>
+    /// class used to represent a combo
+    /// </summary>
     class Combo : IOrderItem, INotifyPropertyChanged
     {
+        /// <summary>
+        /// Property changed event handler
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-
-        private IOrderItem entree;
-        public IOrderItem Entree
+        /// <summary>
+        /// private backing variable
+        /// </summary>
+        private Entree entree;
+        /// <summary>
+        /// Property to represent an entree
+        /// </summary>
+        public Entree Entree
         {
             get => entree;
             set
@@ -32,9 +50,14 @@ namespace BleakwindBuffet.Data.Combo
             }
         }
 
-
-        private IOrderItem side;
-        public IOrderItem Side
+        /// <summary>
+        /// private Drink backing variable.
+        /// </summary>
+        private Side side;
+        /// <summary>
+        /// Property to represent a Drink
+        /// </summary>
+        public Side Side
         {
             get => side;
             set
@@ -50,9 +73,14 @@ namespace BleakwindBuffet.Data.Combo
             }
         }
 
-
-        private IOrderItem drink;
-        public IOrderItem Drink
+        /// <summary>
+        /// private Drink backing variable
+        /// </summary>
+        private Drink drink;
+        /// <summary>
+        /// Property to represent a Drink
+        /// </summary>
+        public Drink Drink
         {
             get => drink;
             set
@@ -67,7 +95,13 @@ namespace BleakwindBuffet.Data.Combo
                 }
             }
         }
+        /// <summary>
+        /// private Price backing variable
+        /// </summary>
         private double price;
+        /// <summary>
+        /// Variable to represent the Price of the combo
+        /// </summary>
         public double Price
         {
             get => price;
@@ -83,8 +117,13 @@ namespace BleakwindBuffet.Data.Combo
                 }
             }
         }
-
+        /// <summary>
+        /// private calories backing variable
+        /// </summary>
         private uint calories;
+        /// <summary>
+        /// Property to represent the calories of the combo
+        /// </summary>
         public uint Calories
         {
             get => calories;

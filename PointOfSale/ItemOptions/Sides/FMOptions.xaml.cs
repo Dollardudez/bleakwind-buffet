@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Order;
+
 
 
 namespace PointOfSale.ItemOptions.Sides
@@ -52,19 +54,31 @@ namespace PointOfSale.ItemOptions.Sides
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
+            OrderSideBar.Order order = new OrderSideBar.Order();
+            Border openSpace = (Border)this.Parent;
+            FriedMiraak item = (FriedMiraak)this.DataContext;
             Button button = (Button)sender;
+
             if (button.Name == "Add")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                this.DataContext = new FriedMiraak();
-                openSpace.Child = order;
+                if (openSpace.DataContext is OrderList list)
+                {
+                    if (list.Contains(item))
+                    {
+                        Border openSpace2 = (Border)Parent;
+                        openSpace2.Child = new OrderSideBar.Order();
+                    }
+                    else
+                    {
+                        list.Add(placeholder);
+                        openSpace.Child = new OrderSideBar.Order();
+                    }
+                }
             }
             if (button.Name == "Back")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
+                Border openSpace2 = (Border)Parent;
+                openSpace2.Child = new OrderSideBar.Order();
             }
         }
 
