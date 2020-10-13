@@ -36,7 +36,9 @@ namespace BleakwindBuffet.Data.Entrees
         /// list that holds the instructions for the item
         /// </summary>
         private List<string> specialInstructions = new List<string>();
-
+        /// <summary>
+        /// never going to be used
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
         /// <summary>

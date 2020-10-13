@@ -27,6 +27,7 @@ namespace PointOfSale.ItemOptions.Sides
     /// </summary>
     public partial class DWFOptions : UserControl
     {
+        FullMenu ancestor;
         /// <summary>
         /// class field to serve as a placeholder for Side options
         /// </summary>
@@ -34,10 +35,11 @@ namespace PointOfSale.ItemOptions.Sides
         /// <summary>
         /// Initialize the DWFOptions UserControl
         /// </summary>
-        public DWFOptions()
+        public DWFOptions(FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = placeholder;
+            this.ancestor = ancestor;
         }
 
 
@@ -52,7 +54,6 @@ namespace PointOfSale.ItemOptions.Sides
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderSideBar.Order order = new OrderSideBar.Order();
             Border openSpace = (Border)this.Parent;
             DragonbornWaffleFries item = (DragonbornWaffleFries)this.DataContext;
             Button button = (Button)sender;
@@ -64,20 +65,27 @@ namespace PointOfSale.ItemOptions.Sides
                     if (list.Contains(item))
                     {
                         Border openSpace2 = (Border)Parent;
-                        openSpace2.Child = new OrderSideBar.Order();
+                        openSpace2.Child = new OrderSideBar.Order(this.ancestor);
                     }
                     else
                     {
                         list.Add(placeholder);
-                        openSpace.Child = new OrderSideBar.Order();
+                        openSpace.Child = new OrderSideBar.Order(this.ancestor);
                     }
                 }
             }
             if (button.Name == "Back")
             {
                 Border openSpace2 = (Border)Parent;
-                openSpace2.Child = new OrderSideBar.Order();
+                openSpace2.Child = new OrderSideBar.Order(this.ancestor);
             }
+        }
+        /// <summary>
+        /// Switch the view to the order
+        /// </summary>
+        void OnSwitchScreen()
+        {
+            this.ancestor.SwitchScreen(Screen.Order);
         }
     }
 }

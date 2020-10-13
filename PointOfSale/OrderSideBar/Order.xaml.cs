@@ -34,14 +34,14 @@ namespace PointOfSale.OrderSideBar
     /// </summary>
     public partial class Order : UserControl
     {
+        FullMenu ancestor;
         /// <summary>
         /// Initializes the OrderList component to the screen
         /// </summary>
-        public Order()
+        public Order(FullMenu ancestor)
         {
             InitializeComponent();
         }
-
         /// <summary>
         /// Confirms or cancels the order, OR removes an item from the order
         /// </summary>
@@ -52,7 +52,7 @@ namespace PointOfSale.OrderSideBar
             Button button = (Button)sender;
             if (button.Name == "Confirm")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
+                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
                 Border openSpace = (Border)this.Parent;
                 openSpace.Child = order;
                 openSpace.DataContext = new OrderList();
@@ -60,7 +60,7 @@ namespace PointOfSale.OrderSideBar
             }
             if (button.Name == "Cancel")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order();
+                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
                 Border openSpace = (Border)this.Parent;
                 openSpace.Child = order;
                 openSpace.DataContext = new OrderList();
@@ -72,7 +72,7 @@ namespace PointOfSale.OrderSideBar
                 OrderList o = (OrderList)DataContext;
                 o.Remove(i);
                 Border openSpace = (Border)this.Parent;
-                OrderSideBar.Order order = new OrderSideBar.Order();
+                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
                 openSpace.Child = order;
             }
         }
@@ -84,6 +84,7 @@ namespace PointOfSale.OrderSideBar
         private void ItemSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Border openSpace = (Border)this.Parent;
+            //NavigationLogic nl = new NavigationLogic((Border)Parent);
 
             if (sender is ListBox listBoxOrder && listBoxOrder.SelectedIndex != -1)
             {
@@ -91,155 +92,101 @@ namespace PointOfSale.OrderSideBar
                 //entrees
                 if (item is BriarheartBurger)
                 {
-                    BBOptions obk = new BBOptions();
+                    BBOptions obk = new BBOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
             
                 if (item is DoubleDraugr)
                 {
-                    DDOptions obk = new DDOptions();
+                    DDOptions obk = new DDOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is ThalmorTriple)
                 {
-                    TTOptions obk = new TTOptions();
+                    TTOptions obk = new TTOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is GardenOrcOmelette)
                 {
-                    GORCOptions obk = new GORCOptions();
+                    GORCOptions obk = new GORCOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is SmokehouseSkeleton)
                 {
-                    SSOptions obk = new SSOptions();
+                    SSOptions obk = new SSOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is PhillyPoacher)
                 {
-                    PPOptions obk = new PPOptions();
+                    PPOptions obk = new PPOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is ThugsTBone)
                 {
-                    TTBOptions obk = new TTBOptions();
+                    TTBOptions obk = new TTBOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 //drinks
                 if (item is WarriorWater)
                 {
-                    WWOptions obk = new WWOptions();
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    openSpace.Child = new WWOptions((WarriorWater)lb.SelectedItem, this.ancestor);
                 }
 
                 if (item is AretinoAppleJuice)
                 {
-                    AAJOptions obk = new AAJOptions();
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    var ancestor = (FullMenu)((Grid)((Border)this.Parent).Parent).Parent;
+                    openSpace.Child = new AAJOptions((AretinoAppleJuice)lb.SelectedItem, this.ancestor);
                 }
                 if (item is CandlehearthCoffee)
                 {
-                    CCOptions obk = new CCOptions();
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    openSpace.Child = new CCOptions((CandlehearthCoffee)lb.SelectedItem, this.ancestor);
                 }
                 if (item is MarkarthMilk)
                 {
-                    MMOptions obk = new MMOptions();
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    openSpace.Child = new MMOptions((MarkarthMilk)lb.SelectedItem, this.ancestor);
                 }
                 if (item is SailorSoda)
                 {
-                    SSODAOptions obk = new SSODAOptions();
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    openSpace.Child = new SSODAOptions((SailorSoda)lb.SelectedItem, this.ancestor);
                 }
                 //sides
                 if (item is DragonbornWaffleFries)
                 {
-                    DWFOptions obk = new DWFOptions();
+                    DWFOptions obk = new DWFOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
 
                 if (item is FriedMiraak)
                 {
-                    FMOptions obk = new FMOptions();
+                    FMOptions obk = new FMOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is MadOtarGrits)
                 {
-                    MOGOptions obk = new MOGOptions();
+                    MOGOptions obk = new MOGOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
                 if (item is VokunSalad)
                 {
-                    VSOptions obk = new VSOptions();
+                    VSOptions obk = new VSOptions(this.ancestor);
                     obk.DataContext = lb.SelectedItem;
                     openSpace.Child = obk;
                 }
-
             }
-
-            //openSpace.Child = new Order();
-
-            //foreach(object o in e.AddedItems)
-            //{
-            //if(o is BriarheartBurger)
-            //{
-            //    BBOptions obk = new BBOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is DoubleDraugr)
-            //{
-            //    DDOptions obk = new DDOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is ThalmorTriple)
-            //{
-            //    TTOptions obk = new TTOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is GardenOrcOmelette)
-            //{
-            //    GORCOptions obk = new GORCOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is SmokehouseSkeleton)
-            //{
-            //    SSOptions obk = new SSOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is PhillyPoacher)
-            //{
-            //    PPOptions obk = new PPOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            //if (o is ThugsTBone)
-            //{
-            //    TTBOptions obk = new TTBOptions();
-            //    obk.DataContext = lb.SelectedItem;
-            //    openSpace.Child = obk;
-            //}
-            
+        }
+        void onSwitchScreen()
+        {
+            ancestor.SwitchScreen(Screen.Order);
         }
     }
 }

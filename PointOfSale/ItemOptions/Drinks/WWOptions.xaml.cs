@@ -27,6 +27,7 @@ namespace PointOfSale.ItemOptions.Drinks
     /// </summary>
     public partial class WWOptions : UserControl
     {
+        FullMenu ancestor;
         /// <summary>
         /// class field to serve as a placeholder for Drink options
         /// </summary>
@@ -34,10 +35,17 @@ namespace PointOfSale.ItemOptions.Drinks
         /// <summary>
         /// Initialize the WWOptions UserControl
         /// </summary>
-        public WWOptions()
+        public WWOptions(FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = placeholder;
+            this.ancestor = ancestor;
+        }
+        public WWOptions(WarriorWater pl, FullMenu ancestor)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
         }
         /// <summary>
         /// Handler for ADD/Back button press.
@@ -50,32 +58,29 @@ namespace PointOfSale.ItemOptions.Drinks
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderSideBar.Order order = new OrderSideBar.Order();
-            Border openSpace = (Border)this.Parent;
             WarriorWater item = (WarriorWater)this.DataContext;
             Button button = (Button)sender;
 
             if (button.Name == "Add")
             {
-                if (openSpace.DataContext is OrderList list)
+                if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item))
-                    {
-                        Border openSpace2 = (Border)Parent;
-                        openSpace2.Child = new OrderSideBar.Order();
-                    }
+                    if (list.Contains(item)) OnSwitchScreen();
                     else
                     {
                         list.Add(placeholder);
-                        openSpace.Child = new OrderSideBar.Order();
+                        OnSwitchScreen();
                     }
                 }
             }
-            if (button.Name == "Back")
-            {
-                Border openSpace2 = (Border)Parent;
-                openSpace2.Child = new OrderSideBar.Order();
-            }
+            if (button.Name == "Back") OnSwitchScreen();
+        }
+        /// <summary>
+        /// Switch the view to the order
+        /// </summary>
+        void OnSwitchScreen()
+        {
+            this.ancestor.SwitchScreen(Screen.Order);
         }
     }
 }

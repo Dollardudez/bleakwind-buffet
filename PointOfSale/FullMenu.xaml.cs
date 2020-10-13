@@ -32,8 +32,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FullMenu : UserControl
     {
+        Dictionary<Screen, UserControl> screens = new Dictionary<Screen, UserControl>();
+
         OrderList orderList = new OrderList();
-        Order order = new Order();
         /// <summary>
         /// Initializes the FullMenu UserControl and displays the OrderList.xaml in the correct position on the creen
         /// </summary>
@@ -41,8 +42,19 @@ namespace PointOfSale
         {
             InitializeComponent();
             openSpace.DataContext = orderList;
-            openSpace.Child = order;
+            openSpace.Child = new Order(this);
+            screens.Add(Screen.Order, new Order(this));
+            screens.Add(Screen.AAJOptions, new AAJOptions(this));
         }
+
+        //public void SwitchScreen(string name)
+        //{
+        //    switch (name)
+        //    {
+        //        case "AAJOptions":
+        //            openSpace.Child = new AAJOptions(this);
+        //    }
+        //}
 
         /// <summary>
         /// A single handler to operate the logic for when any Menu Item Button is clicked
@@ -57,79 +69,81 @@ namespace PointOfSale
             {
                 //entrees
                 case "uxBB":
-                    BBOptions bbOptions = new BBOptions();
+                    BBOptions bbOptions = new BBOptions(this);
                     openSpace.Child = bbOptions;
                     break;
                 case "uxDD":
-                    DDOptions ddOptions = new DDOptions();
+                    DDOptions ddOptions = new DDOptions(this);
                     openSpace.Child = ddOptions;
                     break;
                 case "uxTT":
-                    TTOptions ttOptions = new TTOptions();
+                    TTOptions ttOptions = new TTOptions(this);
                     openSpace.Child = ttOptions;
                     break;
                 case "uxTTB":
-                    TTBOptions ttbOptions = new TTBOptions();
+                    TTBOptions ttbOptions = new TTBOptions(this);
                     openSpace.Child = ttbOptions;
                     break;
                 case "uxPP":
-                    PPOptions ppOptions = new PPOptions();
+                    PPOptions ppOptions = new PPOptions(this);
                     openSpace.Child = ppOptions;
                     break;
                 case "uxSS":
-                    SSOptions ssOptions = new SSOptions();
+                    SSOptions ssOptions = new SSOptions(this);
                     openSpace.Child = ssOptions;
                     break;
                 case "uxGORC":
-                    GORCOptions gorcOptions = new GORCOptions();
+                    GORCOptions gorcOptions = new GORCOptions(this);
                     openSpace.Child = gorcOptions;
                     break;
 
                 //sides
                 case "uxDWF":
-                    DWFOptions dwf = new DWFOptions();
+                    DWFOptions dwf = new DWFOptions(this);
                     openSpace.Child = dwf;
                     break;
                 case "uxFM":
-                    FMOptions fm = new FMOptions();
+                    FMOptions fm = new FMOptions(this);
                     openSpace.Child = fm;
                     break;
                 case "uxMOG":
-                    MOGOptions mog = new MOGOptions();
+                    MOGOptions mog = new MOGOptions(this);
                     openSpace.Child = mog;
                     break;
                 case "uxVS":
-                    VSOptions vs = new VSOptions();
+                    VSOptions vs = new VSOptions(this);
                     openSpace.Child = vs;
                     break;
 
                 //drinks
                 case "uxWW":
-                    WWOptions wwOptions = new WWOptions();
+                    WWOptions wwOptions = new WWOptions(this);
                     openSpace.Child = wwOptions;
                     break;
                 case "uxAAJ":
-                    AAJOptions aajOptions = new AAJOptions();
+                    AAJOptions aajOptions = new AAJOptions(this);
                     openSpace.Child = aajOptions;
                     break;
                 case "uxCC":
-                    CCOptions ccOptions = new CCOptions();
+                    CCOptions ccOptions = new CCOptions(this);
                     openSpace.Child = ccOptions;
                     break;
                 case "uxMM":
-                    MMOptions mmOptions = new MMOptions();
+                    MMOptions mmOptions = new MMOptions(this);
                     openSpace.Child = mmOptions;
                     break;
                 case "uxSSODA":
-                    SSODAOptions ssodaOptions = new SSODAOptions();
+                    SSODAOptions ssodaOptions = new SSODAOptions(this);
                     openSpace.Child = ssodaOptions;
                     break;
-
-
                 default:
                     break;
+            }            
+        }
 
-            }
+        public void SwitchScreen(Screen screen)
+        {
+            openSpace.Child = screens[screen];
         }
     }
 }

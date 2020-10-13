@@ -21,7 +21,7 @@ namespace BleakwindBuffet.Data.Order
         /// <summary>
         /// private order number backing variable
         /// </summary>
-        private static int nextOrderNumber = 1;
+        private static int nextOrderNumber = 0;
         /// <summary>
         /// Property to represent an order number.
         /// </summary>

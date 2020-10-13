@@ -21,19 +21,15 @@ namespace BleakwindBuffet.DataTests.UnitTests.OrderTests
 {
     public class OrderListTests
     {
-        [Theory]
-        [InlineData("Calories")]
-        [InlineData("Total")]
-        [InlineData("Tax")]
-        [InlineData("Subtotal")]
-        public void OrderAddingItemsShouldNotifyPropertyChange(string property)
-        {
-            OrderList order = new OrderList();
-            AretinoAppleJuice item = new AretinoAppleJuice();
-            Assert.PropertyChanged(order, property, () =>
-            {
-                order.Add(item);
-            });
-        }
+        //[Fact]
+        //public void OrderAddingItemsShouldNotifyPropertyChange()
+        //{
+        //    OrderList order = new OrderList();
+        //    AretinoAppleJuice item = new AretinoAppleJuice();
+        //    Assert.(order, CollectionItemChangedListener, () =>
+        //    {
+        //        order.Add(item);
+        //    });
+        //}
     }
 }

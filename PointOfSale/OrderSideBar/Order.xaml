@@ -26,11 +26,11 @@
         <TextBlock Text="Subtotal" Grid.Row="2" Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#769A9A"/>
         <TextBlock Text="Tax" Grid.Row="4" Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#769A9A"/>
         <TextBlock Text="Total" Grid.Row="6" Grid.ColumnSpan="2" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="#769A9A"/>
-        <Border Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="10" Background="#F2F5F5" Height="25" Width="170"/>
+        <Border Grid.Row="3" Grid.ColumnSpan="2" CornerRadius="10" Background="white" Height="25" Width="170"/>
         <TextBlock Grid.Row="3" Grid.ColumnSpan="2" Text="{Binding Path=Subtotal}" HorizontalAlignment="Center" TextAlignment="Center"/>
-        <Border Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="10" Background="#F2F5F5" Height="25" Width="170"/>
+        <Border Grid.Row="5" Grid.ColumnSpan="2" CornerRadius="10" Background="white" Height="25" Width="170"/>
         <TextBlock Grid.Row="5" Grid.ColumnSpan="2" Text="{Binding Path=Tax}" HorizontalAlignment="Center" TextAlignment="Center"/>
-        <Border Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="10" Background="#F2F5F5" Height="25" Width="170"/>
+        <Border Grid.Row="7" Grid.ColumnSpan="2" CornerRadius="10" Background="white" Height="25" Width="170"/>
         <TextBlock Grid.Row="7" Grid.ColumnSpan="2" Text="{Binding Path=Total}" HorizontalAlignment="Center" TextAlignment="Center"/>
 
 

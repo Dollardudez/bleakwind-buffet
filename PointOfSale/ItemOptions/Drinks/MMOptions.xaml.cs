@@ -27,6 +27,7 @@ namespace PointOfSale.ItemOptions.Drinks
     /// </summary>
     public partial class MMOptions : UserControl
     {
+        FullMenu ancestor;
         /// <summary>
         /// class field to serve as a placeholder for Drink options
         /// </summary>
@@ -34,10 +35,17 @@ namespace PointOfSale.ItemOptions.Drinks
         /// <summary>
         /// Initialize the MMOOptions UserControl
         /// </summary>
-        public MMOptions()
+        public MMOptions(FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = placeholder;
+            this.ancestor = ancestor;
+        }
+        public MMOptions(MarkarthMilk pl, FullMenu ancestor)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
         }
         /// <summary>
         /// Handler for ADD/Back button press.
@@ -50,47 +58,29 @@ namespace PointOfSale.ItemOptions.Drinks
         /// <param name="e">left mouse down</param>
         public void uxButton_Click(object sender, RoutedEventArgs e)
         {
-            OrderSideBar.Order order = new OrderSideBar.Order();
-            Border openSpace = (Border)this.Parent;
             MarkarthMilk item = (MarkarthMilk)this.DataContext;
             Button button = (Button)sender;
 
             if (button.Name == "Add")
             {
-                if (openSpace.DataContext is OrderList list)
+                if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item))
-                    {
-                        Border openSpace2 = (Border)Parent;
-                        openSpace2.Child = new OrderSideBar.Order();
-                    }
+                    if (list.Contains(item)) OnSwitchScreen();
                     else
                     {
-                        list.Add(placeholder);
-                        openSpace.Child = new OrderSideBar.Order();
+                        list.Add(item);
+                        OnSwitchScreen();
                     }
                 }
             }
-            if (button.Name == "Back")
-            {
-                Border openSpace2 = (Border)Parent;
-                openSpace2.Child = new OrderSideBar.Order();
-            }
+            if (button.Name == "Back") OnSwitchScreen();
         }
-
-        //private void checkmarkSpace_IsMouseDirectlyOverChanged(object sender, DependencyPropertyChangedEventArgs e)
-        //{
-        //    Border border = (Border)sender;
-        //    if (IsMouseDirectlyOver == true)
-        //    {
-        //        SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(0, 0, 0));
-        //        border.Background = brush;
-        //    }
-        //    else
-        //    {
-        //        SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(182, 238, 245));
-        //        border.Background = brush;
-        //    }
-        //}
+        /// <summary>
+        /// Switch the view to the order
+        /// </summary>
+        void OnSwitchScreen()
+        {
+            this.ancestor.SwitchScreen(Screen.Order);
+        }
     }
 }
