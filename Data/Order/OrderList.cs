@@ -31,6 +31,7 @@ namespace BleakwindBuffet.Data.Order
                 foreach (IOrderItem item in this)
                 {
                     sum += item.Price;
+                    sum = (Math.Round(sum, 2));
                 }
                 return sum;
             }
@@ -38,12 +39,24 @@ namespace BleakwindBuffet.Data.Order
 
         public double Tax
         {
-            get => Subtotal * SalesTaxRate;
+            get
+            {
+                double product;
+                product = Subtotal * SalesTaxRate;
+                product = (Math.Round(product, 2));
+                return product;
+            }
         }
 
         public double Total
         {
-            get => Subtotal + Tax;
+            get
+            {
+                double sum;
+                sum = Subtotal + Tax;
+                sum = (Math.Round(sum, 2));
+                return sum;
+            }
         }
         void CollectionChangedListener(object sender, NotifyCollectionChangedEventArgs e)
         {
