@@ -22,7 +22,7 @@ namespace BleakwindBuffet.Data.Order
             get => salestaxrate;
             set => salestaxrate = value;
         }
-
+        private double subtotal;
         public double Subtotal
         {
             get
@@ -35,8 +35,9 @@ namespace BleakwindBuffet.Data.Order
                 }
                 return sum;
             }
+            private set => subtotal = value;
         }
-
+        private double tax;
         public double Tax
         {
             get
@@ -46,7 +47,9 @@ namespace BleakwindBuffet.Data.Order
                 product = (Math.Round(product, 2));
                 return product;
             }
+            private set => tax = value;
         }
+        private double total;
 
         public double Total
         {
@@ -57,6 +60,7 @@ namespace BleakwindBuffet.Data.Order
                 sum = (Math.Round(sum, 2));
                 return sum;
             }
+            private set => total = value;
         }
         void CollectionChangedListener(object sender, NotifyCollectionChangedEventArgs e)
         {
@@ -66,17 +70,23 @@ namespace BleakwindBuffet.Data.Order
                 case NotifyCollectionChangedAction.Add:
                     foreach (IOrderItem item in e.NewItems)
                     {
+                        
                         //OnCollectionChanged(new NotifyCollectionChangedEventArgs(e.Action));
                         item.PropertyChanged += CollectionItemChangedListener;
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
-                    if(e.NewItems == null)
+                    //if(e.NewItems == null)
+                    //{
+                    //    Total = 0;
+                    //    Tax = 0;
+                    //    Subtotal = 0;
+                    //    return;
+                    //}
+                    foreach (IOrderItem item in e.OldItems)
                     {
-                        return;
-                    }
-                    foreach (IOrderItem item in e.NewItems)
-                    {
+                        //IOrderItem obk = (IOrderItem)e.OldItems;
+                        //Subtotal -= obk.Price;
                         //OnCollectionChanged(new NotifyCollectionChangedEventArgs(e.Action));
                         item.PropertyChanged -= CollectionItemChangedListener;
                     }
