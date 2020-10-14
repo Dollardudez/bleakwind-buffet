@@ -67,7 +67,10 @@ namespace PointOfSale.ItemOptions.Drinks
             {
                 if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item))  this.ancestor.openSpace.Child = new Order(this.ancestor);
+                    if (list.Contains(item))
+                    {
+                        this.ancestor.openSpace.Child = new Order(this.ancestor);
+                    }
                     else
                     {
                         list.Add(item);

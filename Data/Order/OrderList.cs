@@ -53,7 +53,6 @@ namespace BleakwindBuffet.Data.Order
                 {
                     sum += item.Price;
                     sum = (Math.Round(sum, 2));
-                    OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
                 }
                 return sum;
             }
@@ -72,7 +71,6 @@ namespace BleakwindBuffet.Data.Order
                 double product;
                 product = Subtotal * SalesTaxRate;
                 product = (Math.Round(product, 2));
-                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
                 return product;
             }
             private set => tax = value;
@@ -91,7 +89,6 @@ namespace BleakwindBuffet.Data.Order
                 double sum;
                 sum = Subtotal + Tax;
                 sum = (Math.Round(sum, 2));
-                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
                 return sum;
 
             }
@@ -109,16 +106,14 @@ namespace BleakwindBuffet.Data.Order
                 case NotifyCollectionChangedAction.Add:
                     foreach (IOrderItem item in e.NewItems)
                     {
-                        
-                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Add, item));
+
                         item.PropertyChanged += CollectionItemChangedListener;
-                        
+
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
                     foreach (IOrderItem item in e.OldItems)
                     {
-                        //OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Remove, item));
                         item.PropertyChanged -= CollectionItemChangedListener;
                     }
                     break;

@@ -40,6 +40,7 @@ namespace PointOfSale.OrderSideBar
         public Order(FullMenu ancestor)
         {
             InitializeComponent();
+            this.ancestor = ancestor;
         }
         /// <summary>
         /// Confirms or cancels the order, OR removes an item from the order
