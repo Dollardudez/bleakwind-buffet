@@ -3,8 +3,6 @@
 * Class name: OrderList.xaml.cs.cs
 * Purpose: Class used to operate the logic for the FullMenu.xaml UserControl
 */
-
-
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -23,8 +21,6 @@ using PointOfSale.ItemOptions.Drinks;
 using PointOfSale.OrderSideBar;
 using BleakwindBuffet.Data.Order;
 
-
-
 namespace PointOfSale
 {
     /// <summary>
@@ -32,6 +28,9 @@ namespace PointOfSale
     /// </summary>
     public partial class FullMenu : UserControl
     {
+        /// <summary>
+        /// dictionary holds all enums for switching screens
+        /// </summary>
         Dictionary<Screen, UserControl> screens = new Dictionary<Screen, UserControl>();
 
         OrderList orderList = new OrderList();
@@ -43,19 +42,28 @@ namespace PointOfSale
             InitializeComponent();
             openSpace.DataContext = orderList;
             openSpace.Child = new Order(this);
+
             screens.Add(Screen.Order, new Order(this));
+
+            screens.Add(Screen.BBOptions, new BBOptions(this));
+            screens.Add(Screen.DDOptions, new DDOptions(this));
+            screens.Add(Screen.TTOptions, new TTOptions(this));
+            screens.Add(Screen.GORCOptions, new GORCOptions(this));
+            screens.Add(Screen.SSOptions, new SSOptions(this));
+            screens.Add(Screen.PPOptions, new PPOptions(this));
+            screens.Add(Screen.TTBOptions, new TTBOptions(this));
+
+            screens.Add(Screen.DWFOptions, new DWFOptions(this));
+            screens.Add(Screen.FMOptions, new FMOptions(this));
+            screens.Add(Screen.MOGOptions, new MOGOptions(this));
+            screens.Add(Screen.VSOptions, new VSOptions(this));
+
             screens.Add(Screen.AAJOptions, new AAJOptions(this));
+            screens.Add(Screen.WWOptions, new WWOptions(this));
+            screens.Add(Screen.MMOptions, new MMOptions(this));
+            screens.Add(Screen.SSODAOptions, new SSODAOptions(this));
+            screens.Add(Screen.CCOptions, new CCOptions(this));
         }
-
-        //public void SwitchScreen(string name)
-        //{
-        //    switch (name)
-        //    {
-        //        case "AAJOptions":
-        //            openSpace.Child = new AAJOptions(this);
-        //    }
-        //}
-
         /// <summary>
         /// A single handler to operate the logic for when any Menu Item Button is clicked
         /// </summary>
@@ -123,6 +131,7 @@ namespace PointOfSale
                 case "uxAAJ":
                     AAJOptions aajOptions = new AAJOptions(this);
                     openSpace.Child = aajOptions;
+                    //SwitchScreen(Screen.AAJOptions)
                     break;
                 case "uxCC":
                     CCOptions ccOptions = new CCOptions(this);
@@ -140,7 +149,10 @@ namespace PointOfSale
                     break;
             }            
         }
-
+        /// <summary>
+        /// to be used eventually
+        /// </summary>
+        /// <param name="screen"></param>
         public void SwitchScreen(Screen screen)
         {
             openSpace.Child = screens[screen];

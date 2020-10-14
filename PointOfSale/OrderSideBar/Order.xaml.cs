@@ -26,7 +26,6 @@ using PointOfSale.ItemOptions.Sides;
 using PointOfSale.ItemOptions.Drinks;
 using BleakwindBuffet.Data.Interface;
 
-
 namespace PointOfSale.OrderSideBar
 {
     /// <summary>
@@ -84,8 +83,6 @@ namespace PointOfSale.OrderSideBar
         private void ItemSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Border openSpace = (Border)this.Parent;
-            //NavigationLogic nl = new NavigationLogic((Border)Parent);
-
             if (sender is ListBox listBoxOrder && listBoxOrder.SelectedIndex != -1)
             {
                 IOrderItem item = (IOrderItem)((ListBox)sender).SelectedItem;
@@ -141,7 +138,7 @@ namespace PointOfSale.OrderSideBar
 
                 if (item is AretinoAppleJuice)
                 {
-                    var ancestor = (FullMenu)((Grid)((Border)this.Parent).Parent).Parent;
+                    //ancestor.SwitchScreen(Screen.AAJOptions);
                     openSpace.Child = new AAJOptions((AretinoAppleJuice)lb.SelectedItem, this.ancestor);
                 }
                 if (item is CandlehearthCoffee)
@@ -184,6 +181,9 @@ namespace PointOfSale.OrderSideBar
                 }
             }
         }
+        /// <summary>
+        /// event handler to switch screen back to order
+        /// </summary>
         void onSwitchScreen()
         {
             ancestor.SwitchScreen(Screen.Order);

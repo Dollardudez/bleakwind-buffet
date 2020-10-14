@@ -41,8 +41,15 @@ namespace PointOfSale.ItemOptions.Sides
             this.DataContext = placeholder;
             this.ancestor = ancestor;
         }
-
-
+        /// overload
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public DWFOptions(FullMenu ancestor, VokunSalad pl)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
+        }
         /// <summary>
         /// Handler for ADD/Back button press.
         /// On ADD click: displays the OrderList.xaml in the correct loaction on the screen
@@ -62,23 +69,15 @@ namespace PointOfSale.ItemOptions.Sides
             {
                 if (openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item))
-                    {
-                        Border openSpace2 = (Border)Parent;
-                        openSpace2.Child = new OrderSideBar.Order(this.ancestor);
-                    }
+                    if (list.Contains(item)) OnSwitchScreen();
                     else
                     {
-                        list.Add(placeholder);
-                        openSpace.Child = new OrderSideBar.Order(this.ancestor);
+                        list.Add(item);
+                        OnSwitchScreen();
                     }
                 }
             }
-            if (button.Name == "Back")
-            {
-                Border openSpace2 = (Border)Parent;
-                openSpace2.Child = new OrderSideBar.Order(this.ancestor);
-            }
+            if (button.Name == "Back") OnSwitchScreen();
         }
         /// <summary>
         /// Switch the view to the order
