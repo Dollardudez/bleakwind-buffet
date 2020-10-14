@@ -39,7 +39,10 @@ namespace BleakwindBuffet.Data.Order
         public double SalesTaxRate
         {
             get => salestaxrate;
-            set => salestaxrate = value;
+            set
+            {
+                salestaxrate = value;
+            }
         }
         /// <summary>
         /// Property to represent a Order Subtotal
@@ -53,6 +56,7 @@ namespace BleakwindBuffet.Data.Order
                 {
                     sum += item.Price;
                     sum = (Math.Round(sum, 2));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
                 }
                 return sum;
             }
@@ -106,9 +110,7 @@ namespace BleakwindBuffet.Data.Order
                 case NotifyCollectionChangedAction.Add:
                     foreach (IOrderItem item in e.NewItems)
                     {
-
                         item.PropertyChanged += CollectionItemChangedListener;
-
                     }
                     break;
                 case NotifyCollectionChangedAction.Remove:
@@ -136,10 +138,17 @@ namespace BleakwindBuffet.Data.Order
         /// <param name="e"></param>
         void CollectionItemChangedListener(object sender, PropertyChangedEventArgs e)
         {
-            OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Total"));
-            OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            if(e.PropertyName == "Price")
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            }
+            if (e.PropertyName == "Calories")
+            {
+                OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
+            }
         }
     }
 }

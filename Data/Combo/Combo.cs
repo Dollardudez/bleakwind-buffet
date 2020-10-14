@@ -127,6 +127,7 @@ namespace BleakwindBuffet.Data.Combo
                 {
                     calories = Drink.Calories + Entree.Calories + Side.Calories;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
+
                 }
             }
         }
@@ -157,7 +158,6 @@ namespace BleakwindBuffet.Data.Combo
                         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     }
                 }
-                instructions.Add(Side.ToString());
                 if (!instructions.Contains(Drink.ToString()))
                 {
                     instructions.Add(Drink.ToString());

@@ -14,11 +14,18 @@ using BleakwindBuffet.Data.Combo;
 using BleakwindBuffet.Data.Enums;
 using System;
 using BleakwindBuffet.DataTests.UnitTests.EntreeTests;
+using System.Collections.Generic;
 
 namespace BleakwindBuffet.DataTests.UnitTests.ComboTests
 {
     public class ComboTests
     {
+        [Fact]
+        public void AssignableFromIOrderItem()
+        {
+            Combo combo = new Combo();
+            Assert.IsAssignableFrom<IOrderItem>(combo);
+        }
 
         [Theory]
         [InlineData(typeof(BriarheartBurger), "Entree")]
@@ -97,8 +104,54 @@ namespace BleakwindBuffet.DataTests.UnitTests.ComboTests
             {
                 combo.Entree = test;
             });
+        }
 
+        [Fact]
+        public void EntreePropertySettable()
+        {
+            Combo combo = new Combo();
+            Entree test = new BriarheartBurger();
+            combo.Entree = test;
+            Assert.Equal(test, combo.Entree);
+        }
 
+        [Fact]
+        public void DrinkPropertySettable()
+        {
+            Combo combo = new Combo();
+            Drink test = new AretinoAppleJuice();
+            combo.Drink = test;
+            Assert.Equal(test, combo.Drink);
+        }
+
+        [Fact]
+        public void SidePropertySettable()
+        {
+            Combo combo = new Combo();
+            Side test = new VokunSalad();
+            combo.Side = test;
+            Assert.Equal(test, combo.Side);
+        }
+        [Fact]
+        public void CorrectSpecialInstructionsProperty()
+        {
+            Combo combo = new Combo();
+            BriarheartBurger entreeTest = new BriarheartBurger();
+            VokunSalad sideTest = new VokunSalad();
+            AretinoAppleJuice drinkTest = new AretinoAppleJuice();
+            drinkTest.Size = Size.Large;
+            drinkTest.Ice = true;
+            sideTest.Size = Size.Large;
+            combo.Entree = entreeTest;
+            combo.Side = sideTest;
+            combo.Drink = drinkTest;
+            List<string> instructions = combo.SpecialInstructions;
+            Assert.Collection(instructions,
+                item => { Assert.Equal("Briarheart Burger", item); },
+                item => { Assert.Equal("Large Aretino Apple Juice", item); },
+                item => { Assert.Equal("Add ice", item); },
+                item => { Assert.Equal("Large Vokun Salad", item); }
+            );
         }
     }
 }
