@@ -76,7 +76,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.OrderTests
         }
 
         [Theory]
-        [InlineData("Items")]
         [InlineData("Total")]
         [InlineData("Tax")]
         [InlineData("Subtotal")]
@@ -92,7 +91,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.OrderTests
         }
 
         [Theory]
-        [InlineData("Items")]
         [InlineData("Total")]
         [InlineData("Tax")]
         [InlineData("Subtotal")]

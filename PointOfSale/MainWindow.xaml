@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PointOfSale"
         mc:Ignorable="d"
-        Title="MainWindow" Height="620" Width="810">
+        Title="MainWindow" Height="720" Width="1030">
     <Grid>
         <local:FullMenu/>
     </Grid>

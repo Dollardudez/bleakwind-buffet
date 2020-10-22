@@ -15,7 +15,11 @@ namespace PointOfSale
     /// </summary>
     public enum Screen
     {
+        Empty,
         Order,
+        PaymentOptions,
+        Combo,
+        CashPayment,
 
         BBOptions,
         DDOptions,

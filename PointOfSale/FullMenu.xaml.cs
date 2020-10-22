@@ -20,6 +20,8 @@ using PointOfSale.ItemOptions.Sides;
 using PointOfSale.ItemOptions.Drinks;
 using PointOfSale.OrderSideBar;
 using BleakwindBuffet.Data.Order;
+using System.Threading.Tasks;
+using PointOfSale.ItemOptions;
 
 namespace PointOfSale
 {
@@ -31,7 +33,7 @@ namespace PointOfSale
         /// <summary>
         /// dictionary holds all enums for switching screens
         /// </summary>
-        Dictionary<Screen, UserControl> screens = new Dictionary<Screen, UserControl>();
+        public Dictionary<Screen, UserControl> screens = new Dictionary<Screen, UserControl>();
 
         OrderList orderList = new OrderList();
         /// <summary>
@@ -41,9 +43,14 @@ namespace PointOfSale
         {
             InitializeComponent();
             openSpace.DataContext = orderList;
-            openSpace.Child = new Order(this);
+            openSpace2.DataContext = openSpace.DataContext;
+            openSpace2.Child = new Order(this);
 
+            screens.Add(Screen.Empty, new Empty());
+            screens.Add(Screen.Combo, new ComboOptions(this));
             screens.Add(Screen.Order, new Order(this));
+            screens.Add(Screen.PaymentOptions, new PaymentOptions(this));
+            screens.Add(Screen.CashPayment, new CashPayment(this));
 
             screens.Add(Screen.BBOptions, new BBOptions(this));
             screens.Add(Screen.DDOptions, new DDOptions(this));
@@ -75,75 +82,97 @@ namespace PointOfSale
             string name = button.Name;
             switch (name) 
             {
+                case "uxCombo":
+                    screens.Remove(Screen.Combo);
+                    ComboOptions cmbo = new ComboOptions(this);
+                    screens.Add(Screen.Combo, cmbo);
+                    SwitchScreen(Screen.Combo);
+                    break;
                 //entrees
                 case "uxBB":
-                    BBOptions bbOptions = new BBOptions(this);
-                    openSpace.Child = bbOptions;
+                    screens.Remove(Screen.BBOptions);
+                    BBOptions bbop = new BBOptions(this);
+                    screens.Add(Screen.BBOptions, bbop);
+                    SwitchScreen(Screen.BBOptions);
                     break;
                 case "uxDD":
-                    DDOptions ddOptions = new DDOptions(this);
-                    openSpace.Child = ddOptions;
+                    screens.Remove(Screen.DDOptions);
+                    screens.Add(Screen.DDOptions, new DDOptions(this));
+                    SwitchScreen(Screen.DDOptions);
                     break;
                 case "uxTT":
-                    TTOptions ttOptions = new TTOptions(this);
-                    openSpace.Child = ttOptions;
+                    screens.Remove(Screen.TTOptions);
+                    screens.Add(Screen.TTOptions, new TTBOptions(this));
+                    SwitchScreen(Screen.TTOptions);
                     break;
                 case "uxTTB":
-                    TTBOptions ttbOptions = new TTBOptions(this);
-                    openSpace.Child = ttbOptions;
+                    screens.Remove(Screen.TTBOptions);
+                    screens.Add(Screen.TTBOptions, new TTBOptions(this));
+                    SwitchScreen(Screen.TTBOptions);
                     break;
                 case "uxPP":
-                    PPOptions ppOptions = new PPOptions(this);
-                    openSpace.Child = ppOptions;
+                    screens.Remove(Screen.PPOptions);
+                    screens.Add(Screen.PPOptions, new PPOptions(this));
+                    SwitchScreen(Screen.PPOptions);
                     break;
                 case "uxSS":
-                    SSOptions ssOptions = new SSOptions(this);
-                    openSpace.Child = ssOptions;
+                    screens.Remove(Screen.SSOptions);
+                    screens.Add(Screen.SSOptions, new SSOptions(this));
+                    SwitchScreen(Screen.SSOptions);
                     break;
                 case "uxGORC":
-                    GORCOptions gorcOptions = new GORCOptions(this);
-                    openSpace.Child = gorcOptions;
+                    screens.Remove(Screen.GORCOptions);
+                    screens.Add(Screen.GORCOptions, new GORCOptions(this));
+                    SwitchScreen(Screen.GORCOptions);
                     break;
 
                 //sides
                 case "uxDWF":
-                    DWFOptions dwf = new DWFOptions(this);
-                    openSpace.Child = dwf;
+                    screens.Remove(Screen.DWFOptions);
+                    screens.Add(Screen.DWFOptions, new DWFOptions(this));
+                    SwitchScreen(Screen.DWFOptions);
                     break;
                 case "uxFM":
-                    FMOptions fm = new FMOptions(this);
-                    openSpace.Child = fm;
+                    screens.Remove(Screen.FMOptions);
+                    screens.Add(Screen.FMOptions, new FMOptions(this));
+                    SwitchScreen(Screen.FMOptions);
                     break;
                 case "uxMOG":
-                    MOGOptions mog = new MOGOptions(this);
-                    openSpace.Child = mog;
+                    screens.Remove(Screen.MOGOptions);
+                    screens.Add(Screen.MOGOptions, new MOGOptions(this));
+                    SwitchScreen(Screen.MOGOptions);
                     break;
                 case "uxVS":
-                    VSOptions vs = new VSOptions(this);
-                    openSpace.Child = vs;
+                    screens.Remove(Screen.VSOptions);
+                    screens.Add(Screen.VSOptions, new VSOptions(this));
+                    SwitchScreen(Screen.VSOptions);
                     break;
 
                 //drinks
                 case "uxWW":
-                    WWOptions wwOptions = new WWOptions(this);
-                    openSpace.Child = wwOptions;
+                    screens.Remove(Screen.WWOptions);
+                    screens.Add(Screen.WWOptions, new WWOptions(this));
+                    SwitchScreen(Screen.WWOptions);
                     break;
                 case "uxAAJ":
-                    AAJOptions aajOptions = new AAJOptions(this);
-                    openSpace.Child = aajOptions;
-                    //SwitchScreen(Screen.AAJOptions)
+                    screens.Remove(Screen.AAJOptions);
+                    screens.Add(Screen.AAJOptions, new AAJOptions(this));
+                    SwitchScreen(Screen.AAJOptions);
                     break;
                 case "uxCC":
-                    CCOptions ccOptions = new CCOptions(this);
-                    openSpace.Child = ccOptions;
+                    screens.Remove(Screen.CCOptions);
+                    screens.Add(Screen.CCOptions, new CCOptions(this));
+                    SwitchScreen(Screen.CCOptions);
                     break;
                 case "uxMM":
-                    MMOptions mmOptions = new MMOptions(this);
-                    openSpace.Child = mmOptions;
+                    screens.Remove(Screen.MMOptions);
+                    screens.Add(Screen.MMOptions, new MMOptions(this));
+                    SwitchScreen(Screen.MMOptions);
                     break;
                 case "uxSSODA":
-                    SSODAOptions ssodaOptions = new SSODAOptions(this);
-                    openSpace.Child = ssodaOptions;
+                    screens.Remove(Screen.SSODAOptions);
+                    screens.Add(Screen.SSODAOptions, new SSODAOptions(this));
+                    SwitchScreen(Screen.SSODAOptions);
                     break;
                 default:
                     break;
@@ -156,6 +185,14 @@ namespace PointOfSale
         public void SwitchScreen(Screen screen)
         {
             openSpace.Child = screens[screen];
+        }
+        /// <summary>
+        /// to be used eventually
+        /// </summary>
+        /// <param name="screen"></param>
+        public void SwitchSecondScreen(Screen screen)
+        {
+            openSpace2.Child = screens[screen];
         }
     }
 }

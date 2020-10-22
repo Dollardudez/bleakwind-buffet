@@ -5,7 +5,49 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-                <!--GREEN BUTTONS-->
+
+        <Style x:Key="ComboRoundedButton" TargetType="Button">
+            <Setter Property="Height" Value="80"/>
+            <Setter Property="Background" Value="#f6ee3f"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="30" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="90"/>
+                                <Setter Property="Width" Value="330"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#FFC9FD" Offset="0.1" />
+                                            <GradientStop Color="#8BFF90" Offset="0.3" />
+                                            <GradientStop Color="#f6ee3f" Offset="0.6" />
+                                            <GradientStop Color="#b6eef5" Offset=".9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        
+        <!--GREEN BUTTONS-->
         <Style x:Key="EntreeRoundedButton" TargetType="Button">
             <Setter Property="Height" Value="80"/>
             <Setter Property="Background" Value="#8BFF90"/>
@@ -169,6 +211,44 @@
             </Setter>
         </Style>
 
+
+
+        <Style x:Key="CashCreditDebitButton" TargetType="Button">
+            <Setter Property="Height" Value="90"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Foreground" Value="DarkSlateGray"/>
+            <Setter Property="Width" Value="175"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="100"/>
+                                <Setter Property="Width" Value="200"/>
+                                <Setter Property="Background" Value="DarkSlateGray"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="ContentTemplate">
+                <Setter.Value>
+                    <DataTemplate>
+                        <TextBlock Text="{TemplateBinding Content}" TextWrapping="Wrap" TextAlignment="Center" />
+                    </DataTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
         <Style x:Key="RemoveItemButton" TargetType="Button">
             <Setter Property="Height" Value="25"/>
             <Setter Property="FontSize" Value="12"/>
@@ -196,6 +276,110 @@
             </Setter>
         </Style>
 
+
+        <Style x:Key="RemoveItemButton2" TargetType="Button">
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="DarkSlateGray"/>
+            <Setter Property="Foreground" Value="white"/>
+            <Setter Property="Width" Value="90"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="15" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="30"/>
+                                <Setter Property="Width" Value="90"/>
+                                <Setter Property="Background" Value="#f6ee3f"/>
+                                <Setter Property="Foreground" Value="DarkSlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style x:Key="PlusButton" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Foreground" Value="#8be393"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="40"/>
+                                <Setter Property="Width" Value="40"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#8BFF90" Offset="0.1" />
+                                            <GradientStop Color="#FFC9FD" Offset="0.4" />
+                                            <GradientStop Color="#b6eef5" Offset=".9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground" Value="DarkSlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+
+        <Style x:Key="MinusButton" TargetType="Button">
+            <Setter Property="Height" Value="35"/>
+            <Setter Property="FontSize" Value="25"/>
+            <Setter Property="FontWeight" Value="DemiBold"/>
+            <Setter Property="Background" Value="white"/>
+            <Setter Property="Foreground" Value="#d15962"/>
+            <Setter Property="Width" Value="35"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="50" Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+                            </ContentPresenter>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Height" Value="40"/>
+                                <Setter Property="Width" Value="40"/>
+                                <Setter Property="Background">
+                                    <Setter.Value>
+                                        <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
+                                            <GradientStop Color="#8BFF90" Offset="0.1" />
+                                            <GradientStop Color="#FFC9FD" Offset="0.4" />
+                                            <GradientStop Color="#b6eef5" Offset=".9" />
+                                        </LinearGradientBrush>
+                                    </Setter.Value>
+                                </Setter>
+                                <Setter Property="Foreground" Value="DarkSlateGray"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        
+        
         <!--TOGGLE BUTTON-->
 
         <Style x:Key="Toggle" TargetType="ToggleButton">
@@ -382,18 +566,19 @@
                             <Popup Name="Popup"  
                Placement="Bottom"  
                IsOpen="{TemplateBinding IsDropDownOpen}"  
-               AllowsTransparency="True"   
+               AllowsTransparency="False"
                Focusable="False"  
                PopupAnimation="Slide">
                                 <Grid Name="DropDown"  
-                 SnapsToDevicePixels="True"          
+                 SnapsToDevicePixels="True"         
+                 Background="white"
                  MinWidth="{TemplateBinding ActualWidth}"  
                  MaxHeight="{TemplateBinding MaxDropDownHeight}">
                                     <Border   
                    x:Name="DropDownBorder"  
                    BorderThickness="1"  
                    CornerRadius="5"  
-                   BorderBrush="Black"/>
+                   BorderBrush="White"/>
                                     <ScrollViewer Margin="4,6,4,6" SnapsToDevicePixels="True">
                                         <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>

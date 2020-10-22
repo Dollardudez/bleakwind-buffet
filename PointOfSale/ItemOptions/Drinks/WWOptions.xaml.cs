@@ -19,6 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Order;
+using PointOfSale.OrderSideBar;
+
 
 namespace PointOfSale.ItemOptions.Drinks
 {
@@ -27,13 +29,24 @@ namespace PointOfSale.ItemOptions.Drinks
     /// </summary>
     public partial class WWOptions : UserControl
     {
+        /// <summary>
+        /// if the item is part of a combo, then it has a Combo Property set
+        /// </summary>
+        ComboBox comboOps;
+        /// <summary>
+        /// is the item part of a combo
+        /// </summary>
+        bool isCombo;
+        /// <summary>
+        /// the ancestor of the item.
+        /// </summary>
         FullMenu ancestor;
         /// <summary>
-        /// class field to serve as a placeholder for Drink options
+        /// class field to serve as a placeholder for Entree options
         /// </summary>
-        WarriorWater placeholder = new WarriorWater();
+        public WarriorWater placeholder = new WarriorWater();
         /// <summary>
-        /// Initialize the WWOptions UserControl
+        /// Initialize the BBOptions UserControl
         /// </summary>
         public WWOptions(FullMenu ancestor)
         {
@@ -41,11 +54,31 @@ namespace PointOfSale.ItemOptions.Drinks
             this.DataContext = placeholder;
             this.ancestor = ancestor;
         }
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
         public WWOptions(WarriorWater pl, FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = pl;
             this.ancestor = ancestor;
+            this.Back.Height = 0;
+            this.Add.Height = 0;
+            Add.Content = "Done";
+        }
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public WWOptions(WarriorWater pl, FullMenu ancestor, bool isCombo, ComboBox comboOps)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
+            Add.Content = "Done";
+            this.isCombo = isCombo;
+            this.comboOps = comboOps;
         }
         /// <summary>
         /// Handler for ADD/Back button press.
@@ -65,22 +98,45 @@ namespace PointOfSale.ItemOptions.Drinks
             {
                 if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item)) OnSwitchScreen();
-                    else
+                    if (list.Contains(item))
+                    {
+                        Add.Content = "Done";
+                        if (isCombo)
+                        {
+                            this.ancestor.SwitchScreen(Screen.Combo);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+                        else
+                        {
+                            this.ancestor.SwitchScreen(Screen.Empty);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+
+                    }
+                    else if (!isCombo)
                     {
                         list.Add(placeholder);
-                        OnSwitchScreen();
+                        this.ancestor.SwitchScreen(Screen.Empty);
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                    }
+                    else if (isCombo)
+                    {
+                        this.ancestor.SwitchScreen(Screen.Combo);
+                        this.comboOps.SelectedItem = item;
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
                     }
                 }
             }
-            if (button.Name == "Back") OnSwitchScreen();
-        }
-        /// <summary>
-        /// Switch the view to the order
-        /// </summary>
-        void OnSwitchScreen()
-        {
-            this.ancestor.SwitchScreen(Screen.Order);
+            else if (button.Name == "Back" && !isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Empty);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
+            else if (button.Name == "Back" && isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Combo);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
         }
     }
 }

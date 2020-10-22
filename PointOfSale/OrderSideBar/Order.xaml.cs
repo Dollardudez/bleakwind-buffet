@@ -21,10 +21,12 @@ using Order = BleakwindBuffet.Data.Order;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Combo;
 using PointOfSale.ItemOptions.Entrees;
 using PointOfSale.ItemOptions.Sides;
 using PointOfSale.ItemOptions.Drinks;
 using BleakwindBuffet.Data.Interface;
+using PointOfSale.ItemOptions;
 
 namespace PointOfSale.OrderSideBar
 {
@@ -52,18 +54,23 @@ namespace PointOfSale.OrderSideBar
             Button button = (Button)sender;
             if (button.Name == "Confirm")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
-                openSpace.DataContext = new OrderList();
-
+                //this.ancestor.openSpace2.Child = new OrderSideBar.Order(this.ancestor);
+                // this.ancestor.openSpace.DataContext = new OrderList();
+                //this.ancestor.openSpace2.DataContext = this.ancestor.openSpace.DataContext;
+                OrderList currOrder = (OrderList)this.ancestor.openSpace.DataContext;
+                if (currOrder.Count != 0) this.ancestor.SwitchScreen(Screen.PaymentOptions);
+                else
+                {
+                    this.ancestor.openSpace.Child = new Empty();
+                    MessageBox.Show("Must add an item to the order.");
+                }
             }
             if (button.Name == "Cancel")
             {
-                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
-                Border openSpace = (Border)this.Parent;
-                openSpace.Child = order;
-                openSpace.DataContext = new OrderList();
+                this.ancestor.openSpace2.Child = new OrderSideBar.Order(this.ancestor);
+                this.ancestor.openSpace.DataContext = new OrderList();
+                this.ancestor.openSpace2.DataContext = this.ancestor.openSpace.DataContext;
+                this.ancestor.SwitchScreen(Screen.Empty);
             }
             if (button.Name == "Remove")
             {
@@ -71,9 +78,9 @@ namespace PointOfSale.OrderSideBar
                 IOrderItem i = (IOrderItem)b.DataContext;
                 OrderList o = (OrderList)DataContext;
                 o.Remove(i);
-                Border openSpace = (Border)this.Parent;
-                OrderSideBar.Order order = new OrderSideBar.Order(this.ancestor);
-                openSpace.Child = order;
+                this.ancestor.openSpace2.Child = new OrderSideBar.Order(this.ancestor);
+                this.ancestor.openSpace2.DataContext = this.ancestor.openSpace.DataContext;
+                this.ancestor.SwitchScreen(Screen.Empty);
             }
         }
         /// <summary>
@@ -87,98 +94,113 @@ namespace PointOfSale.OrderSideBar
             if (sender is ListBox listBoxOrder && listBoxOrder.SelectedIndex != -1)
             {
                 IOrderItem item = (IOrderItem)((ListBox)sender).SelectedItem;
+                if (item is Combo)
+                {
+                    this.ancestor.screens.Remove(Screen.Combo);
+                    this.ancestor.screens.Add(Screen.Combo, new ComboOptions((Combo)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.Combo);
+                }
                 //entrees
                 if (item is BriarheartBurger)
                 {
-                    BBOptions obk = new BBOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.BBOptions);
+                    this.ancestor.screens.Add(Screen.BBOptions, new BBOptions((BriarheartBurger)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.BBOptions);
                 }
             
                 if (item is DoubleDraugr)
                 {
-                    DDOptions obk = new DDOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.DDOptions);
+                    this.ancestor.screens.Add(Screen.DDOptions, new DDOptions((DoubleDraugr)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.DDOptions);
                 }
                 if (item is ThalmorTriple)
                 {
-                    TTOptions obk = new TTOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.TTOptions);
+                    this.ancestor.screens.Add(Screen.TTOptions, new TTOptions((ThalmorTriple)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.TTOptions);
                 }
                 if (item is GardenOrcOmelette)
                 {
-                    GORCOptions obk = new GORCOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.GORCOptions);
+                    this.ancestor.screens.Add(Screen.GORCOptions, new GORCOptions((GardenOrcOmelette)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.GORCOptions);
                 }
                 if (item is SmokehouseSkeleton)
                 {
-                    SSOptions obk = new SSOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.SSOptions);
+                    this.ancestor.screens.Add(Screen.SSOptions, new SSOptions((SmokehouseSkeleton)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.SSOptions);
                 }
                 if (item is PhillyPoacher)
                 {
-                    PPOptions obk = new PPOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.PPOptions);
+                    this.ancestor.screens.Add(Screen.PPOptions, new PPOptions((PhillyPoacher)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.PPOptions);
                 }
                 if (item is ThugsTBone)
                 {
-                    TTBOptions obk = new TTBOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.TTBOptions);
+                    this.ancestor.screens.Add(Screen.TTBOptions, new TTBOptions((ThugsTBone)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.TTBOptions);
                 }
                 //drinks
                 if (item is WarriorWater)
                 {
-                    openSpace.Child = new WWOptions((WarriorWater)lb.SelectedItem, this.ancestor);
+                    this.ancestor.screens.Remove(Screen.WWOptions);
+                    this.ancestor.screens.Add(Screen.WWOptions, new WWOptions((WarriorWater)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.WWOptions);
                 }
 
                 if (item is AretinoAppleJuice)
                 {
-                    //ancestor.SwitchScreen(Screen.AAJOptions);
-                    openSpace.Child = new AAJOptions((AretinoAppleJuice)lb.SelectedItem, this.ancestor);
+                    this.ancestor.screens.Remove(Screen.AAJOptions);
+                    this.ancestor.screens.Add(Screen.AAJOptions, new AAJOptions((AretinoAppleJuice)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.AAJOptions);
                 }
                 if (item is CandlehearthCoffee)
                 {
-                    openSpace.Child = new CCOptions((CandlehearthCoffee)lb.SelectedItem, this.ancestor);
+                    this.ancestor.screens.Remove(Screen.CCOptions);
+                    this.ancestor.screens.Add(Screen.CCOptions, new CCOptions((CandlehearthCoffee)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.CCOptions);
                 }
                 if (item is MarkarthMilk)
                 {
-                    openSpace.Child = new MMOptions((MarkarthMilk)lb.SelectedItem, this.ancestor);
+                    this.ancestor.screens.Remove(Screen.MMOptions);
+                    this.ancestor.screens.Add(Screen.MMOptions, new MMOptions((MarkarthMilk)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.MMOptions);
                 }
                 if (item is SailorSoda)
                 {
-                    openSpace.Child = new SSODAOptions((SailorSoda)lb.SelectedItem, this.ancestor);
+                    this.ancestor.screens.Remove(Screen.SSODAOptions);
+                    this.ancestor.screens.Add(Screen.SSODAOptions, new SSODAOptions((SailorSoda)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.SSODAOptions);
                 }
                 //sides
                 if (item is DragonbornWaffleFries)
                 {
-                    DWFOptions obk = new DWFOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.DWFOptions);
+                    this.ancestor.screens.Add(Screen.DWFOptions, new DWFOptions((DragonbornWaffleFries)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.DWFOptions);
                 }
 
                 if (item is FriedMiraak)
                 {
-                    FMOptions obk = new FMOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.FMOptions);
+                    this.ancestor.screens.Add(Screen.FMOptions, new FMOptions((FriedMiraak)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.FMOptions);
                 }
                 if (item is MadOtarGrits)
                 {
-                    MOGOptions obk = new MOGOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.MOGOptions);
+                    this.ancestor.screens.Add(Screen.MOGOptions, new MOGOptions((MadOtarGrits)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.MOGOptions);
                 }
                 if (item is VokunSalad)
                 {
-                    VSOptions obk = new VSOptions(this.ancestor);
-                    obk.DataContext = lb.SelectedItem;
-                    openSpace.Child = obk;
+                    this.ancestor.screens.Remove(Screen.VSOptions);
+                    this.ancestor.screens.Add(Screen.VSOptions, new VSOptions((VokunSalad)lb.SelectedItem, this.ancestor));
+                    this.ancestor.SwitchScreen(Screen.VSOptions);
                 }
             }
         }

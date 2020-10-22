@@ -19,6 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Order;
+using PointOfSale.OrderSideBar;
+
 
 namespace PointOfSale.ItemOptions.Entrees
 {
@@ -27,13 +29,24 @@ namespace PointOfSale.ItemOptions.Entrees
     /// </summary>
     public partial class TTBOptions : UserControl
     {
+        /// <summary>
+        /// a combobox property
+        /// </summary>
+        ComboBox comboOps;
+        /// <summary>
+        /// whether the item is a part of a combo or not
+        /// </summary>
+        bool isCombo;
+        /// <summary>
+        /// ancestor Property
+        /// </summary>
         FullMenu ancestor;
         /// <summary>
-        /// thugs tbone field
+        /// class field to serve as a placeholder for Entree options
         /// </summary>
-        ThugsTBone placeholder = new ThugsTBone();
+        public ThugsTBone placeholder = new ThugsTBone();
         /// <summary>
-        /// Initialize the TTBOptions UserControl
+        /// Initialize the DDOptions UserControl
         /// </summary>
         public TTBOptions(FullMenu ancestor)
         {
@@ -50,8 +63,23 @@ namespace PointOfSale.ItemOptions.Entrees
             InitializeComponent();
             this.DataContext = pl;
             this.ancestor = ancestor;
+            this.Back.Height = 0;
+            this.Add.Height = 0;
+            Add.Content = "Done";
         }
-
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public TTBOptions(ThugsTBone pl, FullMenu ancestor, bool isCombo, ComboBox comboOps)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
+            Add.Content = "Done";
+            this.isCombo = isCombo;
+            this.comboOps = comboOps;
+        }
         /// <summary>
         /// Handler for ADD/Back button press.
         /// On ADD click: displays the OrderList.xaml in the correct loaction on the screen
@@ -70,22 +98,45 @@ namespace PointOfSale.ItemOptions.Entrees
             {
                 if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item)) OnSwitchScreen();
-                    else
+                    if (list.Contains(item))
+                    {
+                        Add.Content = "Done";
+                        if (isCombo)
+                        {
+                            this.ancestor.SwitchScreen(Screen.Combo);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+                        else
+                        {
+                            this.ancestor.SwitchScreen(Screen.Empty);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+
+                    }
+                    else if (!isCombo)
                     {
                         list.Add(placeholder);
-                        OnSwitchScreen();
+                        this.ancestor.SwitchScreen(Screen.Empty);
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                    }
+                    else if (isCombo)
+                    {
+                        this.ancestor.SwitchScreen(Screen.Combo);
+                        this.comboOps.SelectedItem = item;
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
                     }
                 }
             }
-            if (button.Name == "Back") OnSwitchScreen();
-        }
-        /// <summary>
-        /// Switch the view to the order
-        /// </summary>
-        void OnSwitchScreen()
-        {
-            this.ancestor.SwitchScreen(Screen.Order);
+            else if (button.Name == "Back" && !isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Empty);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
+            else if (button.Name == "Back" && isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Combo);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
         }
     }
 }

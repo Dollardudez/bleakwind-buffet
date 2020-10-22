@@ -18,6 +18,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BleakwindBuffet.Data.Entrees;
 using BleakwindBuffet.Data.Order;
+using PointOfSale.OrderSideBar;
+
 
 
 namespace PointOfSale.ItemOptions.Entrees
@@ -28,15 +30,20 @@ namespace PointOfSale.ItemOptions.Entrees
     public partial class GORCOptions : UserControl
     {
         /// <summary>
-        /// 
+        /// a combobox property
         /// </summary>
+        ComboBox comboOps;
+        /// <summary>
+        /// whether the item is a part of a combo or not
+        /// </summary>
+        bool isCombo;
         FullMenu ancestor;
         /// <summary>
         /// class field to serve as a placeholder for Entree options
         /// </summary>
         public GardenOrcOmelette placeholder = new GardenOrcOmelette();
         /// <summary>
-        /// Initialize the GORCOptions UserControl
+        /// Initialize the DDOptions UserControl
         /// </summary>
         public GORCOptions(FullMenu ancestor)
         {
@@ -45,8 +52,6 @@ namespace PointOfSale.ItemOptions.Entrees
             this.ancestor = ancestor;
         }
         /// <summary>
-        /// Handle
-        /// /// <summary>
         /// override
         /// </summary>
         /// <param name="ancestor"></param>
@@ -55,8 +60,25 @@ namespace PointOfSale.ItemOptions.Entrees
             InitializeComponent();
             this.DataContext = pl;
             this.ancestor = ancestor;
+            this.Back.Height = 0;
+            this.Add.Height = 0;
+            Add.Content = "Done";
         }
-        /// for ADD/Back button press.
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public GORCOptions(GardenOrcOmelette pl, FullMenu ancestor, bool isCombo, ComboBox comboOps)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
+            Add.Content = "Done";
+            this.isCombo = isCombo;
+            this.comboOps = comboOps;
+        }
+        /// <summary>
+        /// Handler for ADD/Back button press.
         /// On ADD click: displays the OrderList.xaml in the correct loaction on the screen
         /// and sets Data.Context to a new item Object.
         /// On BACK click: displays the OrderList.xaml in the correct loaction on the screen
@@ -73,22 +95,45 @@ namespace PointOfSale.ItemOptions.Entrees
             {
                 if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
-                    if (list.Contains(item)) OnSwitchScreen();
-                    else
+                    if (list.Contains(item))
+                    {
+                        Add.Content = "Done";
+                        if (isCombo)
+                        {
+                            this.ancestor.SwitchScreen(Screen.Combo);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+                        else
+                        {
+                            this.ancestor.SwitchScreen(Screen.Empty);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+
+                    }
+                    else if (!isCombo)
                     {
                         list.Add(placeholder);
-                        OnSwitchScreen();
+                        this.ancestor.SwitchScreen(Screen.Empty);
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                    }
+                    else if (isCombo)
+                    {
+                        this.ancestor.SwitchScreen(Screen.Combo);
+                        this.comboOps.SelectedItem = item;
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
                     }
                 }
             }
-            if (button.Name == "Back") OnSwitchScreen();
-        }
-        /// <summary>
-        /// Switch the view to the order
-        /// </summary>
-        void OnSwitchScreen()
-        {
-            this.ancestor.SwitchScreen(Screen.Order);
+            else if (button.Name == "Back" && !isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Empty);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
+            else if (button.Name == "Back" && isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Combo);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
         }
     }
 }

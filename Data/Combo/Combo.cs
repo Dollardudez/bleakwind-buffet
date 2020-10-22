@@ -96,40 +96,17 @@ namespace BleakwindBuffet.Data.Combo
             }
         }
         /// <summary>
-        /// private Price backing variable
-        /// </summary>
-        private double price;
-        /// <summary>
         /// Variable to represent the Price of the combo
         /// </summary>
         public double Price
         {
-            get => price;
-            set
-            {
-                price = Drink.Price + Entree.Price + Side.Price - 1;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-            }
+            get => Drink.Price + Entree.Price + Side.Price - 1;
         }
-        /// <summary>
-        /// private calories backing variable
-        /// </summary>
-        private uint calories;
-        /// <summary>
         /// Property to represent the calories of the combo
         /// </summary>
         public uint Calories
         {
-            get => calories;
-            set
-            {
-                if (calories != Drink.Calories + Entree.Calories + Side.Calories)
-                {
-                    calories = Drink.Calories + Entree.Calories + Side.Calories;
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
-
-                }
-            }
+            get => Drink.Calories + Entree.Calories + Side.Calories;
         }
 
         /// <summary>
@@ -148,41 +125,35 @@ namespace BleakwindBuffet.Data.Combo
                 if (!instructions.Contains(Entree.ToString()))
                 {
                     instructions.Add(Entree.ToString());
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 foreach (string item in Entree.SpecialInstructions)
                 {
                     if (!instructions.Contains(item))
                     {
                         instructions.Add(item);
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     }
                 }
                 if (!instructions.Contains(Drink.ToString()))
                 {
                     instructions.Add(Drink.ToString());
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 foreach (string item in Drink.SpecialInstructions)
                 {
                     if (!instructions.Contains(item))
                     {
                         instructions.Add(item);
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     }
                 }
                 instructions.Add(Side.ToString());
                 if (!instructions.Contains(Side.ToString()))
                 {
                     instructions.Add(Side.ToString());
-                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                 }
                 foreach (string item in Side.SpecialInstructions)
                 {
                     if (!instructions.Contains(item))
                     {
                         instructions.Add(item);
-                        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
                     }
                 }
                 return instructions;

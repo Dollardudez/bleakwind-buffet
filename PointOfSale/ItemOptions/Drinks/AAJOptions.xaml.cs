@@ -29,26 +29,56 @@ namespace PointOfSale.ItemOptions.Drinks
     /// </summary>
     public partial class AAJOptions : UserControl
     {
+        /// <summary>
+        /// if the item is part of a combo, then it has a Combo Property set
+        /// </summary>
+        ComboBox comboOps;
+        /// <summary>
+        /// is the item part of a combo
+        /// </summary>
+        bool isCombo;
+        /// <summary>
+        /// the ancestor of the item.
+        /// </summary>
         FullMenu ancestor;
-        //Border openSpace2 = (Border)this.Parent;
         /// <summary>
-        /// class field to serve as a placeholder for Drink options
+        /// class field to serve as a placeholder for Entree options
         /// </summary>
-        AretinoAppleJuice pl = new AretinoAppleJuice();
+        public AretinoAppleJuice placeholder = new AretinoAppleJuice();
         /// <summary>
-        /// Initialize the AAJOptions UserControl
+        /// Initialize the BBOptions UserControl
         /// </summary>
-        public AAJOptions(AretinoAppleJuice placeholder, FullMenu ancestor)
+        public AAJOptions(FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = placeholder;
             this.ancestor = ancestor;
         }
-        public AAJOptions(FullMenu ancestor)
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public AAJOptions(AretinoAppleJuice pl, FullMenu ancestor)
         {
             InitializeComponent();
             this.DataContext = pl;
             this.ancestor = ancestor;
+            this.Back.Height = 0;
+            this.Add.Height = 0;
+            Add.Content = "Done";
+        }
+        /// <summary>
+        /// override
+        /// </summary>
+        /// <param name="ancestor"></param>
+        public AAJOptions(AretinoAppleJuice pl, FullMenu ancestor, bool isCombo, ComboBox comboOps)
+        {
+            InitializeComponent();
+            this.DataContext = pl;
+            this.ancestor = ancestor;
+            Add.Content = "Done";
+            this.isCombo = isCombo;
+            this.comboOps = comboOps;
         }
         /// <summary>
         /// Handler for ADD/Back button press.
@@ -63,29 +93,50 @@ namespace PointOfSale.ItemOptions.Drinks
         {
             AretinoAppleJuice item = (AretinoAppleJuice)this.DataContext;
             Button button = (Button)sender;
+
             if (button.Name == "Add")
             {
                 if (this.ancestor.openSpace.DataContext is OrderList list)
                 {
                     if (list.Contains(item))
                     {
-                        this.ancestor.openSpace.Child = new Order(this.ancestor);
+                        Add.Content = "Done";
+                        if (isCombo)
+                        {
+                            this.ancestor.SwitchScreen(Screen.Combo);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+                        else
+                        {
+                            this.ancestor.SwitchScreen(Screen.Empty);
+                            this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                        }
+
                     }
-                    else
+                    else if (!isCombo)
                     {
-                        list.Add(item);
-                        this.ancestor.openSpace.Child = new Order(this.ancestor);
-                        System.Diagnostics.Debug.WriteLine(this.ancestor.openSpace.ToString());
+                        list.Add(placeholder);
+                        this.ancestor.SwitchScreen(Screen.Empty);
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
+                    }
+                    else if (isCombo)
+                    {
+                        this.ancestor.SwitchScreen(Screen.Combo);
+                        this.comboOps.SelectedItem = item;
+                        this.ancestor.openSpace2.Child = new Order(this.ancestor);
                     }
                 }
             }
-            if (button.Name == "Back") this.ancestor.openSpace.Child = new Order(this.ancestor);
+            else if (button.Name == "Back" && !isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Empty);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
+            else if (button.Name == "Back" && isCombo)
+            {
+                this.ancestor.SwitchScreen(Screen.Combo);
+                this.ancestor.openSpace2.Child = new Order(this.ancestor);
+            }
         }
-
-        void OnSwitchScreen()
-        {
-            this.ancestor.SwitchScreen(Screen.Order);
-        }
-
     }
 }

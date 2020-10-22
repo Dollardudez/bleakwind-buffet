@@ -23,7 +23,7 @@
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="100"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="110"/>
@@ -43,17 +43,17 @@
         </Border>
 
         <TextBlock x:Name="OptionsText" Text="Options" Grid.Row="1" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Ice" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Size}"/>
+        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Ice" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2" IsChecked="{Binding Path=Ice}"/>
         <TextBlock x:Name="IceText" Text="Ice" Grid.Row="2" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Decaf" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Size}"/>
+        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Decaf" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3" IsChecked="{Binding Path=Decaf}"/>
         <TextBlock x:Name="DecafText" Text="Decaf" Grid.Row="3" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
-        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Cream" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="{Binding Path=Size}"/>
+        <ToggleButton Style="{StaticResource ToggleDrink}" Name="Cream" Content="Toggle" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="4" IsChecked="{Binding Path=RoomForCream}"/>
         <TextBlock x:Name="CreamText" Text="Cream" Grid.Row="4" Grid.Column="1" FontSize="18" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray"/>
 
         <TextBlock x:Name="Size" Text="Size" Grid.Row="5" Grid.ColumnSpan="2" FontSize="30" VerticalAlignment="Center" FontWeight="DemiBold" Foreground="DarkSlateGray" HorizontalAlignment="Center"/>
-        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path= Size}"
+        <ComboBox Style="{StaticResource ComboboxStyle}" x:Name="SizeCombo" ItemsSource="{Binding Source={StaticResource size}}" SelectedItem="{Binding Path=Size}"
                   Grid.Row="6" Grid.ColumnSpan="2" FontSize="18" Width="190">
         </ComboBox>
 

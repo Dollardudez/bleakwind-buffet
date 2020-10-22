@@ -39,6 +39,7 @@ namespace BleakwindBuffet.Data.Sides
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToStringProperty"));
                 }
             }
         }
@@ -57,6 +58,10 @@ namespace BleakwindBuffet.Data.Sides
         /// Special Instructions to prepare with the side
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
-        
+        /// <summary>
+        /// ToString Property
+        /// </summary>
+        public abstract string ToStringProperty { get; }
+
     }
 }

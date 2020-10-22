@@ -56,7 +56,7 @@ namespace BleakwindBuffet.Data.Order
                 {
                     sum += item.Price;
                     sum = (Math.Round(sum, 2));
-                    OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+                   // OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
                 }
                 return sum;
             }
@@ -105,8 +105,13 @@ namespace BleakwindBuffet.Data.Order
         /// <param name="e"></param>
         void CollectionChangedListener(object sender, NotifyCollectionChangedEventArgs e)
         {
+            OnPropertyChanged(new PropertyChangedEventArgs("Subtotal"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Tax"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Total"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Calories"));
             switch (e.Action)
             {
+
                 case NotifyCollectionChangedAction.Add:
                     foreach (IOrderItem item in e.NewItems)
                     {
@@ -129,7 +134,7 @@ namespace BleakwindBuffet.Data.Order
         public OrderList()
         {
             CollectionChanged += CollectionChangedListener;
-            nextOrderNumber++;
+            nextOrderNumber+=1;
         }
         /// <summary>
         /// Item changed listener, activates when a property changes

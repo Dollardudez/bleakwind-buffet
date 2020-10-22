@@ -91,18 +91,14 @@ namespace BleakwindBuffet.DataTests.UnitTests.ComboTests
         }
         [Theory]
         [InlineData(typeof(Entree), "SpecialInstructions")]
-        public void ChangingItemPriceShouldNotifyPropertyChanges(Type type, string property)
+        public void ChangingItemInstrucionsShouldNotifyPropertyChanges(Type type, string property)
         {
             BriarheartBurger test = new BriarheartBurger();
             Combo combo = new Combo();
+            combo.Entree = test;
             Assert.PropertyChanged(combo, property, () =>
             {
-                combo.Entree = test;
-            });
-            test.Ketchup = false;
-            Assert.PropertyChanged(combo, property, () =>
-            {
-                combo.Entree = test;
+                test.Ketchup = false;
             });
         }
 
@@ -145,11 +141,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.ComboTests
             combo.Entree = entreeTest;
             combo.Side = sideTest;
             combo.Drink = drinkTest;
+            drinkTest.Ice = false;
             List<string> instructions = combo.SpecialInstructions;
             Assert.Collection(instructions,
                 item => { Assert.Equal("Briarheart Burger", item); },
                 item => { Assert.Equal("Large Aretino Apple Juice", item); },
-                item => { Assert.Equal("Add ice", item); },
+                //item => { Assert.Equal("Add ice", item); },
                 item => { Assert.Equal("Large Vokun Salad", item); }
             );
         }

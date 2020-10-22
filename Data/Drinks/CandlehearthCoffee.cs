@@ -44,6 +44,7 @@ namespace BleakwindBuffet.Data.Drinks
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Size"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Price"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Calories"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToStringProperty"));
                 }
             }
         }
@@ -141,6 +142,7 @@ namespace BleakwindBuffet.Data.Drinks
                     decaf = value;
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Decaf"));
                     PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SpecialInstructions"));
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("ToStringProperty"));
                 }
             }
         }

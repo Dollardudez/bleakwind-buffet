@@ -9,4 +9,10 @@
     <Folder Include="documentation\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>..\PointOfSale\RoundRegister.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

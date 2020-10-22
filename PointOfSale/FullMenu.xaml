@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PointOfSale"
              mc:Ignorable="d" 
-             d:DesignHeight="590" d:DesignWidth="800">
+             d:DesignHeight="680" d:DesignWidth="1030">
     <Grid>
         
         <Grid.ColumnDefinitions>
@@ -14,6 +14,8 @@
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="200"/>
+            
             
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -24,15 +26,23 @@
             <RowDefinition Height="90"/>
             <RowDefinition Height="90"/>
             <RowDefinition Height="90"/>
+            <RowDefinition Height="90"/>
         </Grid.RowDefinitions>
         <TextBlock Grid.ColumnSpan="4" Grid.Row="0" FontSize="40" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="1" FontWeight="DemiBold" Foreground="#769A9A">Bleakwind Buffet</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#4FFF56">Entrees</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="3" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#FF87FB">Sides</TextBlock>
-        <TextBlock Grid.Column="0" Grid.Row="5" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#75cde7">Drinks</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="1" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#f6ee3f">Combo</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="2" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#4FFF56">Entrees</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="4" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#FF87FB">Sides</TextBlock>
+        <TextBlock Grid.Column="0" Grid.Row="6" FontSize="35" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="DemiBold" Panel.ZIndex="1" Foreground="#75cde7">Drinks</TextBlock>
 
 
 
-        <Border Name ="openSpace" Grid.Column="6" Grid.RowSpan="7" Panel.ZIndex="-1" DataContext="Order">
+        <Border x:Name ="openSpace" Grid.Column="4" Grid.RowSpan="7" Panel.ZIndex="-1" DataContext="Order">
+        </Border>
+        <Border Grid.ColumnSpan="6" Grid.RowSpan="7"  Panel.ZIndex="-1"/>
+        <Border x:Name="openSpace2" Grid.Column="6" Grid.RowSpan="7" Panel.ZIndex="-3">
+        </Border>
+
+        <Border Grid.Column="4" Grid.ColumnSpan="2" Grid.RowSpan="7" Panel.ZIndex="-10" DataContext="Order">
             <Border.Background>
                 <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
                     <GradientStop Color="#8BFF90" Offset="0.1" />
@@ -41,39 +51,31 @@
                 </LinearGradientBrush>
             </Border.Background>
         </Border>
-        <Border Grid.ColumnSpan="5" Grid.RowSpan="7"  Panel.ZIndex="-1"/>
-        <!--<Border Grid.ColumnSpan="5" Grid.RowSpan="7" Panel.ZIndex="-3">
-            <Border.Background>
-                <LinearGradientBrush StartPoint="1,0" EndPoint="0,1">
-                    <GradientStop Color="#b6eef5" Offset="0.1" />
-                    <GradientStop Color="#FFC9FD" Offset="0.4" />
-                    <GradientStop Color="#8BFF90" Offset=".9" />
-                </LinearGradientBrush>
-            </Border.Background>
-        </Border>-->
 
-
-                                                                 <!--ENTREES-->
-        <Button Name="uxBB" FontSize="20" FontWeight="DemiBold" Content="Briarheart Burger" Style="{StaticResource EntreeRoundedButton}" Grid.Column="1" Grid.Row="1" Click="Button_Click"/>
-        <Button Name="uxDD" FontSize="20" FontWeight="DemiBold" Content="Double Draugr" Style="{StaticResource EntreeRoundedButton}" Grid.Column="2" Grid.Row="1" Click="Button_Click"/>
-        <Button Name="uxTT" FontSize="20" FontWeight="DemiBold" Content="Thalmor Triple" Style="{StaticResource EntreeRoundedButton}" Grid.Column="3" Grid.Row="1" Click="Button_Click"/>
-        <Button Name="uxPP" FontSize="20" FontWeight="DemiBold" Content="Philly Poacher" Style="{StaticResource EntreeRoundedButton}" Grid.Column="0" Grid.Row="2" Click="Button_Click"/>
-        <Button Name="uxTTB" FontSize="20" FontWeight="DemiBold" Content="Thug's T-Bone" Style="{StaticResource EntreeRoundedButton}" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
-        <Button Name="uxSS" FontSize="20" FontWeight="DemiBold" Content="Smokehouse Skeleton" Style="{StaticResource EntreeRoundedButton}" Grid.Column="2" Grid.Row="2" Click="Button_Click"/>
-        <Button Name="uxGORC" FontSize="20" FontWeight="DemiBold" Content="Garden Orc Omelette" Style="{StaticResource EntreeRoundedButton}" Grid.Column="3" Grid.Row="2" Click="Button_Click"/>
+        <Button Name="uxCombo" FontSize="20" FontWeight="DemiBold" Content="Combo Meal" Style="{StaticResource ComboRoundedButton}" Grid.Column="1" Grid.ColumnSpan="3" Grid.Row="1" Click="Button_Click"/>
+        
+        <!--ENTREES-->
+        
+        <Button Name="uxBB" FontSize="20" FontWeight="DemiBold" Content="Briarheart Burger" Style="{StaticResource EntreeRoundedButton}" Grid.Column="1" Grid.Row="2" Click="Button_Click"/>
+        <Button Name="uxDD" FontSize="20" FontWeight="DemiBold" Content="Double Draugr" Style="{StaticResource EntreeRoundedButton}" Grid.Column="2" Grid.Row="2" Click="Button_Click"/>
+        <Button Name="uxTT" FontSize="20" FontWeight="DemiBold" Content="Thalmor Triple" Style="{StaticResource EntreeRoundedButton}" Grid.Column="3" Grid.Row="2" Click="Button_Click"/>
+        <Button Name="uxPP" FontSize="20" FontWeight="DemiBold" Content="Philly Poacher" Style="{StaticResource EntreeRoundedButton}" Grid.Column="0" Grid.Row="3" Click="Button_Click"/>
+        <Button Name="uxTTB" FontSize="20" FontWeight="DemiBold" Content="Thug's T-Bone" Style="{StaticResource EntreeRoundedButton}" Grid.Column="1" Grid.Row="3" Click="Button_Click"/>
+        <Button Name="uxSS" FontSize="20" FontWeight="DemiBold" Content="Smokehouse Skeleton" Style="{StaticResource EntreeRoundedButton}" Grid.Column="2" Grid.Row="3" Click="Button_Click"/>
+        <Button Name="uxGORC" FontSize="20" FontWeight="DemiBold" Content="Garden Orc Omelette" Style="{StaticResource EntreeRoundedButton}" Grid.Column="3" Grid.Row="3" Click="Button_Click"/>
         
                                                                 <!--SIDES-->
-        <Button Name="uxDWF" FontSize="20" FontWeight="DemiBold" Content="Dragonborn Waffle Fries" Style="{StaticResource SideRoundedButton}" Grid.Column="1" Grid.Row="3" Click="Button_Click"/>
-        <Button Name="uxFM" FontSize="20" FontWeight="DemiBold" Content="Fried Miraak" Style="{StaticResource SideRoundedButton}" Grid.Column="2" Grid.Row="3" Click="Button_Click"/>
-        <Button Name="uxMOG" FontSize="20" FontWeight="DemiBold" Content="Mad Otar Grits" Style="{StaticResource SideRoundedButton}" Grid.Column="3" Grid.Row="3" Click="Button_Click"/>
-        <Button Name="uxVS" FontSize="20" FontWeight="DemiBold" Content="Vokun Salad" Style="{StaticResource SideRoundedButton}" Grid.Column="0" Grid.Row="4" Click="Button_Click"/>
+        <Button Name="uxDWF" FontSize="20" FontWeight="DemiBold" Content="Dragonborn Waffle Fries" Style="{StaticResource SideRoundedButton}" Grid.Column="1" Grid.Row="4" Click="Button_Click"/>
+        <Button Name="uxFM" FontSize="20" FontWeight="DemiBold" Content="Fried Miraak" Style="{StaticResource SideRoundedButton}" Grid.Column="2" Grid.Row="4" Click="Button_Click"/>
+        <Button Name="uxMOG" FontSize="20" FontWeight="DemiBold" Content="Mad Otar Grits" Style="{StaticResource SideRoundedButton}" Grid.Column="3" Grid.Row="4" Click="Button_Click"/>
+        <Button Name="uxVS" FontSize="20" FontWeight="DemiBold" Content="Vokun Salad" Style="{StaticResource SideRoundedButton}" Grid.Column="0" Grid.Row="5" Click="Button_Click"/>
         
                                                                 <!--DRINKS-->
-        <Button Name="uxWW" FontSize="20" FontWeight="DemiBold" Content="Warrior Water" Style="{StaticResource DrinkRoundedButton}" Grid.Column="1" Grid.Row="5" Click="Button_Click"/>
-        <Button Name="uxAAJ" FontSize="20" FontWeight="DemiBold" Content="Aretino Apple Juice" Style="{StaticResource DrinkRoundedButton}" Grid.Column="2" Grid.Row="5" Click="Button_Click"/>
-        <Button Name="uxCC" FontSize="20" FontWeight="DemiBold" Content="Candlehearth Coffee" Style="{StaticResource DrinkRoundedButton}" Grid.Column="3" Grid.Row="5" Click="Button_Click"/>
-        <Button Name="uxMM" FontSize="20" FontWeight="DemiBold" Content="Markarth Milk" Style="{StaticResource DrinkRoundedButton}" Grid.Column="0" Grid.Row="6" Click="Button_Click"/>
-        <Button Name="uxSSODA" FontSize="20" FontWeight="DemiBold" Content="Sailor Soda" Style="{StaticResource DrinkRoundedButton}" Grid.Column="1" Grid.Row="6" Click="Button_Click"/>
+        <Button Name="uxWW" FontSize="20" FontWeight="DemiBold" Content="Warrior Water" Style="{StaticResource DrinkRoundedButton}" Grid.Column="1" Grid.Row="6" Click="Button_Click"/>
+        <Button Name="uxAAJ" FontSize="20" FontWeight="DemiBold" Content="Aretino Apple Juice" Style="{StaticResource DrinkRoundedButton}" Grid.Column="2" Grid.Row="6" Click="Button_Click"/>
+        <Button Name="uxCC" FontSize="20" FontWeight="DemiBold" Content="Candlehearth Coffee" Style="{StaticResource DrinkRoundedButton}" Grid.Column="3" Grid.Row="6" Click="Button_Click"/>
+        <Button Name="uxMM" FontSize="20" FontWeight="DemiBold" Content="Markarth Milk" Style="{StaticResource DrinkRoundedButton}" Grid.Column="0" Grid.Row="7" Click="Button_Click"/>
+        <Button Name="uxSSODA" FontSize="20" FontWeight="DemiBold" Content="Sailor Soda" Style="{StaticResource DrinkRoundedButton}" Grid.Column="1" Grid.Row="7" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

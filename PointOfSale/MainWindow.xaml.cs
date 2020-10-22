@@ -37,7 +37,5 @@ namespace PointOfSale
         {
             InitializeComponent();
         }
-
-        FullMenu fm = new FullMenu();
     }
 }

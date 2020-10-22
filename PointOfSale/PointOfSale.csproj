@@ -7,10 +7,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NewFolder1\**" />
+    <Compile Remove="NewFolder2\**" />
+    <EmbeddedResource Remove="NewFolder1\**" />
+    <EmbeddedResource Remove="NewFolder2\**" />
+    <None Remove="NewFolder1\**" />
+    <None Remove="NewFolder2\**" />
+    <Page Remove="NewFolder1\**" />
+    <Page Remove="NewFolder2\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="RoundRegister">
+      <HintPath>RoundRegister.dll</HintPath>
+    </Reference>
     <Reference Include="ToggleClass">
       <HintPath>..\..\ToggleClass\bin\Debug\netcoreapp3.1\ToggleClass.dll</HintPath>
     </Reference>
