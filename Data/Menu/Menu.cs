@@ -199,5 +199,45 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listFullMenu;
         }
+
+
+        /// <summary>
+        /// Method that adds all the drinks (small, medium and large) to a List<IOrderItem>. It adds 3 instances of SailorSoda
+        /// to the list, each with different soda flavors
+        /// </summary>
+        /// <returns>A List<IOrderItem> that holds an instance of all drinks added to the list</returns>
+        public static List<Drinks.Drink> Drinks2PointO()
+        {
+            List<Drinks.Drink> listOfDrinks = new List<Drinks.Drink>();
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == 0)
+                {
+                    listOfDrinks.Add(new AretinoAppleJuice());
+                    listOfDrinks.Add(new CandlehearthCoffee());
+                    listOfDrinks.Add(new MarkarthMilk());
+                    listOfDrinks.Add(new WarriorWater());
+                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Small Sailor Soda" });
+                }
+                else if (i == 1)
+                {
+                    listOfDrinks.Add(new AretinoAppleJuice { Size = Size.Medium });
+                    listOfDrinks.Add(new CandlehearthCoffee { Size = Size.Medium });
+                    listOfDrinks.Add(new MarkarthMilk { Size = Size.Medium });
+                    listOfDrinks.Add(new WarriorWater { Size = Size.Medium });
+                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Medium Sailor Soda", Size = Size.Medium });
+                }
+                else
+                {
+
+                    listOfDrinks.Add(new AretinoAppleJuice { Size = Size.Large });
+                    listOfDrinks.Add(new CandlehearthCoffee { Size = Size.Large });
+                    listOfDrinks.Add(new MarkarthMilk { Size = Size.Large });
+                    listOfDrinks.Add(new WarriorWater { Size = Size.Large });
+                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Large Sailor Soda", Size = Size.Large });
+                }
+            }
+            return listOfDrinks;
+        }
     }
 }

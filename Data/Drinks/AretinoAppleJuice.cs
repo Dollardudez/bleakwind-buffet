@@ -131,12 +131,14 @@ namespace BleakwindBuffet.Data.Drinks
         {
             return $"{Size} Aretino Apple Juice";
         }
+        private string tosringproperty;
         /// <summary>
         /// property that returns the name of the item, used for the Point of Sale portion of the project.
         /// </summary>
-        public string ToStringProperty
+        public override string ToStringProperty
         {
             get => ToString();
+            set => value = tosringproperty;
         }
     }
 }

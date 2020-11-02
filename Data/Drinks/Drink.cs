@@ -39,5 +39,9 @@ namespace BleakwindBuffet.Data.Drinks
         /// Special Instructions to prepare with the drink
         /// </summary>
         public abstract List<string> SpecialInstructions { get; }
+        /// <summary>
+        /// Special Instructions to prepare with the drink
+        /// </summary>
+        public abstract string ToStringProperty { get; set; }
     }
 }

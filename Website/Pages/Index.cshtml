@@ -1,0 +1,84 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
+    <p>
+        We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
+        Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into
+        a Smokehouse Skeleton with your dagger. Or vanquish the the mighty Thalmor Triple Burger! You’ve had a
+        hard adventure and earned your loot, so spend it with us!
+    </p>
+</div>
+
+<div>
+    <h2>Entrees</h2>
+    <ul class="entree-list">
+        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in BleakwindBuffet.Data.Menu.Menu.Entrees())
+        {
+            <li>
+                <div class="menu-item">
+                    <h3 class="name">@entree.ToString()</h3>
+                    <div class="price">Price: @entree.Price</div>
+                    <div class="calories">Calories: @entree.Calories</div>
+                </div>
+            </li>
+        }
+    </ul>
+    <h2>Drinks</h2>
+    <ul class="drink-list">
+        @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Menu.Drinks2PointO())
+        {
+            <li>
+                <div class="menu-item">
+                    <h3 class="name">@drink.ToStringProperty</h3>
+                    <div class="price">Price: @drink.Price</div>
+                    <div class="calories">Calories: @drink.Calories</div>
+                </div>
+            </li>
+        }
+    </ul>
+    <h2>Sides</h2>
+    <ul class="side-list">
+        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in BleakwindBuffet.Data.Menu.Menu.Sides())
+        {
+            <li>
+                <div class="menu-item">
+                    <h3 class="name">@side.ToString()</h3>
+                    <div class="price">Price: @side.Price</div>
+                    <div class="calories">Calories: @side.Calories</div>
+                </div>
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="combo-details">
+    <h4>Any one entree, side, and drink can be combined into a Combo with a $1 discount.</h4>
+</div>
+<h4>Available flavors for the Sailor Soda include:</h4>
+<ul class="sailorsoda-details">
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Cherry
+    </li>
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry
+    </li>
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit
+    </li>
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Peach
+    </li>
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Lemon
+    </li>
+    <li>
+        @BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon
+    </li>
+
+</ul>
+
