@@ -12,6 +12,7 @@ using BleakwindBuffet.Data.Interface;
 using BleakwindBuffet.Data.Sides;
 using BleakwindBuffet.Data.Drinks;
 using BleakwindBuffet.Data.Entrees;
+using System.Linq;
 
 namespace BleakwindBuffet.Data.Menu
 {
@@ -239,5 +240,207 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listOfDrinks;
         }
+        /// <summary>
+        /// Method that adds all the items on the menu to a List<IOrderItem></IOrderItem>. Sides and Drinks
+        /// have instances of small, medium and large. The method adds 3 instances of SailorSoda PER size, each instance has
+        /// a particular flavor (Cherry, Blackberry, and Lemon)
+        /// </summary>
+        /// <returns>A List<IOrderItem> that holds an instance of all drinks added to the list</returns>
+        public static List<IOrderItem> AllItems()
+        {
+
+            List<IOrderItem> listFullMenu = new List<IOrderItem>();
+
+            listFullMenu.Add(new BriarheartBurger());
+            listFullMenu.Add(new DoubleDraugr());
+            listFullMenu.Add(new GardenOrcOmelette());
+            listFullMenu.Add(new PhillyPoacher());
+            listFullMenu.Add(new SmokehouseSkeleton());
+            listFullMenu.Add(new ThalmorTriple());
+            listFullMenu.Add(new ThugsTBone());
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == 0)
+                {
+                    listFullMenu.Add(new DragonbornWaffleFries());
+                    listFullMenu.Add(new FriedMiraak());
+                    listFullMenu.Add(new MadOtarGrits());
+                    listFullMenu.Add(new VokunSalad());
+
+                    listFullMenu.Add(new AretinoAppleJuice());
+                    listFullMenu.Add(new CandlehearthCoffee());
+                    listFullMenu.Add(new MarkarthMilk());
+                    listFullMenu.Add(new WarriorWater());
+                    listFullMenu.Add(new SailorSoda() { ToStringProperty = "Small Sailor Soda" });
+                }
+                else if (i == 1)
+                {
+                    listFullMenu.Add(new DragonbornWaffleFries { Size = Size.Medium });
+                    listFullMenu.Add(new FriedMiraak() { Size = Size.Medium });
+                    listFullMenu.Add(new MadOtarGrits() { Size = Size.Medium });
+                    listFullMenu.Add(new VokunSalad() { Size = Size.Medium });
+
+                    listFullMenu.Add(new AretinoAppleJuice { Size = Size.Medium });
+                    listFullMenu.Add(new CandlehearthCoffee { Size = Size.Medium });
+                    listFullMenu.Add(new MarkarthMilk { Size = Size.Medium });
+                    listFullMenu.Add(new WarriorWater { Size = Size.Medium });
+                    listFullMenu.Add(new SailorSoda { ToStringProperty = "Medium Sailor Soda", Size = Size.Medium });
+                }
+                else
+                {
+                    listFullMenu.Add(new DragonbornWaffleFries { Size = Size.Large });
+                    listFullMenu.Add(new FriedMiraak() { Size = Size.Large });
+                    listFullMenu.Add(new MadOtarGrits() { Size = Size.Large });
+                    listFullMenu.Add(new VokunSalad() { Size = Size.Large });
+
+                    listFullMenu.Add(new AretinoAppleJuice { Size = Size.Large });
+                    listFullMenu.Add(new CandlehearthCoffee { Size = Size.Large });
+                    listFullMenu.Add(new MarkarthMilk { Size = Size.Large });
+                    listFullMenu.Add(new WarriorWater { Size = Size.Large });
+                    listFullMenu.Add(new SailorSoda { ToStringProperty = "Large Sailor Soda", Size = Size.Large });
+                }
+            }
+            return listFullMenu;
+        }
+        private static List<IOrderItem> items = new List<IOrderItem>();
+        /// <summary>
+        /// Gets all the movies in the database
+        /// </summary>
+
+        public static IEnumerable<IOrderItem> Search(string terms)
+        {
+            List<IOrderItem> results = new List<IOrderItem>();
+            if (terms == null) return AllItems();
+
+            foreach (IOrderItem item in AllItems())
+            {
+                if (item.ToString() != null && item.ToString().ToUpper().Contains(terms.ToUpper()))
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Gets the possible MPAARatings
+        /// </summary>
+        public static string[] Category
+        {
+            get => new string[]
+            {
+            "Entree",
+            "Side",
+            "Drink",
+            };
+        }
+        public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> categories)
+        {
+            // If no filter is specified, just return the provided collection
+            if (categories == null || categories.Count() == 0) return items;
+            // Filter the supplied collection of movies
+            List<IOrderItem> results = new List<IOrderItem>();
+            foreach (IOrderItem item in items)
+            {
+                if (categories.Contains("Entree") && item is Entree)
+                {
+                    results.Add(item);
+                }
+                if (categories.Contains("Side") && item is Side)
+                {
+                    results.Add(item);
+                }
+                if (categories.Contains("Drink") && item is Drink)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// to those with IMDB ratings falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered movie collection</returns>
+        public static IEnumerable<IOrderItem> FilterByPrice(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price <= max) results.Add(item);
+                }
+                return results;
+            }
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Price >= min) results.Add(item);
+                }
+                return results;
+            }
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in items)
+            {
+                if (item.Price >= min && item.Price <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
+        /// <summary>
+        /// Filters the provided collection of movies
+        /// to those with IMDB ratings falling within
+        /// the specified range
+        /// </summary>
+        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="min">The minimum range value</param>
+        /// <param name="max">The maximum range value</param>
+        /// <returns>The filtered movie collection</returns>
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
+        {
+            if (min == null && max == null) return items;
+            var results = new List<IOrderItem>();
+
+            // only a maximum specified
+            if (min == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories <= max) results.Add(item);
+                }
+                return results;
+            }
+            // only a minimum specified
+            if (max == null)
+            {
+                foreach (IOrderItem item in items)
+                {
+                    if (item.Calories >= min) results.Add(item);
+                }
+                return results;
+            }
+            // Both minimum and maximum specified
+            foreach (IOrderItem item in items)
+            {
+                if (item.Calories >= min && item.Calories <= max)
+                {
+                    results.Add(item);
+                }
+            }
+            return results;
+        }
     }
 }
+

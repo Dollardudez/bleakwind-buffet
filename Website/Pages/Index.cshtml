@@ -15,43 +15,106 @@
 </div>
 
 <div>
+    <form id="movie-database">
+
+        <div id="search">
+            <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
+            <input type="submit" value="Search">
+        </div>
+
+        <div id="filters">
+
+            <h6>Categories</h6>
+            @foreach (String category in BleakwindBuffet.Data.Menu.Menu.Category)
+            {
+                <label>
+                    <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                    @category
+                </label>
+            }
+
+            <h6>Price</h6>
+            <div>
+                Between
+                <input name="PriceMin" type="number" min="0" max="100" step="0.1" placeholder="min" />
+                and
+                <input name="PriceMax" type="number" min="0" max="100" step="0.1" placeholder="max" />
+            </div>
+            <h6>Calories</h6>
+            <div>
+                Between
+                <input name="CaloriesMin" type="number" min="0" max="10000" step="0.1" placeholder="min" />
+                and
+                <input name="CaloriesMax" type="number" min="0" max="10000" step="0.1" placeholder="max" />
+            </div>
+
+        </div>
+
+        @*<div id="results">
+            <h1>Item Results</h1>
+
+            <ul class="movie-list">
+                @foreach (BleakwindBuffet.Data.Interface.IOrderItem item in Model.Items)
+                {
+                    <li>
+                        <div class="details">
+                            <h3 class="title">@item.ToString()</h3>
+                            <div class="mpaa">@item.Price</div>
+                            <div class="genre">@item.Calories</div>
+                        </div>
+                    </li>
+                }
+            </ul>
+        </div>*@
+    </form>
+
     <h2>Entrees</h2>
     <ul class="entree-list">
-        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in BleakwindBuffet.Data.Menu.Menu.Entrees())
+        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in Model.Items)
         {
-            <li>
-                <div class="menu-item">
-                    <h3 class="name">@entree.ToString()</h3>
-                    <div class="price">Price: @entree.Price</div>
-                    <div class="calories">Calories: @entree.Calories</div>
-                </div>
-            </li>
-        }
+            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+            {
+                <li>
+                    <div class="menu-item">
+                        <h3 class="name">@entree.ToString()</h3>
+                        <div class="price">Price: @entree.Price</div>
+                        <div class="calories">Calories: @entree.Calories</div>
+                    </div>
+                </li>
+             }
+         }
     </ul>
     <h2>Drinks</h2>
     <ul class="drink-list">
-        @foreach (BleakwindBuffet.Data.Drinks.Drink drink in BleakwindBuffet.Data.Menu.Menu.Drinks2PointO())
+        @foreach (BleakwindBuffet.Data.Interface.IOrderItem drink in Model.Items)
         {
-            <li>
-                <div class="menu-item">
-                    <h3 class="name">@drink.ToStringProperty</h3>
-                    <div class="price">Price: @drink.Price</div>
-                    <div class="calories">Calories: @drink.Calories</div>
-                </div>
-            </li>
+            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
+            {
+                BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
+                <li>
+                    <div class="menu-item">
+                        <h3 class="name">@drinkDrink.ToStringProperty</h3>
+                        <div class="price">Price: @drink.Price</div>
+                        <div class="calories">Calories: @drink.Calories</div>
+                    </div>
+                </li>
+            }
         }
     </ul>
     <h2>Sides</h2>
     <ul class="side-list">
-        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in BleakwindBuffet.Data.Menu.Menu.Sides())
+        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in Model.Items)
         {
-            <li>
-                <div class="menu-item">
-                    <h3 class="name">@side.ToString()</h3>
-                    <div class="price">Price: @side.Price</div>
-                    <div class="calories">Calories: @side.Calories</div>
-                </div>
-            </li>
+            @if (side is BleakwindBuffet.Data.Sides.Side)
+            {
+                <li>
+                    <div class="menu-item">
+                        <h3 class="name">@side.ToString()</h3>
+                        <div class="price">Price: @side.Price</div>
+                        <div class="calories">Calories: @side.Calories</div>
+                    </div>
+                </li>
+            }
         }
     </ul>
 </div>
@@ -81,4 +144,6 @@
     </li>
 
 </ul>
+
+
 
