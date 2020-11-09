@@ -14,6 +14,10 @@ namespace Website.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
+        public IndexModel()
+        {
+        }
+
         public IndexModel(ILogger<IndexModel> logger)
         {
             _logger = logger;
