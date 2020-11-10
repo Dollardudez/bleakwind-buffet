@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Website</name>
+    </assembly>
+    <members>
+        <member name="T:Website.Pages.IndexModel">
+            <summary>
+            Class meant to act as the Model to the Index.cshtml page
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Website.Pages.IndexModel.#ctor(Microsoft.Extensions.Logging.ILogger{Website.Pages.IndexModel})" -->
+        <member name="P:Website.Pages.IndexModel.Categories">
+            <summary>
+            The filtered Categories, Entree, Side, Drink
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.Items">
+            <summary>
+            The searched items
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.SearchTerms">
+            <summary>
+            Terms that the user enters to search
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.PriceMin">
+            <summary>
+            Minimum Price that the user enters
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.PriceMax">
+            <summary>
+            Maximum Price that the user enters
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.CaloriesMin">
+            <summary>
+            Minimum Calories that the user enters
+            </summary>
+        </member>
+        <member name="P:Website.Pages.IndexModel.CaloriesMax">
+            <summary>
+            Maximum Calories that the user enters
+            </summary>
+        </member>
+        <member name="M:Website.Pages.IndexModel.OnGet(System.String,System.String[],System.Nullable{System.Double},System.Nullable{System.Double},System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Gets the search results for display on the page
+            </summary>
+        </member>
+    </members>
+</doc>

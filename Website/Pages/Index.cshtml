@@ -35,37 +35,16 @@
 
             <h6>Price</h6>
             <div>
-                Between
-                <input name="PriceMin" type="number" min="0" max="100" step="0.1" placeholder="min" />
-                and
-                <input name="PriceMax" type="number" min="0" max="100" step="0.1" placeholder="max" />
+                <input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" />
+                <input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" />
             </div>
             <h6>Calories</h6>
             <div>
-                Between
-                <input name="CaloriesMin" type="number" min="0" max="10000" step="0.1" placeholder="min" />
-                and
-                <input name="CaloriesMax" type="number" min="0" max="10000" step="0.1" placeholder="max" />
+                <input name="CaloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" />
+                <input name="CaloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" />
             </div>
 
         </div>
-
-        @*<div id="results">
-            <h1>Item Results</h1>
-
-            <ul class="movie-list">
-                @foreach (BleakwindBuffet.Data.Interface.IOrderItem item in Model.Items)
-                {
-                    <li>
-                        <div class="details">
-                            <h3 class="title">@item.ToString()</h3>
-                            <div class="mpaa">@item.Price</div>
-                            <div class="genre">@item.Calories</div>
-                        </div>
-                    </li>
-                }
-            </ul>
-        </div>*@
     </form>
 
     <h2>Entrees</h2>

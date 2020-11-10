@@ -200,46 +200,6 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listFullMenu;
         }
-
-
-        /// <summary>
-        /// Method that adds all the drinks (small, medium and large) to a List<IOrderItem>. It adds 3 instances of SailorSoda
-        /// to the list, each with different soda flavors
-        /// </summary>
-        /// <returns>A List<IOrderItem> that holds an instance of all drinks added to the list</returns>
-        public static List<Drinks.Drink> Drinks2PointO()
-        {
-            List<Drinks.Drink> listOfDrinks = new List<Drinks.Drink>();
-            for (int i = 0; i < 3; i++)
-            {
-                if (i == 0)
-                {
-                    listOfDrinks.Add(new AretinoAppleJuice());
-                    listOfDrinks.Add(new CandlehearthCoffee());
-                    listOfDrinks.Add(new MarkarthMilk());
-                    listOfDrinks.Add(new WarriorWater());
-                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Small Sailor Soda" });
-                }
-                else if (i == 1)
-                {
-                    listOfDrinks.Add(new AretinoAppleJuice { Size = Size.Medium });
-                    listOfDrinks.Add(new CandlehearthCoffee { Size = Size.Medium });
-                    listOfDrinks.Add(new MarkarthMilk { Size = Size.Medium });
-                    listOfDrinks.Add(new WarriorWater { Size = Size.Medium });
-                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Medium Sailor Soda", Size = Size.Medium });
-                }
-                else
-                {
-
-                    listOfDrinks.Add(new AretinoAppleJuice { Size = Size.Large });
-                    listOfDrinks.Add(new CandlehearthCoffee { Size = Size.Large });
-                    listOfDrinks.Add(new MarkarthMilk { Size = Size.Large });
-                    listOfDrinks.Add(new WarriorWater { Size = Size.Large });
-                    listOfDrinks.Add(new SailorSoda { ToStringProperty = "Large Sailor Soda", Size = Size.Large });
-                }
-            }
-            return listOfDrinks;
-        }
         /// <summary>
         /// Method that adds all the items on the menu to a List<IOrderItem></IOrderItem>. Sides and Drinks
         /// have instances of small, medium and large. The method adds 3 instances of SailorSoda PER size, each instance has
@@ -303,11 +263,13 @@ namespace BleakwindBuffet.Data.Menu
             }
             return listFullMenu;
         }
+        /// <summary>
+        /// private field of a collection of items
+        /// </summary>
         private static List<IOrderItem> items = new List<IOrderItem>();
         /// <summary>
-        /// Gets all the movies in the database
+        /// Gets all the items in the database with the correct terms
         /// </summary>
-
         public static IEnumerable<IOrderItem> Search(string terms)
         {
             List<IOrderItem> results = new List<IOrderItem>();
@@ -323,7 +285,7 @@ namespace BleakwindBuffet.Data.Menu
             return results;
         }
         /// <summary>
-        /// Gets the possible MPAARatings
+        /// Gets the possible Categories
         /// </summary>
         public static string[] Category
         {
@@ -334,6 +296,12 @@ namespace BleakwindBuffet.Data.Menu
             "Drink",
             };
         }
+        /// <summary>
+        /// Filters the search results by Category
+        /// </summary>
+        /// <param name="items"></param>
+        /// <param name="categories"></param>
+        /// <returns></returns>
         public static IEnumerable<IOrderItem> FilterByCategory(IEnumerable<IOrderItem> items, IEnumerable<string> categories)
         {
             // If no filter is specified, just return the provided collection
@@ -358,11 +326,10 @@ namespace BleakwindBuffet.Data.Menu
             return results;
         }
         /// <summary>
-        /// Filters the provided collection of movies
-        /// to those with IMDB ratings falling within
-        /// the specified range
+        /// Filters the provided collection of items
+        /// to those with a Price that falls within the specified range
         /// </summary>
-        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="items">The collection of items to filter</param>
         /// <param name="min">The minimum range value</param>
         /// <param name="max">The maximum range value</param>
         /// <returns>The filtered movie collection</returns>
@@ -400,15 +367,14 @@ namespace BleakwindBuffet.Data.Menu
             return results;
         }
         /// <summary>
-        /// Filters the provided collection of movies
-        /// to those with IMDB ratings falling within
-        /// the specified range
+        /// Filters the provided collection of items
+        /// to those within the specified Caloric range
         /// </summary>
-        /// <param name="movies">The collection of movies to filter</param>
+        /// <param name="items">The collection of items to filter</param>
         /// <param name="min">The minimum range value</param>
         /// <param name="max">The maximum range value</param>
         /// <returns>The filtered movie collection</returns>
-        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, double? min, double? max)
+        public static IEnumerable<IOrderItem> FilterByCalories(IEnumerable<IOrderItem> items, int? min, int? max)
         {
             if (min == null && max == null) return items;
             var results = new List<IOrderItem>();
