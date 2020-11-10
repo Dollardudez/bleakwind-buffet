@@ -16,10 +16,9 @@ namespace Website.Pages
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
-        /// <summary>
-        /// for testing purposes
-        /// </summary>
-        /// <param name = "logger" ></ param >
+
+
+        //FOR TESTING PURPOSES, PLEASE UNCOMMENT THIS CONSTRUCTOR TO RUN TESTS
         //public IndexModel()
         //{
         //}
