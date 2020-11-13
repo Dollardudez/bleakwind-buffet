@@ -17,6 +17,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class BriarheartBurger : Entree, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "Single patty burger on a brioche bun. Comes with ketchup, mustard, pickle, and cheese.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

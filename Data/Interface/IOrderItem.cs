@@ -28,5 +28,6 @@ namespace BleakwindBuffet.Data.Interface
         /// a property that defines an item's list of special instructions, if it has any
         /// </summary>
         List<string> SpecialInstructions { get;  }
+        string Description { get;}
     }
 }

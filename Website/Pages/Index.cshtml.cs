@@ -7,6 +7,9 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using BleakwindBuffet.Data.Menu;
 using BleakwindBuffet.Data.Interface;
+using BleakwindBuffet.Data.Entrees;
+using BleakwindBuffet.Data.Sides;
+using BleakwindBuffet.Data.Drinks;
 
 namespace Website.Pages
 {
@@ -36,6 +39,10 @@ namespace Website.Pages
         /// The filtered Categories, Entree, Side, Drink
         /// </summary>
         public string[] Categories { get; set; }
+        /// <summary>
+        /// The searched items
+        /// </summary>
+        public IEnumerable<IOrderItem> TempItems { get; set; }
         /// <summary>
         /// The searched items
         /// </summary>
@@ -71,10 +78,90 @@ namespace Website.Pages
             this.PriceMax = PriceMax;
             this.CaloriesMin = CaloriesMin;
             this.CaloriesMax = CaloriesMax;
-            Items = Menu.Search(SearchTerms);
-            Items = Menu.FilterByCategory(Items, Categories);
-            Items = Menu.FilterByPrice(Items, PriceMin, PriceMax);
-            Items = Menu.FilterByCalories(Items, CaloriesMin, CaloriesMax);
+            Items = Menu.AllItems();
+            List<IOrderItem> test = new List<IOrderItem>();
+            // Search item titles for the SearchTerms
+            if (SearchTerms != null)
+            {
+                string[] SearchTermsArray = SearchTerms.Split(" ");
+                for(int i = 0; i < SearchTermsArray.Length; i++)
+                {
+                    Items = Items.Where(item => item.ToString() != null 
+                        && (item.ToString().Contains(SearchTermsArray[i], StringComparison.InvariantCultureIgnoreCase)
+                        || item.Description.Contains(SearchTermsArray[i], StringComparison.InvariantCultureIgnoreCase)));
+                    foreach(IOrderItem item in Items)
+                    {
+                        test.Add(item);
+                    }
+                }
+                Items = test;
+            }
+            if (Categories != null && Categories.Length != 0)
+            {
+                if (Categories.Contains("Entree"))
+                {
+                    Items = Items.Where(items => items is Entree);
+                }
+                if (Categories.Contains("Side"))
+                {
+                    Items = Items.Where(items => items is Side);
+                }
+                if (Categories.Contains("Drink"))
+                {
+                    Items = Items.Where(items => items is Drink);
+                }
+            }
+
+
+            if (PriceMin == null && PriceMax != null)
+            {
+                Items = Items.Where(item =>
+                    item.Price != null &&
+                    item.Price <= PriceMax
+                    );
+            }
+            // only a minimum specified
+            if (PriceMax == null && PriceMin != null)
+            {
+                Items = Items.Where(item =>
+                    item.Price != null &&
+                    item.Price >= PriceMin
+                    );
+            }
+            // Both minimum and maximum specified
+            if (PriceMax != null && PriceMin != null)
+            {
+                Items = Items.Where(item =>
+                    item.Price != null &&
+                    item.Price >= PriceMin &&
+                     item.Price <= PriceMax
+                    );
+            }
+            if (CaloriesMin == null && CaloriesMax != null)
+            {
+                Items = Items.Where(item =>
+                    item.Calories != null &&
+                    item.Calories <= CaloriesMax
+                    );
+            }
+
+            // only a minimum specified
+            if (CaloriesMax == null && CaloriesMin != null)
+            {
+                Items = Items.Where(item =>
+                    item.Calories != null &&
+                    item.Calories >= CaloriesMin
+                    );
+            }
+            // Both minimum and maximum specified
+            if (CaloriesMax != null && CaloriesMin != null)
+            {
+                Items = Items.Where(item =>
+                    item.Calories != null &&
+                    item.Calories >= CaloriesMin &&
+                     item.Calories <= CaloriesMax
+                    );
+            }
         }
     }
 }

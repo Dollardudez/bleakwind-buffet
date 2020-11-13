@@ -19,6 +19,14 @@ namespace BleakwindBuffet.Data.Entrees
     public class ThalmorTriple: Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A description of the item, to be displayed on the website
+        /// </summary>
+        private string description = "Think you are strong enough to take on the Thalmor? Inlcudes two 1/4lb patties with a 1/2lb patty inbetween with ketchup, mustard, pickle, cheese, tomato, lettuce, mayo, bacon, and an egg.";
+        public string Description
+        {
+            get => description;
+        }
+        /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

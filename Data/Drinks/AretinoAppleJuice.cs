@@ -22,6 +22,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class AretinoAppleJuice : Drink, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "Fresh squeezed apple juice.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

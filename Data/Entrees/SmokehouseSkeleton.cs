@@ -19,6 +19,14 @@ namespace BleakwindBuffet.Data.Entrees
     public class SmokehouseSkeleton : Entree, IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A description of the item, to be displayed on the website
+        /// </summary>
+        private string description = "Put some meat on those bones with a small stack of pancakes. Includes sausage links, eggs, and hash browns on the side. Topped with the syrup of your choice.";
+        public string Description
+        {
+            get => description;
+        }
+        /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

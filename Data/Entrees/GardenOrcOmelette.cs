@@ -18,6 +18,11 @@ namespace BleakwindBuffet.Data.Entrees
     /// </summary>
     public class GardenOrcOmelette : Entree, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "Vegetarian. Two egg omelette packed with a mix of broccoli, mushrooms, and tomatoes. Topped with cheddar cheese.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

@@ -20,6 +20,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class WarriorWater : Drink, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "It’s water. Just water.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

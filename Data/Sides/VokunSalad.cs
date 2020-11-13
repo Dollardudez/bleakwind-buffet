@@ -19,7 +19,14 @@ namespace BleakwindBuffet.Data.Sides
 /// </summary>
     public class VokunSalad : Side, IOrderItem, INotifyPropertyChanged
     {
-
+        /// <summary>
+        /// A description of the item, to be displayed on the website
+        /// </summary>
+        private string description = "A seasonal fruit salad of mellons, berries, mango, grape, apple, and oranges.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// property that gets and sets ets the price of the side
         /// </summary>

@@ -20,6 +20,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class SailorSoda : Drink, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "An old-fashioned jerked soda, carbonated water and flavored syrup poured over a bed of crushed ice.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

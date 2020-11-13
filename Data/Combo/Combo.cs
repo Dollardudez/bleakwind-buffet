@@ -23,6 +23,14 @@ namespace BleakwindBuffet.Data.Combo
     public class Combo : IOrderItem, INotifyPropertyChanged
     {
         /// <summary>
+        /// A description of the item, to be displayed on the website
+        /// </summary>
+        private string description = "";
+        public string Description
+        {
+            get => description;
+        }
+        /// <summary>
         /// Property changed event handler
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;

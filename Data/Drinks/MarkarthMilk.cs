@@ -20,6 +20,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class MarkarthMilk: Drink, IOrderItem, INotifyPropertyChanged
     {
+        private string description = "Hormone-free organic 2% milk.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>

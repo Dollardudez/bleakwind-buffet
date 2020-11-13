@@ -21,6 +21,11 @@ namespace BleakwindBuffet.Data.Drinks
     /// </summary>
     public class CandlehearthCoffee: Drink,IOrderItem, INotifyPropertyChanged
     {
+        private string description = "Fair trade, fresh ground dark roast coffee.";
+        public string Description
+        {
+            get => description;
+        }
         /// <summary>
         /// A public event property that is invoked when any property changes
         /// </summary>
