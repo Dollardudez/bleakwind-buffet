@@ -15,6 +15,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class AretinoAppleJuiceTests
     {
         [Fact]
+        public void DescriptionPropertyIsCorrect()
+        {
+            var test = new AretinoAppleJuice();
+            Assert.Equal(test.Description, "Fresh squeezed apple juice.");
+        }
+        [Fact]
         public void ChanginSizeNotifiesSizeProperty()
         {
             var test = new AretinoAppleJuice();

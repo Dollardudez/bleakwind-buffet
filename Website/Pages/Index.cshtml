@@ -15,117 +15,143 @@
 </div>
 
 <div>
-    <form id="movie-database">
+    <div class="container m-6">
+        <div class="row d-flex justify-content-center">
+            <div class="card p-4 mt-3">
+                <form id="item-database">
+                    <div class="d-flex justify-content-center px-5">
+                        <div id="search">
+                            <input type="text" name="SearchTerms" value="@Model.SearchTerms" placeholder="Search..." />
+                            <input type="submit" value="Search">
+                        </div>
+                    </div>
 
-        <div id="search">
-            <input type="text" name="SearchTerms" value="@Model.SearchTerms" />
-            <input type="submit" value="Search">
+                    <div class="row mt-4 g-1 px-4 mb-5 justify-content-around">
+                        <div>
+                            <h6 class="d-flex justify-content-center">Categories</h6>
+                            @foreach (String category in BleakwindBuffet.Data.Menu.Menu.Category)
+                            {
+                                <label class="column d-flex">
+                                    <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                                    @category
+                                </label>
+                            }
+                        </div>
+                        <div>
+                            <h6 class="d-flex justify-content-center">Price</h6>
+                            <div column d-flex>
+                                <div><input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" value="@Model.PriceMin"/></div>
+                                <div><input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" value="@Model.PriceMax" /></div>
+                            </div>
+                        </div>
+                        <div>
+                            <h6 class="d-flex justify-content-center">Calories</h6>
+                            <div column d-flex>
+                                <div><input name="CaloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" value="@Model.CaloriesMin"/></div>
+                                <div><input name="CaloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" value="@Model.CaloriesMax"/></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
         </div>
 
-        <div id="filters">
 
-            <h6>Categories</h6>
-            @foreach (String category in BleakwindBuffet.Data.Menu.Menu.Category)
-            {
-                <label>
-                    <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
-                    @category
-                </label>
-            }
-
-            <h6>Price</h6>
-            <div>
-                <input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" />
-                <input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" />
+        <div>
+            <div class="image-div">
+                
             </div>
-            <h6>Calories</h6>
-            <div>
-                <input name="CaloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" />
-                <input name="CaloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" />
+            <div class="d-flex col justify-content-center p-3">
+                <div class="col-md-4">
+                    <h2 class="text-center">Entrees</h2>
+                    <ul class="list-group">
+                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in Model.Items)
+                        {
+                            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+                            {
+                                <li class="list-group-item">
+                                    <div class="menu-item">
+                                        <h5 class="name">@entree.ToString()</h5>
+                                        <div class="price"><span style="color: #efe50b">Price</span>: $@entree.Price</div>
+                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @entree.Calories</div>
+                                        <div class="description"><span style="color: #50ff57">Description</span>: @entree.Description</div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-center">Drinks</h2>
+                    <ul class="list-group">
+                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem drink in Model.Items)
+                        {
+                            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
+                            {
+                                BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
+                                <li class="list-group-item">
+                                    <div>
+                                        <h5 class="name">@drinkDrink.ToStringProperty</h5>
+                                        <div class="price"><span style="color: #efe50b">Price</span>: $@drink.Price</div>
+                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @drink.Calories</div>
+                                        <div class="description"><span style="color: #50ff57">Description</span>: @drink.Description</div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="text-center">Sides</h2>
+                    <ul class="list-group">
+                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in Model.Items)
+                        {
+                            @if (side is BleakwindBuffet.Data.Sides.Side)
+                            {
+                                <li class="list-group-item">
+                                    <div>
+                                        <h5 class="name">@side.ToString()</h5>
+                                        <div class="price"><span style="color: #efe50b">Price</span>: $@side.Price</div>
+                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @side.Calories</div>
+                                        <div class="description"><span style="color: #50ff57">Description</span>: @side.Description</div>
+                                    </div>
+                                </li>
+                            }
+                        }
+                    </ul>
+                </div>
             </div>
-
         </div>
-    </form>
+        
+    </div>
 
-    <h2>Entrees</h2>
-    <ul class="entree-list">
-        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in Model.Items)
-        {
-            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
-            {
-                <li>
-                    <div class="menu-item">
-                        <h3 class="name">@entree.ToString()</h3>
-                        <div class="price">Price: @entree.Price</div>
-                        <div class="calories">Calories: @entree.Calories</div>
-                        <div class="calories">Description: @entree.Description</div>
-                    </div>
-                </li>
-             }
-         }
-    </ul>
-    <h2>Drinks</h2>
-    <ul class="drink-list">
-        @foreach (BleakwindBuffet.Data.Interface.IOrderItem drink in Model.Items)
-        {
-            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
-            {
-                BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
-                <li>
-                    <div class="menu-item">
-                        <h3 class="name">@drinkDrink.ToStringProperty</h3>
-                        <div class="price">Price: @drink.Price</div>
-                        <div class="calories">Calories: @drink.Calories</div>
-                        <div class="calories">Description: @drink.Description</div>
-                    </div>
-                </li>
-            }
-        }
-    </ul>
-    <h2>Sides</h2>
-    <ul class="side-list">
-        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in Model.Items)
-        {
-            @if (side is BleakwindBuffet.Data.Sides.Side)
-            {
-                <li>
-                    <div class="menu-item">
-                        <h3 class="name">@side.ToString()</h3>
-                        <div class="price">Price: @side.Price</div>
-                        <div class="calories">Calories: @side.Calories</div>
-                        <div class="calories">Description: @side.Description</div>
-                    </div>
-                </li>
-            }
-        }
+    <div class="combo-details">
+        <h4>Any one entree, side, and drink can be combined into a Combo with a $1 discount.</h4>
+    </div>
+    <h4>Available flavors for the Sailor Soda include:</h4>
+    <ul class="list-group-horizontal">
+        <li class="list-group-item border-0">
+            <span style="color: red">@BleakwindBuffet.Data.Enums.SodaFlavor.Cherry</span>
+        </li>
+        <li class="list-group-item border-0">
+            <span style="color: purple"> @BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry</span>
+        </li>
+        <li class="list-group-item border-0">
+            <span style="color: orangered">@BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit</span>
+        </li>
+        <li class="list-group-item border-0">
+            <span style="color: deeppink">@BleakwindBuffet.Data.Enums.SodaFlavor.Peach</span>
+        </li>
+        <li class="list-group-item border-0">
+            <span style="color: darkkhaki">@BleakwindBuffet.Data.Enums.SodaFlavor.Lemon</span>
+        </li>
+        <li class="list-group-item border-0">
+            <span style="color: forestgreen">@BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon</span>
+        </li>
+
     </ul>
 </div>
-
-<div class="combo-details">
-    <h4>Any one entree, side, and drink can be combined into a Combo with a $1 discount.</h4>
-</div>
-<h4>Available flavors for the Sailor Soda include:</h4>
-<ul class="sailorsoda-details">
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Cherry
-    </li>
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Blackberry
-    </li>
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Grapefruit
-    </li>
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Peach
-    </li>
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Lemon
-    </li>
-    <li>
-        @BleakwindBuffet.Data.Enums.SodaFlavor.Watermelon
-    </li>
-
-</ul>
 
 
 

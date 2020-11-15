@@ -89,18 +89,6 @@ namespace BleakwindBuffet.DataTests.UnitTests.ComboTests
                 combo.Drink = drink;
             });
         }
-        [Theory]
-        [InlineData(typeof(Entree), "SpecialInstructions")]
-        public void ChangingItemInstrucionsShouldNotifyPropertyChanges(Type type, string property)
-        {
-            BriarheartBurger test = new BriarheartBurger();
-            Combo combo = new Combo();
-            combo.Entree = test;
-            Assert.PropertyChanged(combo, property, () =>
-            {
-                test.Ketchup = false;
-            });
-        }
 
         [Fact]
         public void EntreePropertySettable()

@@ -73,3 +73,35 @@ body {
 #bleakwind-buffet-navbar {
     background-color: #b6eef5;
 }
+
+.flex-columns {
+    /*flex-basis: 0;*/
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+/*@media (max-width: 490px) {
+    .flex-columns justify-content-center {
+        flex-direction: column;
+    }
+}
+*/
+
+#movie-database {
+    display: flex;
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    /*background-color: red;*/
+}
+.list-group-item {
+    border-radius: .9rem;
+    border: thin;
+    background-color: aqua;
+    margin: 30px;
+    padding: 35px;
+}
+.text-center{
+    padding: 1rem;
+}
+

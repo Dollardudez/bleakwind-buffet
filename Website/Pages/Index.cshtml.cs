@@ -21,7 +21,7 @@ namespace Website.Pages
         private readonly ILogger<IndexModel> _logger;
 
 
-        //FOR TESTING PURPOSES, PLEASE UNCOMMENT THIS CONSTRUCTOR TO RUN TESTS
+        ////FOR TESTING PURPOSES, PLEASE UNCOMMENT THIS CONSTRUCTOR TO RUN TESTS
         //public IndexModel()
         //{
         //}
@@ -94,22 +94,41 @@ namespace Website.Pages
                         test.Add(item);
                     }
                 }
-                Items = test;
+                List<IOrderItem> test2 = new List<IOrderItem>();
+                foreach(IOrderItem item in test)
+                {
+                    test2.Add(item);
+                }
+                Items = test2;
             }
+            test.Clear();
             if (Categories != null && Categories.Length != 0)
             {
                 if (Categories.Contains("Entree"))
                 {
-                    Items = Items.Where(items => items is Entree);
+                    TempItems = Items.Where(item => item is Entree);
+                    foreach (IOrderItem item in TempItems)
+                    {
+                        test.Add(item);
+                    }
                 }
                 if (Categories.Contains("Side"))
                 {
-                    Items = Items.Where(items => items is Side);
+                    TempItems = Items.Where(item => item is Side);
+                    foreach (IOrderItem item in TempItems)
+                    {
+                        test.Add(item);
+                    }
                 }
                 if (Categories.Contains("Drink"))
                 {
-                    Items = Items.Where(items => items is Drink);
+                    TempItems = Items.Where(item => item is Drink);
+                    foreach (IOrderItem item in TempItems)
+                    {
+                        test.Add(item);
+                    }
                 }
+                Items = test;
             }
 
 
