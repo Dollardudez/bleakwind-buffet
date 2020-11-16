@@ -14,7 +14,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class FriedMiraakTests
     {
-
+        [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            FriedMiraak placeholder = new FriedMiraak();
+            Assert.Equal("Perfectly prepared hash brown pancakes.", placeholder.Description);
+        }
         [Fact]
         public void ChanginSizeNotifiesSizeProperty()
         {

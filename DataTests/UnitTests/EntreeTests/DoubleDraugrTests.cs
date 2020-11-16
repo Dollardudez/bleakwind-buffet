@@ -15,6 +15,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class DoubleDraugrTests
     {
         [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            DoubleDraugr placeholder = new DoubleDraugr();
+            Assert.Equal("Double patty burger on a brioche bun. Comes with ketchup, mustard, pickle, cheese, tomato, lettuce, and mayo.", placeholder.Description);
+        }
+        [Fact]
         public void ChangingKetchupNotifiesKetchupProperty()
         {
             var test = new DoubleDraugr();

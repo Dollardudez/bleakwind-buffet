@@ -20,12 +20,6 @@ namespace Website.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-
-        ////FOR TESTING PURPOSES, PLEASE UNCOMMENT THIS CONSTRUCTOR TO RUN TESTS
-        //public IndexModel()
-        //{
-        //}
-
         /// <summary>
         /// Constructor for the IndexModel Class, sets the _logger property
         /// </summary>

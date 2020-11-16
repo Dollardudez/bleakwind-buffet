@@ -14,7 +14,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.SideTests
 {
     public class DragonbornWaffleFriesTests
     {
-
+        [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            DragonbornWaffleFries placeholder = new DragonbornWaffleFries();
+            Assert.Equal("Crispy fried potato waffle fries.", placeholder.Description);
+        }
         [Fact]
         public void ChanginSizeNotifiesSizeProperty()
         {

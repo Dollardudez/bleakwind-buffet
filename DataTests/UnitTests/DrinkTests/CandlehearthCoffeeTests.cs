@@ -15,6 +15,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
     public class CandlehearthCoffeeTests
     {
         [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            CandlehearthCoffee placeholder = new CandlehearthCoffee();
+            Assert.Equal("Fair trade, fresh ground dark roast coffee.", placeholder.Description);
+        }
+        [Fact]
         public void ChanginSizeNotifiesSizeProperty()
         {
             var test = new CandlehearthCoffee();

@@ -14,6 +14,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.EntreeTests
     public class ThugsTBoneTests
     {
         [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            ThugsTBone placeholder = new ThugsTBone();
+            Assert.Equal("Juicy T-Bone, not much else to say.", placeholder.Description);
+        }
+        [Fact]
         public void ShouldBeAnIOrderItem()
         {
             ThugsTBone tb = new ThugsTBone();

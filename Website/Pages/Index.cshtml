@@ -4,8 +4,8 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome to the Bleakwind Buffet</h1>
+<div class="text-center" id="welcome-div">
+    <h1 style="font-family: 'Pacifico', cursive;color: #efe50b;" >Welcome to the Bleakwind Buffet</h1>
     <p>
         We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
         Shake the blood off your sword and sake your thirst with one of our old-fashioned sailor sodas. Hack into
@@ -14,55 +14,58 @@
     </p>
 </div>
 
-<div>
-    <div class="container m-6">
-        <div class="row d-flex justify-content-center">
-            <div class="card p-4 mt-3">
-                <form id="item-database">
-                    <div class="d-flex justify-content-center px-5">
-                        <div id="search">
-                            <input type="text" name="SearchTerms" value="@Model.SearchTerms" placeholder="Search..." />
-                            <input type="submit" value="Search">
+<div class="image-div">
+    <div class="menu-div">
+        <h2 style="font-size:9rem;color: white;">Menu</h2>
+    </div>
+
+</div>
+
+<div style="position: sticky;top: 0;background-color: white; z-index:10;">
+    <div class="row d-flex justify-content-left">
+        <div class="card p-4 mt-3">
+            <form id="item-database">
+                <div class="d-flex justify-content-center px-5">
+                    <div id="search">
+                        <input type="text" name="SearchTerms" value="@Model.SearchTerms" placeholder="Search Our Menu..." />
+                        <input type="submit" value="Search">
+                    </div>
+                </div>
+
+                <div class="row mt-4 g-1 px-4 mb-5 justify-content-around">
+                    <div>
+                        <h6 class="d-flex justify-content-center">Categories</h6>
+                        @foreach (String category in BleakwindBuffet.Data.Menu.Menu.Category)
+                        {
+                            <label class="column d-flex">
+                                <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
+                                @category
+                            </label>
+                        }
+                    </div>
+                    <div>
+                        <h6 class="d-flex justify-content-center">Price</h6>
+                        <div column d-flex>
+                            <div><input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" value="@Model.PriceMin" /></div>
+                            <div><input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" value="@Model.PriceMax" /></div>
+                        </div>
+                    </div>
+                    <div>
+                        <h6 class="d-flex justify-content-center">Calories</h6>
+                        <div column d-flex>
+                            <div><input name="CaloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" value="@Model.CaloriesMin" /></div>
+                            <div><input name="CaloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" value="@Model.CaloriesMax" /></div>
                         </div>
                     </div>
 
-                    <div class="row mt-4 g-1 px-4 mb-5 justify-content-around">
-                        <div>
-                            <h6 class="d-flex justify-content-center">Categories</h6>
-                            @foreach (String category in BleakwindBuffet.Data.Menu.Menu.Category)
-                            {
-                                <label class="column d-flex">
-                                    <input type="checkbox" name="Categories" value="@category" checked="@Model.Categories.Contains(category)" />
-                                    @category
-                                </label>
-                            }
-                        </div>
-                        <div>
-                            <h6 class="d-flex justify-content-center">Price</h6>
-                            <div column d-flex>
-                                <div><input name="PriceMin" type="number" min="0" max="100" step="0.01" placeholder="min" value="@Model.PriceMin"/></div>
-                                <div><input name="PriceMax" type="number" min="0" max="100" step="0.01" placeholder="max" value="@Model.PriceMax" /></div>
-                            </div>
-                        </div>
-                        <div>
-                            <h6 class="d-flex justify-content-center">Calories</h6>
-                            <div column d-flex>
-                                <div><input name="CaloriesMin" type="number" min="0" max="10000" step="1" placeholder="min" value="@Model.CaloriesMin"/></div>
-                                <div><input name="CaloriesMax" type="number" min="0" max="10000" step="1" placeholder="max" value="@Model.CaloriesMax"/></div>
-                            </div>
-                        </div>
-
-                    </div>
-                </form>
-            </div>
+                </div>
+            </form>
         </div>
-
+    </div>
+</div>
 
         <div>
-            <div class="image-div">
-                
-            </div>
-            <div class="d-flex col justify-content-center p-3">
+            <div class="flex-columns">
                 <div class="col-md-4">
                     <h2 class="text-center">Entrees</h2>
                     <ul class="list-group">
@@ -70,7 +73,7 @@
                         {
                             @if (entree is BleakwindBuffet.Data.Entrees.Entree)
                             {
-                                <li class="list-group-item">
+                                <li class="list-item" style="background-color: #b6eef5">
                                     <div class="menu-item">
                                         <h5 class="name">@entree.ToString()</h5>
                                         <div class="price"><span style="color: #efe50b">Price</span>: $@entree.Price</div>
@@ -90,7 +93,7 @@
                             @if (drink is BleakwindBuffet.Data.Drinks.Drink)
                             {
                                 BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
-                                <li class="list-group-item">
+                                <li class="list-item" style="background-color: #8BFF90">
                                     <div>
                                         <h5 class="name">@drinkDrink.ToStringProperty</h5>
                                         <div class="price"><span style="color: #efe50b">Price</span>: $@drink.Price</div>
@@ -109,7 +112,7 @@
                         {
                             @if (side is BleakwindBuffet.Data.Sides.Side)
                             {
-                                <li class="list-group-item">
+                                <li class="list-item" style="background-color:#FFC9FD">
                                     <div>
                                         <h5 class="name">@side.ToString()</h5>
                                         <div class="price"><span style="color: #efe50b">Price</span>: $@side.Price</div>
@@ -124,7 +127,7 @@
             </div>
         </div>
         
-    </div>
+    
 
     <div class="combo-details">
         <h4>Any one entree, side, and drink can be combined into a Combo with a $1 discount.</h4>
@@ -151,7 +154,6 @@
         </li>
 
     </ul>
-</div>
 
 
 

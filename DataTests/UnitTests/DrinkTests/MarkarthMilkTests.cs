@@ -15,6 +15,12 @@ namespace BleakwindBuffet.DataTests.UnitTests.DrinkTests
 {
     public class MarkarthMilkTests
     {
+        [Fact]
+        public void ItemDescriptionShouldBeCorrect()
+        {
+            MarkarthMilk placeholder = new MarkarthMilk();
+            Assert.Equal("Hormone-free organic 2% milk.", placeholder.Description);
+        }
 
         [Fact]
         public void ChanginSizeNotifiesSizeProperty()
