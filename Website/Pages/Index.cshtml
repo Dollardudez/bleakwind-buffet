@@ -4,7 +4,7 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center" id="welcome-div">
+<div class="text-center" id="welcome-div" style="background-color: #f4f4f4">
     <h1 style="font-family: 'Pacifico', cursive;color: #efe50b;" >Welcome to the Bleakwind Buffet</h1>
     <p>
         We at Bleakwind Buffet are proud to bring you authentic fantasy meals straight from the world of Skyrim.
@@ -21,7 +21,7 @@
 
 </div>
 
-<div style="position: sticky;top: 0;background-color: white; z-index:10;">
+<div>
     <div class="row d-flex justify-content-left">
         <div class="card p-4 mt-3">
             <form id="item-database">
@@ -64,68 +64,68 @@
     </div>
 </div>
 
-        <div>
-            <div class="flex-columns">
-                <div class="col-md-4">
-                    <h2 class="text-center">Entrees</h2>
-                    <ul class="list-group">
-                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in Model.Items)
-                        {
-                            @if (entree is BleakwindBuffet.Data.Entrees.Entree)
-                            {
-                                <li class="list-item" style="background-color: #b6eef5">
-                                    <div class="menu-item">
-                                        <h5 class="name">@entree.ToString()</h5>
-                                        <div class="price"><span style="color: #efe50b">Price</span>: $@entree.Price</div>
-                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @entree.Calories</div>
-                                        <div class="description"><span style="color: #50ff57">Description</span>: @entree.Description</div>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h2 class="text-center">Drinks</h2>
-                    <ul class="list-group">
-                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem drink in Model.Items)
-                        {
-                            @if (drink is BleakwindBuffet.Data.Drinks.Drink)
-                            {
-                                BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
-                                <li class="list-item" style="background-color: #8BFF90">
-                                    <div>
-                                        <h5 class="name">@drinkDrink.ToStringProperty</h5>
-                                        <div class="price"><span style="color: #efe50b">Price</span>: $@drink.Price</div>
-                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @drink.Calories</div>
-                                        <div class="description"><span style="color: #50ff57">Description</span>: @drink.Description</div>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h2 class="text-center">Sides</h2>
-                    <ul class="list-group">
-                        @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in Model.Items)
-                        {
-                            @if (side is BleakwindBuffet.Data.Sides.Side)
-                            {
-                                <li class="list-item" style="background-color:#FFC9FD">
-                                    <div>
-                                        <h5 class="name">@side.ToString()</h5>
-                                        <div class="price"><span style="color: #efe50b">Price</span>: $@side.Price</div>
-                                        <div class="calories"><span style="color: #ff39f8">Calories</span>: @side.Calories</div>
-                                        <div class="description"><span style="color: #50ff57">Description</span>: @side.Description</div>
-                                    </div>
-                                </li>
-                            }
-                        }
-                    </ul>
-                </div>
-            </div>
+<div style="background-color: #f4f4f4"">
+    <div class="flex-columns">
+        <div class="col-md-4">
+            <h2 class="text-center">Entrees</h2>
+            <ul class="list-group">
+                @foreach (BleakwindBuffet.Data.Interface.IOrderItem entree in Model.Items)
+                {
+                    @if (entree is BleakwindBuffet.Data.Entrees.Entree)
+                    {
+                        <li class="list-item" style="background-color: #b6eef5">
+                            <div class="menu-item">
+                                <h5 class="name">@entree.ToString()</h5>
+                                <div class="price"><span style="color: #efe50b">Price</span>: $@entree.Price</div>
+                                <div class="calories"><span style="color: #ff39f8">Calories</span>: @entree.Calories</div>
+                                <div class="description"><span style="color: #50ff57">Description</span>: @entree.Description</div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
         </div>
+        <div class="col-md-4">
+            <h2 class="text-center">Drinks</h2>
+            <ul class="list-group">
+                @foreach (BleakwindBuffet.Data.Interface.IOrderItem drink in Model.Items)
+                {
+                    @if (drink is BleakwindBuffet.Data.Drinks.Drink)
+                    {
+                        BleakwindBuffet.Data.Drinks.Drink drinkDrink = (BleakwindBuffet.Data.Drinks.Drink)drink;
+                        <li class="list-item" style="background-color: #8BFF90">
+                            <div>
+                                <h5 class="name">@drinkDrink.ToStringProperty</h5>
+                                <div class="price"><span style="color: #efe50b">Price</span>: $@drink.Price</div>
+                                <div class="calories"><span style="color: #ff39f8">Calories</span>: @drink.Calories</div>
+                                <div class="description"><span style="color: #50ff57">Description</span>: @drink.Description</div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h2 class="text-center">Sides</h2>
+            <ul class="list-group">
+                @foreach (BleakwindBuffet.Data.Interface.IOrderItem side in Model.Items)
+                {
+                    @if (side is BleakwindBuffet.Data.Sides.Side)
+                    {
+                        <li class="list-item" style="background-color:#FFC9FD">
+                            <div>
+                                <h5 class="name">@side.ToString()</h5>
+                                <div class="price"><span style="color: #efe50b">Price</span>: $@side.Price</div>
+                                <div class="calories"><span style="color: #ff39f8">Calories</span>: @side.Calories</div>
+                                <div class="description"><span style="color: #50ff57">Description</span>: @side.Description</div>
+                            </div>
+                        </li>
+                    }
+                }
+            </ul>
+        </div>
+    </div>
+</div>
         
     
 

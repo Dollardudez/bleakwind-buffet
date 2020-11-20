@@ -95,6 +95,7 @@ namespace Website.Pages
                 }
                 Items = test2;
             }
+            //LINQ filtering!!!
             test.Clear();
             if (Categories != null && Categories.Length != 0)
             {
